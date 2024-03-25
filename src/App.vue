@@ -2,7 +2,9 @@
     <v-app>
         <v-main>
             <Nav />
-            <router-view></router-view>
+            <div class="bodyCon">
+                <router-view></router-view>
+            </div>
         </v-main>
     </v-app>
 </template>
@@ -20,8 +22,16 @@ html, body {
     overflow-y: auto !important;
 }
 
-* {
-    font-family: 'Zen Maru Gothic', sans-serif
+.bodyCon{
+    height: calc(100vh - 60px - 12px);
+    overflow-y: scroll
+}
+
+.colorPreview{
+    width: 39px;
+    height: 39px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.4);
 }
  
 </style>

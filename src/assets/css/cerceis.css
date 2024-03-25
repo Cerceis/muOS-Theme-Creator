@@ -285,3 +285,7 @@ hr{
 .expand{
 	width:100% !important;
 }
+
+.nowrap {
+    white-space:nowrap;
+}

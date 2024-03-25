@@ -8,7 +8,7 @@
                @click=""
                color="primary"
             >
-               Load Theme
+               Load Theme (IN DEV)
             </v-btn>
             v{{ VERSION }}
         </div>

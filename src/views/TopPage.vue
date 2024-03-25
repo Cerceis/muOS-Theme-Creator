@@ -53,8 +53,9 @@
                 ></v-list-item>
             </v-list>
         </div>
-        <!----Right Menu------->
-        <v-sheet class="ml-2 pa-3 w-100">
+        
+        <!----Center------->
+        <v-sheet class="mx-2 pa-3 w-100">
             <div v-if="selectedValueGroup">
                 <div class="text-h4">{{ selectedValueGroup.label }}</div>
                 <div v-if="selectedValueGroup.des">
@@ -95,6 +96,11 @@
                 </div>
             </div>
         </v-sheet>
+
+        <!----Right Menu------->
+        <v-sheet class="pa-3">
+            <ToolsPanel />
+        </v-sheet>
     </div>
 </template>
  
@@ -104,8 +110,9 @@ import { selectedTheme, type MUOSThemeValues } from "@/service/theme";
 import { ref, computed } from "vue";
 import type { ComputedRef, Ref } from "vue";
 import { generateZipTheme } from "@/service/file";
-import ColorPicker from "@/components/global/ColorPicker.vue"
-
+import ColorPicker from "@/components/global/ColorPicker.vue";
+import ToolsPanel from "@/components/global/ToolsPanel.vue";
+import { isHexColor } from "@/service/shared";
 
 const selectedValueGroupLabel: Ref<string> = ref("");
 const selectedValueGroup = computed(() => {
@@ -114,14 +121,6 @@ const selectedValueGroup = computed(() => {
     if(!foundGroup) return null;
     return foundGroup;
 })
-
-const isHexColor = (value: string): boolean => {
-    // Check if the value starts with '#' and has either 3 or 6 characters
-    if (/^[0-9A-F]{6}$/i.test(value)) {
-        return true;
-    }
-    return false;
-}
 
 // Filtering
 const keyword: Ref<string> = ref("");
@@ -147,12 +146,6 @@ const filteredList: ComputedRef<MUOSThemeValues[]> = computed(() => {
  
 <style scoped>
 .left-menu{
-    min-width: 300px
-}
-.colorPreview{
-    width: 39px;
-    height: 39px;
-    border-radius: 4px;
-    border: 1px solid rgba(255,255,255,0.4);
+    min-width: 250px
 }
 </style>
