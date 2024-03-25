@@ -3,9 +3,16 @@ import { selectedTheme } from "@/service/theme";
 import { isHexColor } from "@/service/shared";
 
 export const replaceAllColor = (f: string, t: string) => {
-
+    for(let i = 0; i < selectedTheme.value.values.length; i++) {
+        const group = selectedTheme.value.values[i];
+        for(let j = 0; j < group.child.length; j++) {
+            const c = group.child[j];
+            if(!c.value || !isHexColor(c.value)) continue;
+            if(c.value === f)
+                c.value = t;
+        }
+    }  
 }
-
 
 // key = hex without #
 export type UsedColorMap = {

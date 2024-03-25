@@ -43,7 +43,7 @@
                 </v-menu>  
             </div>
             <v-btn
-               @click=""
+               @click="replaceAllColor(fromColor, toColor)"
                color="primary"
             >
                Confirm
@@ -82,7 +82,7 @@
 import ToolTip from "@/components/buttons/ToolTip.vue";
 import ColorPicker from "@/components/global/ColorPicker.vue";
 import { type Ref, ref } from "vue";
-import { myColors } from "@/service/tools";
+import { replaceAllColor, myColors } from "@/service/tools";
 
 // Replace color
 const fromColor: Ref<string> = ref("");
