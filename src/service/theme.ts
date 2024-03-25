@@ -11,7 +11,7 @@ type MUOSTheme = {
     author: string,
     values: MUOSThemeValues[]
 }
-type MUOSThemeValues = {
+export type MUOSThemeValues = {
     label: string,
     des?: string,
     child: {
@@ -1137,3 +1137,10 @@ export const themeFunc = {
         ] as MUOSThemeValues[]
     }
 }
+
+// TODO:
+/**
+ * Replace all value,
+ * from x to y,
+ * nice when you want to change your theme color.
+ */

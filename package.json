@@ -5,13 +5,14 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "run-p type-check \"build-only {@}\" --"
+        "build": "vite build"
     },
     "dependencies": {
         "@mdi/font": "^7.4.47",
         "axios": "^1.5.0",
         "cerceis-lib": "^2.4.5",
         "dayjs": "^1.11.9",
+        "jszip": "^3.10.1",
         "roboto-fontface": "*",
         "vue": "^3.3.11",
         "vue-router": "^4.2.5",
