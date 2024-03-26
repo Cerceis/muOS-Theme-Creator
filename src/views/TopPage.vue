@@ -64,7 +64,7 @@
             <div>
                 <PreviewPanel />
             </div>
-            <v-divider class="mt-3" />
+            <v-divider class="mt-1" />
             <div v-if="selectedValueGroup">
                 <div class="text-h4 px-3">
                     <v-badge 

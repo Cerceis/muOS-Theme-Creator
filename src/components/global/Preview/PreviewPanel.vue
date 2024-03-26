@@ -43,6 +43,9 @@
             </div>
         </div>
     </div>
+	<div class="text-center caption mt-1 text-error">
+		※ Previews does not represent the actual screen, but act as a simple reference.
+	</div>
 </template>
  
 <script setup lang="ts">
