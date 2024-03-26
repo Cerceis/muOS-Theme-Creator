@@ -40,6 +40,15 @@
                     <v-icon size="large">mdi-coffee</v-icon>
                 </v-btn>
             </ToolTip>
+            <ToolTip text="Debug, please don't press it you monster!">
+                <v-btn
+                    @click="debug()"
+                    color="primary"
+                    size="36"
+                >
+                    <v-icon size="large">mdi-diamond-stone</v-icon>
+                </v-btn>
+            </ToolTip>
         </div>
     </v-sheet>
     <v-dialog v-model="showDevLog" max-width="800px">
@@ -67,6 +76,7 @@ import { ref, type Ref } from "vue";
 import { VERSION } from "@/service/shared";
 import { devLog } from "@/service/devLog";
 import ToolTip from "@/components/buttons/ToolTip.vue";
+import { debug } from "@/service/debug";
 
 const showDevLog: Ref<boolean> = ref(false);
 

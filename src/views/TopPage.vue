@@ -50,7 +50,13 @@
                     :key="l.label"
                     :title="l.label"
                     @click="selectedValueGroupLabel = l.label"
-                ></v-list-item>
+                >
+                    <template v-slot:prepend>
+                        <v-avatar v-if="l.preview" color="primary" size="x-small">
+                            <span class="font-weight-bold">P</span>
+                        </v-avatar>
+                    </template>
+                </v-list-item>
             </v-list>
         </div>    
         <!----Center------->
@@ -60,24 +66,53 @@
             </div>
             <v-divider class="mt-3" />
             <div v-if="selectedValueGroup">
-                <div class="text-h4 px-3">{{ selectedValueGroup.label }}</div>
+                <div class="text-h4 px-3">
+                    <v-badge 
+                        v-if="selectedValueGroup.preview" 
+                        color=primary content="PREVIEW Available"
+                        offset-x="-15" offset-y="15"
+                    >
+                        {{ selectedValueGroup.label }}
+                    </v-badge>
+                    <div v-else>
+                        {{ selectedValueGroup.label }}
+                    </div>
+                </div>
                 <div v-if="selectedValueGroup.des">
                     {{ selectedValueGroup.des }}
                 </div>
                 <v-divider />
                 <div class="centerBtm-panel mt-3 px-3">
                     <div v-for="child in selectedValueGroup.child" >
-                        <div>{{ child.label }}</div>
+                        <div class="d-flex align-center gap-1">
+                            {{ child.label }}
+                            <v-chip v-if="child.preview" color="primary" size="x-small">
+                                <span class="font-weight-bold">P</span>
+                            </v-chip>
+                        </div>
                         <div class="caption">
                             {{ child.des }}
                         </div>
                         <div class="d-flex">
-                            <v-text-field
-                                variant="outlined"
-                                density="compact"
-                                v-model="child.value"
-                                :accept="child.format ? child.format : ''"
-                            />
+                            <template v-if="
+                                child.format === '.png' || child.format === '.bmp' ||
+                                child.format === '.mp3' // TODO: Font
+                            ">
+                                <v-file-input
+                                    variant="outlined"
+                                    density="compact"
+                                    v-model="child.value"
+                                    :accept="child.format ? child.format : ''"
+                                />
+                            </template>
+                            <template v-else>
+                                <v-text-field
+                                    variant="outlined"
+                                    density="compact"
+                                    v-model="child.value"
+                                    :accept="child.format ? child.format : ''"
+                                />    
+                            </template>
                             <v-menu
                                 v-if="isHexColor(child.value)" 
                                 :close-on-content-click="false"
@@ -141,7 +176,6 @@ const filteredList: ComputedRef<MUOSThemeValues[]> = computed(() => {
     })
 })
 
- 
 </script>
  
 <style scoped>
@@ -153,7 +187,7 @@ const filteredList: ComputedRef<MUOSThemeValues[]> = computed(() => {
     overflow-y: scroll;
 }
 .groupMenu-panel{
-    height: calc(100vh - 60px - 12px - 184px - 12px - 64px - 24px - 8px);
+    height: calc(100vh - 60px - 12px - 184px - 64px - 24px);
     overflow-y: scroll;
 }
 </style>

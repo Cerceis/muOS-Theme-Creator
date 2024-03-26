@@ -9,18 +9,64 @@ import { TEXT_CREDIT, TEXT_SCHEME } from "@/service/text";
  * credits.txt
  * - font
  * - image
+ *     bootlogo.bmp
+ *     - footer
+ *         default.png
+ *     - header
+ *         default.png
+ *     - wall
+ *         default.png
+ *         muxcharge.png
+ *         muxconfig.png
+ *         muxcredits.png
+ *         muxfavourite.png
+ *         muxhistory.png
+ *         muxinfo.png
+ *         muxlaunch.png
+ *         muxplore.png
+ *         muxreset.png
+ *         muxtheme.png
+ *         muxassign.png
+ *         muxdevice.png
+ *         muxnetwork.png
+ *         muxrtc.png
+ *         muxstart.png
+ *         muxsysinfo.png
+ *         muxtester.png
+ *         muxtimezone.png
+ *         muxtracker.png
+ *         muxtweakadv.png
+ *         muxtweakgen.png
+ *         muxwebserv.png
  * - music
  * - scheme
  *     default.txt
  * - sound
  */
-export const generateZipTheme = () => {
+export type MUOSThemeFolderStructure = {
+    zip: JSZip,
+    folder: JSZip,
+    child:{
+        font: { folder: JSZip },
+        image: {
+            folder: JSZip,
+            child: {
+                footer: { folder: JSZip },
+                header: { folder: JSZip },
+                wall: { folder: JSZip },
+            }
+        },
+        music: { folder: JSZip },
+        sound: { folder: JSZip },
+        scheme: { folder: JSZip },
+    },
+    get: (folderPath: string[]) => JSZip,
+}
+export const initFolderStructure = (): MUOSThemeFolderStructure | null => {
     try{
         const zip = new JSZip();
-        const filename = selectedTheme.value.zipName;
-        const rootFolder = zip.folder(filename);
+        const rootFolder = zip.folder(selectedTheme.value.zipName);
         if(!rootFolder) throw "ERROR NULL";
-
         // Creates all neccesary folders
         const font = rootFolder.folder("font");
         const image = rootFolder.folder("image");
@@ -28,13 +74,73 @@ export const generateZipTheme = () => {
         const scheme = rootFolder.folder("scheme");
         const sound = rootFolder.folder("sound");
         if(!font || !image || !music || !scheme || !sound) throw "ERROR NULL";
+        const footer = image.folder("footer");
+        const header = image.folder("header");
+        const wall = image.folder("wall");
+        if(!footer || !header || !wall) throw "ERROR NULL";
+        return {
+            zip: zip,
+            folder: rootFolder,
+            child:{
+                font: { folder: font },
+                image: {
+                    folder: image,
+                    child: {
+                        footer: { folder: footer },
+                        header: { folder: header },
+                        wall: { folder: wall },
+                    }
+                },
+                music: { folder: music },
+                sound: { folder: sound },
+                scheme: { folder: scheme },
+            },
+            get(folderPath: string[]){
+                if(folderPath.length === 0) return rootFolder;
+                let currentRoot = this as any;
+                for(let i = 0; i < folderPath.length; i++){
+                    const _folder = folderPath[i];
+                    const tree = currentRoot.child as any;
+                    if(!tree[_folder]) return currentRoot.folder;
+                    currentRoot = tree[_folder];
+                }
+                return currentRoot.folder;
+            }
+        }   
+    }catch(err){
+        console.log(err);
+        return null;
+    }
+}
+export const generateZipTheme = () => {
+    try{
 
-        rootFolder.file("credits.txt", TEXT_CREDIT(selectedTheme.value.author));    
-        scheme.file("default.txt", TEXT_SCHEME(selectedTheme.value.values));
+        const folders = initFolderStructure();
+        if(!folders) throw "ERROR NULL";
+        folders.get([]).file("credits.txt", TEXT_CREDIT(selectedTheme.value.author));    
+        folders.get(["scheme"]).file("default.txt", TEXT_SCHEME(selectedTheme.value.values));
+
+        // Process images
+        const imagesGroup = selectedTheme.value.values.find(group => group.label === "images");
+        if(imagesGroup){
+            for(let i = 0; i < imagesGroup.child.length; i++){
+                const child = imagesGroup.child[i];
+                if(
+                    !child.value || !child.folderPath ||
+                    child.value.length === 0 
+                ) continue;
+                const extendedFilename = `${child.property}${child.format}`;
+                if(child.folderPath.length === 0){
+                    folders.get([]).file(extendedFilename, child.value[0]);
+                    continue;
+                }
+                folders.get(child.folderPath).file(extendedFilename, child.value[0]);
+            }
+        }
         
-        zip.generateAsync({type:"blob"})
+        folders.zip.generateAsync({type:"blob"})
         .then(function(content) {
-            promptDownload(content, `${filename}.zip`)
+            promptDownload(content, `${selectedTheme.value.zipName}.zip`)
         });
     }catch(err){
         console.log(err)
@@ -55,26 +161,18 @@ export const promptDownload = (fileData: Blob, filename: string) => {
     document.body.removeChild(elem);
 }
 
-/**
- * 
- * // Function to load and add user-uploaded image files to the zip folder
-  function addUserImageFilesToZip(file, filename, folder) {
-    return new Promise(function (resolve, reject) {
-      if (file.size <= 4 * 1024 * 1024) { // Check if file size is less than or equal to 4MB
-        var reader = new FileReader();
-        reader.onload = function (event) {
-          folder.file(filename, event.target.result, { binary: true });
-          resolve();
+export const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            const base64String = reader.result as string;
+            resolve(base64String);
         };
-        reader.readAsArrayBuffer(file);
-      } else {
-        var errorMessage = "File '" + file.name + "' uploaded for '" + filename + "' exceeds 4MB limit.";
-        reject(errorMessage);
-        displayErrorMessage(errorMessage);
-      }
+        reader.onerror = (error) => reject(error);
     });
-  }
-
+}
+/**
   // Function to load a font file
   function loadFontsFile(url) {
     if (!url) {
