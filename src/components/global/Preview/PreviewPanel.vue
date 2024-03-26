@@ -29,16 +29,16 @@
         <div v-if="screen.initiated" class="d-flex gap-1 justify-center w-100" :key="`preview-${viewKey}`">
             <div>
                 <div class="text-center text-caption">{{ screen.history[0].title }}</div>
-                <Screen :screen="screen.history[0]" />
+                 <Screen :key="screen.history[0].id" :screen="screen.history[0]" />
             </div>
             <div>
                 <div>
                     <div class="text-center text-caption">{{ screen.history[1].title }}</div>
-                    <Screen :screen="screen.history[1]" :width="160" :height="120"/>
+                    <Screen :key="screen.history[1].id" :screen="screen.history[1]" :width="160" :height="120"/>
                 </div>
                 <div>
                     <div class="text-center text-caption">{{ screen.history[2].title }}</div>
-                    <Screen :screen="screen.history[2]" :width="160" :height="120"/>
+                    <Screen :key="screen.history[2].id" :screen="screen.history[2]" :width="160" :height="120"/>
                 </div>
             </div>
         </div>

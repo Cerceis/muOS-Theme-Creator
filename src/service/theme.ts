@@ -1052,6 +1052,7 @@ export const themeFunc = {
             {
                 id: "147",
                 label: "images",
+				preview: true,
                 child: [
                     {
                         id: "148",
@@ -1060,7 +1061,8 @@ export const themeFunc = {
                         "value": [],
                         "format": ".bmp",
                         "des": "",
-                        "folderPath": ["image"]
+                        "folderPath": ["image"],
+						"preview": true,
                     },
                     {
                         id: "149",
@@ -1069,7 +1071,8 @@ export const themeFunc = {
                         "value": [],
                         "format": ".png",
                         "des": "",
-                        "folderPath": ["image", "wall"]
+                        "folderPath": ["image", "wall"],
+						"preview": true,
                     },
                     {
                         id: "150",
@@ -1168,7 +1171,8 @@ export const themeFunc = {
                         "value": [],
                         "format": ".png",
                         "des": "",
-                        "folderPath": ["image", "wall"]
+                        "folderPath": ["image", "wall"],
+						"preview": true,
                     },
                     {
                         id: "161",
@@ -1360,7 +1364,7 @@ export const themeFunc = {
             }
         }
         return null;
-    }
+    },
 }
 
 export const selectedValueGroupLabel: Ref<string> = ref("");

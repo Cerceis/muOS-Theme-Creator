@@ -161,15 +161,16 @@ export const promptDownload = (fileData: Blob, filename: string) => {
     document.body.removeChild(elem);
 }
 
-export const fileToBase64 = (file: File): string => {
-    if(!file) return "";
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-        const base64String = reader.result as string;
-        return base64String;
-    };
-    return "";
+export const fileToBase64 = (file: File): Promise<string> => {
+	return new Promise<string>((resolve, reject) => {
+		if(!file) return resolve("");
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload = () => {
+			const base64String = reader.result as string;
+			return resolve(base64String);
+		};
+	})
 }
 /**
   // Function to load a font file

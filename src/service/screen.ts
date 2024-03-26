@@ -37,10 +37,21 @@ export type ScreenData = {
         wallpaper: string[],
     }
 }
+/**
+ * Use this to bind the corresponding data id field.
+ * See theme.ts for the id.
+ * The order of the id matter,
+ * the screen will always look at order from left to right,
+ * if the first wallpaper is empty, it will move on to the next one
+ */
 export const screenData: ScreenData = {
     "Boot": {
         preview: true,
         wallpaper: ["148"]
+    },
+	"Home": {
+        preview: true,
+        wallpaper: ["160", "149"]
     }
 }
 export const screen = ref({
