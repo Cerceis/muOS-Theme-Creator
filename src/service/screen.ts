@@ -79,6 +79,9 @@ export const screen = ref({
     addToHistory(screen: Screen){
         // If exist
         for(let i = 0; i < this.history.length; i++){
+            if(this.history[i].title === screen.title && i === 0){
+                return;
+            }
             if(this.history[i].title === screen.title && i !== 0){
                 this.history[i] = this.history[0];
                 this.history[0] = screen;
