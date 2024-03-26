@@ -1138,6 +1138,14 @@ export const themeFunc = {
     }
 }
 
+export const selectedValueGroupLabel: Ref<string> = ref("");
+export const selectedValueGroup = computed(() => {
+    if(selectedValueGroupLabel.value === "") return null;
+    const foundGroup = selectedTheme.value.values.find(group => group.label === selectedValueGroupLabel.value);
+    if(!foundGroup) return null;
+    return foundGroup;
+})
+
 // TODO:
 /**
  * Replace all value,

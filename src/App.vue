@@ -6,11 +6,13 @@
                 <router-view></router-view>
             </div>
         </v-main>
+        <Alert />
     </v-app>
 </template>
  
 <script setup lang="ts">
 import Nav from "@/components/global/Nav.vue";
+import Alert from "@/components/global/Alert.vue"
  
 </script>
  
@@ -24,7 +26,7 @@ html, body {
 
 .bodyCon{
     height: calc(100vh - 60px - 12px);
-    overflow-y: scroll
+    overflow-y: hidden
 }
 
 .colorPreview{

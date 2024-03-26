@@ -34,7 +34,7 @@
             </v-sheet>
             <v-divider class="my-2"/>
             <!----Group Menu------->
-            <v-sheet class="px-3 pt-3">
+            <v-sheet class="px-3 py-3">
                 <v-text-field 
                     v-model="keyword"
                     variant="outlined"
@@ -44,7 +44,7 @@
                     hide-details
                 />
             </v-sheet>
-            <v-list>
+            <v-list class="groupMenu-panel">
                 <v-list-item
                     v-for="l in filteredList"
                     :key="l.label"
@@ -52,17 +52,20 @@
                     @click="selectedValueGroupLabel = l.label"
                 ></v-list-item>
             </v-list>
-        </div>
-        
+        </div>    
         <!----Center------->
-        <v-sheet class="mx-2 pa-3 w-100">
+        <v-sheet class="mx-2 py-3 w-100">
+            <div class="grid justify-center">
+                <PreviewPanel />
+            </div>
+            <v-divider class="mt-3" />
             <div v-if="selectedValueGroup">
-                <div class="text-h4">{{ selectedValueGroup.label }}</div>
+                <div class="text-h4 px-3">{{ selectedValueGroup.label }}</div>
                 <div v-if="selectedValueGroup.des">
                     {{ selectedValueGroup.des }}
                 </div>
                 <v-divider />
-                <div class="mt-3">
+                <div class="centerBtm-panel mt-3 px-3">
                     <div v-for="child in selectedValueGroup.child" >
                         <div>{{ child.label }}</div>
                         <div class="caption">
@@ -106,21 +109,18 @@
  
 <script setup lang="ts">
 // TODO: Could take time splitting the UI into smaller part.
-import { selectedTheme, type MUOSThemeValues } from "@/service/theme";
+import { 
+    selectedTheme, 
+    type MUOSThemeValues,
+    selectedValueGroupLabel, selectedValueGroup
+} from "@/service/theme";
 import { ref, computed } from "vue";
 import type { ComputedRef, Ref } from "vue";
 import { generateZipTheme } from "@/service/file";
 import ColorPicker from "@/components/global/ColorPicker.vue";
-import ToolsPanel from "@/components/global/ToolsPanel.vue";
+import ToolsPanel from "@/components/global/Tools/ToolsPanel.vue";
 import { isHexColor } from "@/service/shared";
-
-const selectedValueGroupLabel: Ref<string> = ref("");
-const selectedValueGroup = computed(() => {
-    if(selectedValueGroupLabel.value === "") return null;
-    const foundGroup = selectedTheme.value.values.find(group => group.label === selectedValueGroupLabel.value);
-    if(!foundGroup) return null;
-    return foundGroup;
-})
+import PreviewPanel from "@/components/global/Preview/PreviewPanel.vue";
 
 // Filtering
 const keyword: Ref<string> = ref("");
@@ -147,5 +147,13 @@ const filteredList: ComputedRef<MUOSThemeValues[]> = computed(() => {
 <style scoped>
 .left-menu{
     min-width: 250px
+}
+.centerBtm-panel{
+    height: calc(100vh - 60px - 12px - 320px - 12px - 12px - 12px);
+    overflow-y: scroll;
+}
+.groupMenu-panel{
+    height: calc(100vh - 60px - 12px - 184px - 12px - 64px - 24px - 8px);
+    overflow-y: scroll;
 }
 </style>
