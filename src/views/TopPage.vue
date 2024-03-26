@@ -61,7 +61,7 @@
         </div>    
         <!----Center------->
         <v-sheet class="mx-2 py-3 w-100">
-            <div class="grid justify-center">
+            <div>
                 <PreviewPanel />
             </div>
             <v-divider class="mt-3" />

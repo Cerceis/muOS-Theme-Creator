@@ -1370,10 +1370,3 @@ export const selectedValueGroup = computed(() => {
     if(!foundGroup) return null;
     return foundGroup;
 })
-
-// TODO:
-/**
- * Replace all value,
- * from x to y,
- * nice when you want to change your theme color.
- */
