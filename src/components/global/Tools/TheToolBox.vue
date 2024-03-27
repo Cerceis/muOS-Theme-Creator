@@ -49,7 +49,7 @@
 import { type Ref, ref, type Component } from "vue";
 import ImageResizer from "@/components/global/Tools/ImageResizer.vue";
 
-const selectedTool: any = null;
+let selectedTool: any = null;
 const showTool: Ref<boolean> = ref(false);
 
 const toollist = [
