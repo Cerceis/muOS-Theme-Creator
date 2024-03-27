@@ -41,16 +41,10 @@
     </div>
 </template>
 
-<script>
-// TODO: ported from old project, make it cleaner.
-import CustomUploader from '@/components/CustomUploader.vue'
-import JSZip from 'jszip'
-export default {
-    components:{
-        CustomUploader,
-    },
-    data:()=>({
-        inputWidth:0,
+<script setup lang="ts">
+import { watch } from "vue";
+/*
+inputWidth:0,
         inputHeight:0,
         inputRatio:0,
         inputCheck:1,
@@ -62,6 +56,11 @@ export default {
             width:false,
             height:true
         }
+        */
+export default {
+    
+    data:()=>({
+        
     }),
     watch:{
         inputCheck(){

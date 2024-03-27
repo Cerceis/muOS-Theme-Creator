@@ -79,7 +79,7 @@ import { devLog } from "@/service/devLog";
 import ToolTip from "@/components/buttons/ToolTip.vue";
 import TheToolBox from "@/components/global/Tools/TheToolBox.vue"
 //debug
-import { debug } from "@/service/debug";
+import { debug, tmpKey } from "@/service/debug";
 
 
 const showDevLog: Ref<boolean> = ref(false);

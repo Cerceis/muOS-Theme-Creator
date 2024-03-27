@@ -548,6 +548,7 @@ export const themeFunc = {
             {
                 id: "74",
                 label: "list",
+                preview: true,
                 child: [
                     {
                         id: "75",
@@ -596,14 +597,16 @@ export const themeFunc = {
                         "label": "LIST_DEFAULT_TEXT",
                         "property": "LIST_DEFAULT_TEXT",
                         "value": "A5B2B5",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        "preview": true,
                     },
                     {
                         id: "82",
                         "label": "LIST_DEFAULT_TEXT_ALPHA",
                         "property": "LIST_DEFAULT_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        "preview": true,
                     },
                     {
                         id: "83",
@@ -624,14 +627,16 @@ export const themeFunc = {
                         "label": "LIST_FOCUS_BACKGROUND",
                         "property": "LIST_FOCUS_BACKGROUND",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        "preview": true,
                     },
                     {
                         id: "86",
                         "label": "LIST_FOCUS_BACKGROUND_ALPHA",
                         "property": "LIST_FOCUS_BACKGROUND_ALPHA",
                         "value": "25",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        "preview": true,
                     },
                     {
                         id: "87",
@@ -652,28 +657,32 @@ export const themeFunc = {
                         "label": "LIST_FOCUS_INDICATOR",
                         "property": "LIST_FOCUS_INDICATOR",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        "preview": true,
                     },
                     {
                         id: "90",
                         "label": "LIST_FOCUS_INDICATOR_ALPHA",
                         "property": "LIST_FOCUS_INDICATOR_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        "preview": true,
                     },
                     {
                         id: "91",
                         "label": "LIST_FOCUS_TEXT",
                         "property": "LIST_FOCUS_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        "preview": true,
                     },
                     {
                         id: "92",
                         "label": "LIST_FOCUS_TEXT_ALPHA",
                         "property": "LIST_FOCUS_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        "preview": true,
                     }
                 ]
             },
@@ -804,14 +813,16 @@ export const themeFunc = {
                         "label": "CHARGER_TEXT",
                         "property": "CHARGER_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex) Color of the charging text",
+                        "preview": true
                     },
                     {
                         id: "112",
                         "label": "CHARGER_TEXT_ALPHA",
                         "property": "CHARGER_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Transparency of the charging text",
+                        "preview": true
                     },
                     {
                         id: "113",
@@ -1220,7 +1231,8 @@ export const themeFunc = {
                         "value": [assetFunc.getByFilename("default-muxcharge").asFile()],
                         "format": ".png",
                         "des": "", 
-                        "folderpath": ["image", "wall"]
+                        "folderpath": ["image", "wall"],
+                        "preview": true
                     },
                     {
                         id: "166",

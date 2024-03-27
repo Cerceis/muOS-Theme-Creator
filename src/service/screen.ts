@@ -5,7 +5,8 @@ type ScreenType = typeof screenList[number];
 export type ScreenImageAssetType = 
 "header" | "footer"
 export type ScreenTextAssetType = 
-"title"
+"title" | "charging" | "listFocused" | "listOthers" |
+"timeDate" | "iconStatusTray" | "footerControls"
 export type Screen = {
     id: string,
     title: ScreenType
@@ -68,7 +69,21 @@ export const screenData: ScreenData = {
         wallpaper: ["160", "149"],
         imageAssets: [],
         textAssets: {
-            title: "muOS MAIN MENU"
+            title: "muOS MAIN MENU",
+            listFocused: `Explore Content`,
+            listOthers: `
+                Favourites <br>
+                History <br>
+                Information <br>
+                Configuration <br>
+                PortMaster <br>
+                RetroArch <br>
+                Reboot <br>
+                Shutdown <br>
+            `,
+            timeDate: "17:45",
+            iconStatusTray: "1",
+            footerControls: "Confirm   Help",
         },
     },
     "Core Assignment": {
@@ -81,7 +96,9 @@ export const screenData: ScreenData = {
         preview: true,
         wallpaper: ["153", "149"],
         imageAssets: [],
-        textAssets: {},
+        textAssets: {
+            charging: "I forgot what the charging screen looks like  4.08v 99%"
+        },
     },
     "Config Screen": {
         preview: false,

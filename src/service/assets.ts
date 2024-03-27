@@ -29,6 +29,18 @@ export type Asset = {
 export const assets: Ref<Asset[]> = ref([])
 export const assetFunc = {
     _selectedAsset: null as null | Asset,
+    async add(f: File){
+        const nameArr = f.name.split(".")
+        nameArr.pop();
+        const filename = nameArr.join(""); 
+        assets.value.push({
+            id: Generate.objectId(),
+            filename: filename,
+            base64: await fileToBase64(f), bin: null, 
+            type: f.type,
+            format: f.type.split("/")[1]
+        })
+    },
     getByFilename(filename: string){
         for(let i = 0; i < assets.value.length; i++){
             if(assets.value[i].filename === filename){

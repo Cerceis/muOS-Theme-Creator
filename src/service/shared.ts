@@ -3,7 +3,9 @@ export const VERSION: string = "0.5";
 export const REAL_SIZE_REF = {
     screen: { w: 640, h: 480 },
     headerFooter: { w: 640, h: 42 },
-    font: { size: 20 }
+    font: { size: 20 },
+    charging: { yPos: 350 },
+    icon: { size: 24 }
 }
 
 export const isHexColor = (value: string): boolean => {

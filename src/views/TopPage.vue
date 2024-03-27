@@ -91,7 +91,7 @@
                             </v-chip>
                         </div>
                         <div class="caption">
-                            {{ child.des }}
+                            {{ child.des }} [ID: {{ child.id }}]
                         </div>
                         <div class="d-flex">
                             <template v-if="
@@ -104,6 +104,7 @@
                                         density="compact"
                                         v-model="child.value"
                                         :accept="child.format ? child.format : ''"
+                                        @change="addToAsset($event)"
                                     />
                                     <ToolTip location="top" text="Load from asset">
                                         <v-btn
@@ -170,7 +171,7 @@ import { isHexColor } from "@/service/shared";
 import PreviewPanel from "@/components/global/Preview/PreviewPanel.vue";
 import ToolTip from "@/components/buttons/ToolTip.vue";
 import AssetSelectionPanel from "@/components/global/Tools/AssetSelectionPanel.vue";
-import { assetSelector } from "@/service/assets";
+import { assetSelector, assetFunc } from "@/service/assets";
 
 // Filtering
 const keyword: Ref<string> = ref("");
@@ -190,6 +191,12 @@ const filteredList: ComputedRef<MUOSThemeValues[]> = computed(() => {
         )
     })
 })
+
+const addToAsset = (e: any) => {
+    if(!e || !e.target || !e.target.files) return;
+    if(e.target.files.length === 0) return;
+    assetFunc.add(e.target.files[0]);
+}
 
 </script>
  

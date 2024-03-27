@@ -16,6 +16,7 @@
                     @click=""
                     :title="t.title"
                     :subtitle="t.des"
+                    :disabled="t.disabled"
                 >
                 </v-list-item>
             </v-list>
@@ -24,11 +25,16 @@
 </template>
  
 <script setup lang="ts">
+import { type Ref, ref, type Component } from "vue";
+import ImageResizer from "@/components/global/Tools/ImageResizer.vue";
+
+const selectedTool: Ref<Component | null> = ref(null);
+
 
 const toollist = [
     {title: "Image resizer", disabled: false, des: "Resize an image"},
-    {title: "Image cropper", disabled: false, des: "Crop an image"},
-    {title: "Header & Footer maker", disabled: false, des: "Create your H/F and bind it to an image"},
+    {title: "Image cropper", disabled: true, des: "Crop an image"},
+    {title: "Header & Footer maker", disabled: true, des: "Create your H/F and bind it to an image"},
 ]
  
 </script>
