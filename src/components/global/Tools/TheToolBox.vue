@@ -56,7 +56,7 @@ const toollist = [
     {title: "Image resizer", disabled: false, des: "Resize an image", component: ImageResizer},
     {title: "Image cropper", disabled: true, des: "Crop an image", component: null},
     {title: "Header & Footer maker", disabled: true, des: "Create your H/F and bind it to an image", component: null},
-] as const
+]
  
 </script>
  
