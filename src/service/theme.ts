@@ -1107,10 +1107,11 @@ export const themeFunc = {
                         id: "153",
                         "label": "Charging Wallpaper:",
                         "property": "muxcharge",
-                        "value": [],
+                        "value": [assetFunc.getByFilename("default-muxcharge").asFile()],
                         "format": ".png",
                         "des": "",
-                        "folderPath": ["image", "wall"]
+                        "folderPath": ["image", "wall"],
+                        "preview": true
                     },
                     {
                         id: "154",
@@ -1216,7 +1217,7 @@ export const themeFunc = {
                         id: "165",
                         "label": "Verbose Boot Startup Wallpaper:",
                         "property": "muxstart",
-                        "value": [],
+                        "value": [assetFunc.getByFilename("default-muxcharge").asFile()],
                         "format": ".png",
                         "des": "", 
                         "folderpath": ["image", "wall"]

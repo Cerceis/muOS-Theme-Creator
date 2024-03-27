@@ -78,8 +78,8 @@ export const screenData: ScreenData = {
         textAssets: {},
     },
     "Charging": {
-        preview: false,
-        wallpaper: ["149"],
+        preview: true,
+        wallpaper: ["153", "149"],
         imageAssets: [],
         textAssets: {},
     },
@@ -144,8 +144,8 @@ export const screenData: ScreenData = {
         textAssets: {},
     },
     "Verbose Boot Startup": {
-        preview: false,
-        wallpaper: ["149"],
+        preview: true,
+        wallpaper: ["165", "149"],
         imageAssets: [],
         textAssets: {},
     },
