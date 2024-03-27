@@ -4,6 +4,7 @@
             muOS Theme Creator <span class="caption">v{{ VERSION }}</span>
         </div>
         <div class="d-flex gap-1 align-center">
+            <TheToolBox />
             <ToolTip text="Load theme">
                 <v-btn
                     @click=""
@@ -76,7 +77,10 @@ import { ref, type Ref } from "vue";
 import { VERSION } from "@/service/shared";
 import { devLog } from "@/service/devLog";
 import ToolTip from "@/components/buttons/ToolTip.vue";
+import TheToolBox from "@/components/global/Tools/TheToolBox.vue"
+//debug
 import { debug } from "@/service/debug";
+
 
 const showDevLog: Ref<boolean> = ref(false);
 

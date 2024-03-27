@@ -11,8 +11,14 @@
 </template>
  
 <script setup lang="ts">
+import { onMounted } from "vue";
 import Nav from "@/components/global/Nav.vue";
 import Alert from "@/components/global/Alert.vue"
+import { loadDefaultAssets } from "@/service/assets";
+
+onMounted(()=> {
+    loadDefaultAssets()
+})
  
 </script>
  
@@ -26,7 +32,7 @@ html, body {
 
 .bodyCon{
     height: calc(100vh - 60px - 12px);
-    overflow-y: hidden
+    overflow-y: hidden;
 }
 
 .colorPreview{

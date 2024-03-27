@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="toolCon">
         <div class="font-weight-bold">TOOLS</div>
         <v-divider class="my-2"/>
         
-        <div class="grid gap-1">
+        <div class="toolContentCon grid gap-1 px-2">
             <div class="nowrap d-flex gap-1">
                 Replace color
                 <ToolTip text="Replace ALL the color from EVERYWHERE">
@@ -98,7 +98,14 @@
                     </v-menu>  
                 </div>
             </div>
-            
+            <v-divider />
+            <div class="nowrap d-flex gap-1">
+                Assets
+                <ToolTip text="Your image assets" location="top">
+                    <v-icon>mdi-help-circle</v-icon>
+                </ToolTip>
+            </div>
+            <AssetPanel />
         </div>
     </div>
 </template>
@@ -111,6 +118,7 @@ import { type Ref, ref } from "vue";
 import { replaceAllColor, myColors } from "@/service/tools";
 import CopyBtn from "@/components/buttons/CopyBtn.vue";
 import { selectedTheme, selectedValueGroupLabel } from "@/service/theme";
+import AssetPanel from "@/components/global/Tools/AssetPanel.vue";
 
 // Replace color
 const fromColor: Ref<string> = ref("");
@@ -137,5 +145,14 @@ const goToGroup = (pathString: string) => {
 .colorPaletteGrid{
     display: grid;
     grid-template-columns: repeat( auto-fit, 40px );
+}
+.toolCon{
+    min-width: 220px
+}
+.toolContentCon{
+    align-items: flex-start;
+    align-content: start;
+    height: calc(100vh - 60px - 12px - 64px);
+    overflow-y: scroll;
 }
 </style>

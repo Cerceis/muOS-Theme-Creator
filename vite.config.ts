@@ -24,5 +24,8 @@ export default defineConfig({
             '.tsx',
             '.vue',
         ],
-    }
+    },
+    assetsInclude:[
+        "**/*.bmp"
+    ]
 })

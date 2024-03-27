@@ -4,6 +4,7 @@
  */
 import { Generate } from "cerceis-lib";
 import { type Ref, ref, computed } from "vue";
+import { assetFunc } from "@/service/assets";
 
 type MUOSTheme = {
     id: string,
@@ -59,14 +60,14 @@ export const themeFunc = {
                 child: [
                     {
                         id: "2",
-                        label: "BACKGROUND (HEX)", property: "BACKGROUND", value: "F8BBD0",
-                        des: "Background colours baby! shows as right to left gradient if you use a wallpaper image",
+                        label: "BACKGROUND", property: "BACKGROUND", value: "F8BBD0",
+                        des: "(HEX) Background colours baby! shows as right to left gradient if you use a wallpaper image",
                         preview: true,
                     },
                     {
                         id: "3",
-                        label: "BACKGROUND_ALPHA", property: "BACKGROUND_ALPHA", value: "1",
-                        des: "How visible you want the background to be",
+                        label: "BACKGROUND_ALPHA", property: "BACKGROUND_ALPHA", value: "255",
+                        des: "(0~255) How visible you want the background to be",
                         preview: true,
                     },
                 ]
@@ -1056,11 +1057,11 @@ export const themeFunc = {
                 child: [
                     {
                         id: "148",
-                        "label": "Bootlogo (bmp only):",
+                        "label": "Bootlogo:",
                         "property": "bootlogo",
-                        "value": [],
+                        "value": [assetFunc.getByFilename("bootlogo").asFile()],
                         "format": ".bmp",
-                        "des": "",
+                        "des": "(.bmp) Your boot logo",
                         "folderPath": ["image"],
 						"preview": true,
                     },
@@ -1068,7 +1069,7 @@ export const themeFunc = {
                         id: "149",
                         "label": "Wallpaper (png only):",
                         "property": "default",
-                        "value": [],
+                        "value": [assetFunc.getByFilename("default-wallpaper").asFile()],
                         "format": ".png",
                         "des": "",
                         "folderPath": ["image", "wall"],
@@ -1076,7 +1077,7 @@ export const themeFunc = {
                     },
                     {
                         id: "150",
-                        "label": "Footer (png only):",
+                        "label": "[Depreciated on v11] Footer:",
                         "property": "default",
                         "value": [],
                         "format": ".png",
@@ -1085,7 +1086,7 @@ export const themeFunc = {
                     },
                     {
                         id: "151",
-                        "label": "Header (png only):",
+                        "label": "[Depreciated on v11] Header:",
                         "property": "default",
                         "value": [],
                         "format": ".png",
@@ -1099,7 +1100,8 @@ export const themeFunc = {
                         "value": [],
                         "format": ".png",
                         "des": "",
-                        "folderPath": ["image", "wall"]
+                        "folderPath": ["image", "wall"],
+                        "preview": true
                     },
                     {
                         id: "153",

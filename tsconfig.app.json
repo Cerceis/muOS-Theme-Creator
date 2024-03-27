@@ -1,10 +1,10 @@
 {
     "extends": "@vue/tsconfig/tsconfig.dom.json",
     "include": [
-        "./env.d.ts",
-        "./src/**/*",
-        "./src/**/*.vue",
-        "./src/**/*.ts",
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.vue",
+        "src/**/*",
     ],
     "exclude": [
         "src/**/__tests__/*"
@@ -19,5 +19,5 @@
                 "./src/*"
             ],
         }
-    }
+    },
 }

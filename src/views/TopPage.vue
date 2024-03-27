@@ -60,7 +60,7 @@
             </v-list>
         </div>    
         <!----Center------->
-        <v-sheet class="mx-2 py-3 w-100">
+        <v-sheet class="w-100 mx-2 py-3">
             <div>
                 <PreviewPanel />
             </div>
@@ -98,12 +98,23 @@
                                 child.format === '.png' || child.format === '.bmp' ||
                                 child.format === '.mp3' // TODO: Font
                             ">
-                                <v-file-input
-                                    variant="outlined"
-                                    density="compact"
-                                    v-model="child.value"
-                                    :accept="child.format ? child.format : ''"
-                                />
+                                <div class="d-flex gap-1 w-100">
+                                    <v-file-input
+                                        variant="outlined"
+                                        density="compact"
+                                        v-model="child.value"
+                                        :accept="child.format ? child.format : ''"
+                                    />
+                                    <ToolTip location="top" text="Load from asset">
+                                        <v-btn
+                                            @click="assetSelector.new(child.id)"
+                                            color="primary"
+                                            size="40"
+                                        >
+                                            <v-icon size="large">mdi-folder-image</v-icon>
+                                        </v-btn>
+                                    </ToolTip>
+                                </div>
                             </template>
                             <template v-else>
                                 <v-text-field
@@ -140,6 +151,7 @@
             <ToolsPanel />
         </v-sheet>
     </div>
+    <AssetSelectionPanel />
 </template>
  
 <script setup lang="ts">
@@ -156,6 +168,9 @@ import ColorPicker from "@/components/global/ColorPicker.vue";
 import ToolsPanel from "@/components/global/Tools/ToolsPanel.vue";
 import { isHexColor } from "@/service/shared";
 import PreviewPanel from "@/components/global/Preview/PreviewPanel.vue";
+import ToolTip from "@/components/buttons/ToolTip.vue";
+import AssetSelectionPanel from "@/components/global/Tools/AssetSelectionPanel.vue";
+import { assetSelector } from "@/service/assets";
 
 // Filtering
 const keyword: Ref<string> = ref("");
@@ -182,8 +197,11 @@ const filteredList: ComputedRef<MUOSThemeValues[]> = computed(() => {
 .left-menu{
     min-width: 250px
 }
+.center-con{
+    
+}
 .centerBtm-panel{
-    height: calc(100vh - 60px - 12px - 320px - 12px - 12px - 12px);
+    height: calc(100vh - 60px - 12px - 320px - 12px - 12px - 12px - 16px);
     overflow-y: scroll;
 }
 .groupMenu-panel{
