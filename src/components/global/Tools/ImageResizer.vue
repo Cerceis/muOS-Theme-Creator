@@ -1,152 +1,119 @@
 <template>
-    <div style="display:grid; place-items:center; height:90vh;">
-        <div>
-            <div style="text-align:center;">画像の比率自動的に変換する</div>
-            <v-radio-group v-model="inputCheck">
-                <v-radio
-                    v-for="n in 2"
-                    :key="n"
-                    :label="`${n == 1? '幅指定' : n==2 ? '高さ指定': null}`"
-                    :value="n"
-                ></v-radio>
-            </v-radio-group>
-            <div class="d-flex my-3">
-                
+    <div style="display:grid; place-items:center;">
+        <div class="py-3">
+			Convert to
+            <div class="d-flex my-3 align-center">
                 <v-text-field
-                    dense
-                    outlined
+                    density="compact"
+                    variant="outlined"
                     :error-messages="errorMsg.width"
                     type="number"
-                    label="幅"
-                    :disabled="disabled.width"
+                    label="Width"
                     v-model="inputWidth"
                 >
                 </v-text-field>
                 <v-spacer />
                 <v-text-field
-                    dense
-                    outlined
+					density="compact"
+                    variant="outlined"
                     :error-messages="errorMsg.height"
                     type="number"
-                    label="高さ"
-                    :disabled="disabled.height"
+                    label="Height"
                     v-model="inputHeight"
                 >
                 </v-text-field>
                 <img id="text" src="" alt="">
             </div>
-            <custom-uploader @convert="convert"/>
+			<v-file-input
+				variant="outlined"
+				density="compact"
+				label="Image"
+				:accept="['.png', '.jpg', '.jpeg', '.bmp']"
+				@change="convert($event)"
+			/>
         </div>
-        
     </div>
+	<v-dialog v-model="convertResult.show" persistent :max-width="`${inputWidth + 24}px`">
+		<v-sheet class="pa-3">
+			<img :src="convertResult.base64" :width="inputWidth">
+			<div class="d-flex justify-end gap-1">
+				<v-btn color="error" size="36" @click="resetResult">
+					<v-icon>mdi-delete</v-icon>
+				</v-btn>
+				<v-btn color="primary" 
+					@click="assetFunc.addBase64(
+						convertResult.base64,
+						convertResult.name,
+						convertResult.type
+					); resetResult()"
+				>
+					Save to asset?
+				</v-btn>
+			</div>
+		</v-sheet>
+	</v-dialog>
 </template>
 
 <script setup lang="ts">
-import { watch } from "vue";
-/*
-inputWidth:0,
-        inputHeight:0,
-        inputRatio:0,
-        inputCheck:1,
-        errorMsg:{
-            width:"",
-            height:"",
-        },
-        disabled:{
-            width:false,
-            height:true
-        }
-        */
-export default {
-    
-    data:()=>({
-        
-    }),
-    watch:{
-        inputCheck(){
-            if(this.inputCheck === 1){
-                this.disabled.width = false
-                this.disabled.height = true
-            }else if(this.inputCheck === 2){
-                this.disabled.width = true
-                this.disabled.height = false
-            }
-                
-        },
-    },
-    methods:{
-        toBase64(file){
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => resolve(reader.result);
-                reader.onerror = error => reject(error);
-            })
-        },
-        initDownload(){
+import { type Ref, ref, watch } from "vue";
+import { fileToBase64, base64ToFile } from "@/service/assets";
+import { assetFunc } from "@/service/assets";
 
-        },
-        convert(e){
-            this.inputWidth = Number(this.inputWidth)
-            this.inputHeight = Number(this.inputHeight)
-            if(
-                (this.disabled.width && this.inputHeight > 0) ||
-                (this.disabled.height && this.inputWidth > 0)
-            ){
-                this.errorMsg.width = ""
-                this.errorMsg.height = ""
-                let resultFileList = []
-                let processedImage = 0
-                e.forEach(async image => {
-                    let img = new Image()
-                    img.onload = ()=>{
-                        let imageRatio = Number(img.width)/Number(img.height)
-                        let imageWidth = this.disabled.width ? Number(this.inputHeight)*imageRatio : Number(this.inputWidth)
-                        let imageHeight = this.disabled.height ? Number(this.inputWidth)/imageRatio : Number(this.inputHeight)
-                        let canvas = document.createElement('canvas')
-                        canvas.width = imageWidth
-                        canvas.height = imageHeight
-                        let ctx = canvas.getContext('2d')
-                        ctx.drawImage(img, 0, 0, imageWidth.toFixed(0), imageHeight.toFixed(0))
-                        let result = canvas.toDataURL(image.type)
-                        resultFileList.push({
-                            name:image.name,
-                            data:result
-                        })
-                        processedImage ++
-                        if(processedImage === e.length){
-                            if(resultFileList.length > 0 ){
-                                if(resultFileList.length === 1){
-                                    let tmpLink = document.createElement('a')
-                                    tmpLink.href = resultFileList[0].data
-                                    tmpLink.download = resultFileList[0].name
-                                    tmpLink.click()
-                                }else{
-                                    let zip = new JSZip()
-                                    let imgZip = zip.folder("images");
-                                    for(let i = 0 ; i<resultFileList.length ; i++){
-                                        imgZip.file(resultFileList[i].name, resultFileList[i].data.split(",")[1], {base64: true})
-                                    }
-                                    zip.generateAsync({type:"blob"})
-                                    .then((content)=>{                                      
-                                        let tmpLink = document.createElement('a')
-                                        tmpLink.href = window.URL.createObjectURL(content)
-                                        tmpLink.download = "images.zip"
-                                        tmpLink.click()
-                                    })
-                                }
-                            }
-                        }
-                    };
-                    img.src = await this.toBase64(image)
-                })
+const inputWidth: Ref<number> = ref(640);
+const inputHeight: Ref<number> = ref(480);
+const inputRatio: Ref<number> = ref(0);
+const inputCheck: Ref<number> = ref(0);
+const errorMsg: Ref<{width: string, height: string}> = ref({
+	width:"", height:"",
+});
+const convertResult: Ref<{base64: string, show: boolean, name: string, type: string}> = ref({
+	base64: "", show: false, name: "", type: ""
+})
 
-            }else{
-                this.errorMsg.width = "０以上の値を入れてください"
-                this.errorMsg.height = "０以上の値を入れてください"
-            }
-        }
-    }
+const resetResult = () => {
+	convertResult.value = {
+		base64: "", show: false, name: "", type: ""
+	}
+}
+
+const convert = async(e: any) => {
+	if(!e || !e.target || !e.target.files) return;
+	inputWidth.value = Number(inputWidth.value)
+	inputHeight.value = Number(inputHeight.value)
+	if(
+		(inputHeight.value > 0) ||
+		(inputWidth.value > 0)
+	){
+		errorMsg.value.width = ""
+		errorMsg.value.height = ""
+		let resultFileList: {name: string, data: string}[] = []
+		let processedImage = 0
+		for(let i = 0; i < e.target.files.length; i++){
+			const image = e.target.files[i];
+			let img = new Image()
+			img.onload = ()=>{
+				let imageRatio = Number(img.width)/Number(img.height)
+				let imageWidth = Number(inputWidth.value)
+				let imageHeight = Number(inputHeight.value)
+				let canvas = document.createElement('canvas')
+				canvas.width = imageWidth
+				canvas.height = imageHeight
+				let ctx = canvas.getContext('2d')
+				ctx?.drawImage(img, 0, 0, Number(imageWidth.toFixed(0)), Number(imageHeight.toFixed(0)))
+				const result = canvas.toDataURL(image.type)
+				if(result){
+					convertResult.value.base64 = result;
+					convertResult.value.show = true;
+					convertResult.value.name = image.name;
+					convertResult.value.type = image.type;
+				}
+			};
+			img.src = await fileToBase64(image);
+		}
+	}else{
+		errorMsg.value.width = "Input value larger than 0"
+		errorMsg.value.height = "Input value larger than 0"
+	}
 }
 </script>
 

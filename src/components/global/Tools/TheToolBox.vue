@@ -13,7 +13,7 @@
             <v-list>
                 <v-list-item
                     v-for="t in toollist"
-                    @click=""
+                    @click="selectedTool = t; showTool = true"
                     :title="t.title"
                     :subtitle="t.des"
                     :disabled="t.disabled"
@@ -22,20 +22,41 @@
             </v-list>
         </v-sheet>
     </v-menu>  
+	<v-dialog
+		v-model="showTool" 
+		persistent
+		max-width="800px"
+	>
+		<v-sheet v-if="selectedTool">
+			<div class="bg-primary d-flex justify-space-between px-3 py-1">
+				<div class="font-weight-bold text-h5">
+					{{selectedTool.title}}
+				</div>
+				<v-btn
+					@click="showTool = false"
+					color="error"
+					size="36"
+				>
+					<v-icon size="large">mdi-close</v-icon>
+				</v-btn>
+			</div>
+			<component :is="selectedTool.component"></component>
+		</v-sheet>
+	</v-dialog>
 </template>
  
 <script setup lang="ts">
 import { type Ref, ref, type Component } from "vue";
 import ImageResizer from "@/components/global/Tools/ImageResizer.vue";
 
-const selectedTool: Ref<Component | null> = ref(null);
-
+const selectedTool: any = null;
+const showTool: Ref<boolean> = ref(false);
 
 const toollist = [
-    {title: "Image resizer", disabled: false, des: "Resize an image"},
-    {title: "Image cropper", disabled: true, des: "Crop an image"},
-    {title: "Header & Footer maker", disabled: true, des: "Create your H/F and bind it to an image"},
-]
+    {title: "Image resizer", disabled: false, des: "Resize an image", component: ImageResizer},
+    {title: "Image cropper", disabled: true, des: "Crop an image", component: null},
+    {title: "Header & Footer maker", disabled: true, des: "Create your H/F and bind it to an image", component: null},
+] as const
  
 </script>
  

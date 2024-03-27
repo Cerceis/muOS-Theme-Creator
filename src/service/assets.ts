@@ -41,6 +41,35 @@ export const assetFunc = {
             format: f.type.split("/")[1]
         })
     },
+	async addBase64(base64: string, name: string, type: string){
+        const nameArr = name.split(".")
+        nameArr.pop();
+        const filename = nameArr.join(""); 
+        assets.value.push({
+            id: Generate.objectId(),
+            filename: filename,
+            base64: base64, bin: null, 
+            type: type,
+            format: type.split("/")[1]
+        })
+    },
+	delete(a: Asset){
+		for(let i = 0; i < assets.value.length; i++){
+			if(assets.value[i].id === a.id){
+				assets.value.splice(i, 1);
+				return;
+			}
+		}
+	},
+	getByID(id: string){
+        for(let i = 0; i < assets.value.length; i++){
+            if(assets.value[i].id === id){
+                this._selectedAsset = assets.value[i];
+                break;
+            }
+        }
+        return this;
+    },
     getByFilename(filename: string){
         for(let i = 0; i < assets.value.length; i++){
             if(assets.value[i].filename === filename){

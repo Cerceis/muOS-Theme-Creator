@@ -13,7 +13,7 @@
             ></div>
         </ToolTip>
         <v-dialog v-model="showImage" max-width="800px">
-            <v-sheet>
+            <v-sheet v-if="selectedImage">
                 <div class="d-flex justify-center">
                     <div
                         :style="{
@@ -31,15 +31,25 @@
                 <div class="d-flex gap-1 pa-3 justify-end align-center">
                     <div>{{ `${selectedImage?.filename}.${selectedImage?.type.split('/')[1]}` }}</div>
                     <v-btn
-                        @click=""
+                        @click="assetFunc.delete(selectedImage)"
                         color="error"
                         size="36"
                     >
                        <v-icon>mdi-delete</v-icon>
                     </v-btn>
+					<v-btn
+                        @click="promptDownload(
+							assetFunc.getByID(selectedImage.id).asFile(),
+							`${selectedImage?.filename}.${selectedImage?.type.split('/')[1]}`
+						)"
+                        color="primary"
+                        size="36"
+                    >
+                       <v-icon>mdi-download</v-icon>
+                    </v-btn>
                     <v-btn
                        @click="showImage = false"
-                       color="primary"
+                       color="error"
                        size="36"
                     >
                     <v-icon>mdi-close</v-icon>
@@ -54,6 +64,8 @@
 import { type Ref, ref } from "vue";
 import { assets, type Asset } from "@/service/assets";
 import ToolTip from "@/components/buttons/ToolTip.vue";
+import { assetFunc } from "@/service/assets";
+import { promptDownload } from "@/service/file";
 
 const showImage: Ref<boolean> = ref(false);
 const selectedImage: Ref<Asset | null> = ref(null);

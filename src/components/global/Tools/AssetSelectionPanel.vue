@@ -91,6 +91,7 @@ const applyValue = (selector: AssetSelector, a: Asset) => {
     width:100%;
     height: 24px;
     transition: all .4s;
+	overflow: hidden;
 }
 .file-info-focused{
     height: 48px !important;
