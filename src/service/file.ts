@@ -160,6 +160,16 @@ export const promptDownload = (fileData: Blob, filename: string) => {
     elem.click();        
     document.body.removeChild(elem);
 }
+export const promptDownloadZip = (files: File[], zipname: string) => {
+    const zip = new JSZip();
+    for(let i = 0; i < files.length; i++) {
+        zip.file(files[i].name, files[i]);
+    }
+    zip.generateAsync({type:"blob"})
+    .then(function(content) {
+        promptDownload(content, `${zipname}.zip`)
+    });
+}
 
 
 /**

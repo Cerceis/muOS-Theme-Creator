@@ -101,136 +101,156 @@ export const themeFunc = {
             {
                 id: "9",
                 label: "battery",
+                preview: true,
                 child: [
                     {
                         id: "10",
                         "label": "BATTERY_NORMAL",
                         "property": "BATTERY_NORMAL",
                         "value": "F7E318",
-                        "des": "battery colour"
+                        "des": "battery colour",
+                        "preview": true,
                     },
                     {
                         id: "11",
                         "label": "BATTERY_ACTIVE",
                         "property": "BATTERY_ACTIVE",
                         "value": "85F718",
-                        "des": "charging battery colour"
+                        "des": "charging battery colour",
+                        "preview": true,
                     },
                     {
                         id: "12",
                         "label": "BATTERY_LOW",
                         "property": "BATTERY_LOW",
                         "value": "D35C54",
-                        "des": "low battery colour"
+                        "des": "low battery colour",
+                        "preview": true,
                     },
                     {
                         id: "13",
                         "label": "BATTERY_NORMAL_ALPHA",
                         "property": "BATTERY_NORMAL_ALPHA",
                         "value": "255",
-                        "des": "battery transparency"
+                        "des": "battery transparency",
+                        "preview": true,
                     },
                     {
                         id: "14",
                         "label": "BATTERY_ACTIVE_ALPHA",
                         "property": "BATTERY_ACTIVE_ALPHA",
                         "value": "255",
-                        "des": "charging battery transparency"
+                        "des": "charging battery transparency",
+                        "preview": true,
                     },
                     {
                         id: "15",
                         "label": "BATTERY_LOW_ALPHA",
                         "property": "BATTERY_LOW_ALPHA",
                         "value": "255",
-                        "des": "low battery transparency"
+                        "des": "low battery transparency",
+                        "preview": true,
                     }
                 ]
             },
             {
                 id: "16",
                 label: "network",
+                preview: true,
                 child: [
                     {
                         id: "17",
                         "label": "NETWORK_NORMAL",
                         "property": "NETWORK_NORMAL",
                         "value": "F7E318",
-                        "des": "network icon colour"
+                        "des": "network icon colour",
+                        preview: true,
                     },
                     {
                         id: "18",
                         "label": "NETWORK_ACTIVE",
                         "property": "NETWORK_ACTIVE",
                         "value": "85F718",
-                        "des": "network in-use colour"
+                        "des": "network in-use colour",
+                        preview: true,
                     },
                     {
                         id: "19",
                         "label": "NETWORK_NORMAL_ALPHA",
                         "property": "NETWORK_NORMAL_ALPHA",
                         "value": "255",
-                        "des": "network colour transparency"
+                        "des": "network colour transparency",
+                        preview: true,
                     },
                     {
                         id: "20",
                         "label": "NETWORK_ACTIVE_ALPHA",
                         "property": "NETWORK_ACTIVE_ALPHA",
                         "value": "255",
-                        "des": "network in-use colour transparency"
+                        "des": "network in-use colour transparency",
+                        preview: true,
                     }
                 ]
             },
             {
                 id: "21",
                 label: "bluetooth",
+                preview: true,
                 child: [
                     {
                         id: "22",
                         "label": "BLUETOOTH_NORMAL",
                         "property": "BLUETOOTH_NORMAL",
                         "value": "F7E318",
-                        "des": "bluetooth colour"
+                        "des": "bluetooth colour",
+                        preview: true,
                     },
                     {
                         id: "23",
                         "label": "BLUETOOTH_ACTIVE",
                         "property": "BLUETOOTH_ACTIVE",
                         "value": "85F718",
-                        "des": "bluetooth in-use colour"
+                        "des": "bluetooth in-use colour",
+                        preview: true,
                     },
                     {
                         id: "24",
                         "label": "BLUETOOTH_NORMAL_ALPHA",
                         "property": "BLUETOOTH_NORMAL_ALPHA",
                         "value": "255",
-                        "des": "bluetooth transparency"
+                        "des": "bluetooth transparency",
+                        preview: true,
                     },
                     {
                         id: "25",
                         "label": "BLUETOOTH_ACTIVE_ALPHA",
                         "property": "BLUETOOTH_ACTIVE_ALPHA",
                         "value": "255",
-                        "des": "bluetooth in-use transparency"
+                        "des": "bluetooth in-use transparency",
+                        preview: true,
                     }
                 ]
             },
             {
                 id: "26",
                 label: "date",
+                preview: true,
                 child: [
                     {
                         id: "27",
                         "label": "DATETIME_TEXT",
                         "property": "DATETIME_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        preview: true,
                     },
                     {
                         id: "28",
                         "label": "DATETIME_ALPHA",
                         "property": "DATETIME_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        preview: true,
                     }
                 ]
             },
@@ -555,14 +575,16 @@ export const themeFunc = {
                         "label": "LIST_DEFAULT_BACKGROUND",
                         "property": "LIST_DEFAULT_BACKGROUND",
                         "value": "A5B2B5",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        preview: true,
                     },
                     {
                         id: "76",
                         "label": "LIST_DEFAULT_BACKGROUND_ALPHA",
                         "property": "LIST_DEFAULT_BACKGROUND_ALPHA",
                         "value": "0",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "No description available yet. Check back soon!",
+                        preview: true,
                     },
                     {
                         id: "77",

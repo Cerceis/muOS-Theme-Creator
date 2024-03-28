@@ -27,18 +27,18 @@
             </v-list>
         </div>
         <div v-if="screen.initiated" class="d-flex gap-1 justify-center w-100" :key="`preview-${viewKey}`">
-            <div>
+            <div class="previewWrapper" style="width: 348px; height: 261px">
                 <div class="text-center text-caption">{{ screen.history[0].title }}</div>
-                <Screen :key="screen.history[0].id" :screen="screen.history[0]" />
+                <Screen :key="screen.history[0].id" :screen="screen.history[0]" :scale="0.54375" />
             </div>
             <div>
-                <div>
+                <div class="previewWrapper" style="width: 160px; height: 120px">
                     <div class="text-center text-caption">{{ screen.history[1].title }}</div>
-                    <Screen :key="screen.history[1].id" :screen="screen.history[1]" size="small"/>
+                    <Screen :key="screen.history[1].id" :screen="screen.history[1]" :scale="0.25"/>
                 </div>
-                <div>
+                <div class="previewWrapper" style="width: 160px; height: 120px; top: 20px">
                     <div class="text-center text-caption">{{ screen.history[2].title }}</div>
-                    <Screen :key="screen.history[2].id" :screen="screen.history[2]" size="small"/>
+                    <Screen :key="screen.history[2].id" :screen="screen.history[2]" :scale="0.25"/>
                 </div>
             </div>
         </div>
@@ -76,6 +76,9 @@ watch(
 .screen-selection-panel{
     height: calc(281px - 24px - 40px);
     overflow-y: scroll;
+}
+.previewWrapper{
+    position: relative;
 }
 </style>
 

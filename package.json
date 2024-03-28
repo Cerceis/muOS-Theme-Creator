@@ -17,6 +17,7 @@
         "jszip": "^3.10.1",
         "roboto-fontface": "*",
         "vue": "^3.3.11",
+        "vue-advanced-cropper": "^2.8.8",
         "vue-router": "^4.2.5",
         "vuetify": "^3.5.1",
         "webfontloader": "^1.0.0"

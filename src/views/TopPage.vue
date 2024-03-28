@@ -66,17 +66,15 @@
             </div>
             <v-divider class="mt-1" />
             <div v-if="selectedValueGroup">
-                <div class="text-h4 px-3">
-                    <v-badge 
-                        v-if="selectedValueGroup.preview" 
-                        color=primary content="PREVIEW Available"
-                        offset-x="-15" offset-y="15"
-                    >
-                        {{ selectedValueGroup.label }}
-                    </v-badge>
-                    <div v-else>
-                        {{ selectedValueGroup.label }}
-                    </div>
+                <div class="text-h4 px-3 d-flex gap-1 align-center">
+                    <div>{{ selectedValueGroup.label }}</div>
+                    <v-chip 
+                        v-if="selectedValueGroup.preview"
+                        color="primary"
+                        size="small"
+                    >PREVIEW Available</v-chip>
+                    <!-----Group specific previews----->
+                    <GroupPreview :group-id="selectedValueGroup.id" />
                 </div>
                 <div v-if="selectedValueGroup.des">
                     {{ selectedValueGroup.des }}
@@ -160,7 +158,7 @@
 import { 
     selectedTheme, 
     type MUOSThemeValues,
-    selectedValueGroupLabel, selectedValueGroup
+    selectedValueGroupLabel, selectedValueGroup,
 } from "@/service/theme";
 import { ref, computed } from "vue";
 import type { ComputedRef, Ref } from "vue";
@@ -172,6 +170,7 @@ import PreviewPanel from "@/components/global/Preview/PreviewPanel.vue";
 import ToolTip from "@/components/buttons/ToolTip.vue";
 import AssetSelectionPanel from "@/components/global/Tools/AssetSelectionPanel.vue";
 import { assetSelector, assetFunc } from "@/service/assets";
+import GroupPreview from "@/components/global/Preview/GroupPreview/GroupPreview.vue";
 
 // Filtering
 const keyword: Ref<string> = ref("");

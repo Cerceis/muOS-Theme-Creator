@@ -1,16 +1,15 @@
 <template>
 	<i
         :class="i" 
-        :style="{fontSize: `${size}px`}"
+        :style="{
+            fontSize: `${size}px`,
+            color,
+        }"
     ></i>
-    <FontAwesomeIcon icon="faHouse" />
 </template>
  
 <script setup lang="ts">
-// I have no idea whats going on with fontawesome
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-const props = defineProps({
+defineProps({
     i: {
         type: String,
         required: true,

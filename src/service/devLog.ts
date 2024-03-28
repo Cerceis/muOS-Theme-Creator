@@ -5,6 +5,17 @@ type DevLog = {
 }
 export const devLog: DevLog[] = [
     {
+        date: "2024-03-28",
+        version: "v0.6",
+        text: `
+            <h4>Changes</h4>
+            - Reworked the entire Scree preview component easier to add and <br>
+              manipulate. Easier for contributor to edit. <br>
+            - Added Image Resizer.
+            - Image Cropper in dev mode.
+        `
+    },
+    {
         date: "2024-03-27",
         version: "v0.5",
         text: `

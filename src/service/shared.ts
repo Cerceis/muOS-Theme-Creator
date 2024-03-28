@@ -1,13 +1,5 @@
 export const VERSION: string = "0.5";
 
-export const REAL_SIZE_REF = {
-    screen: { w: 640, h: 480 },
-    headerFooter: { w: 640, h: 42 },
-    font: { size: 20 },
-    charging: { yPos: 350 },
-    icon: { size: 24 }
-}
-
 export const isHexColor = (value: string): boolean => {
     // Check if the value starts with '#' and has either 3 or 6 characters
     if (/^[0-9A-F]{6}$/i.test(value)) {

@@ -63,11 +63,11 @@
             </v-btn>
         </div>
         <v-sheet class="grid gap-1 pa-3">
-            <v-card v-for="log in devLog" elevation="3">
+            <div v-for="log in devLog" elevation="3">
                 <v-card-title>{{ log.date }}</v-card-title>
                 <v-card-subtitle>{{ log.version }}</v-card-subtitle>
-                <v-card-text v-html="log.text"></v-card-text>
-            </v-card>
+                <div v-html="log.text"></div>
+            </div>
         </v-sheet>
     </v-dialog>
 </template>
