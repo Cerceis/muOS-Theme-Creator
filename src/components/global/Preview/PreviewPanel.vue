@@ -52,7 +52,8 @@
 import Screen from "@/components/global/Preview/Screen.vue";
 import { type Ref, ref, watch, computed, onMounted } from "vue";
 import { selectedTheme } from "@/service/theme";
-import { screen, screenList, screenData } from "@/service/screen";
+import { screen, screenList } from "@/service/screen";
+import { screenData } from "@/service/screenData";
 
 onMounted(() => screen.value.init())
 
