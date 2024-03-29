@@ -8,7 +8,8 @@
 </template>
  
 <script setup lang="ts">
-import { type ScreenContent, REAL_SIZE_REF } from '@/service/screen';
+import { REAL_SIZE_REF } from '@/service/screen';
+import { type ScreenContent } from '@/service/screenData';
 import { hexToRgba } from '@/service/shared';
 import { themeFunc } from '@/service/theme';
 import { type PropType, computed } from 'vue';
@@ -35,6 +36,9 @@ const computedStyle = computed(() => {
             themeFunc.getChild(_cs.background[0])?.value,
             _cs.backgroundAlpha ? themeFunc.getChild(_cs.backgroundAlpha[0])?.value/255 : 1
         );
+    }
+    if(_cs.textAlign){
+        _style.textAlign = _cs.textAlign;
     }
     return _style
 })

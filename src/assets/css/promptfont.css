@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'promptfont';
+    src: url('../font/promptfont.ttf');
+}
+.glyph {
+    font-family: promptfont;
+    font-size: 20px;
+    font-style: normal;
+}

@@ -109,7 +109,6 @@ const changeCrop = (e: any) => {
     if(e && e.coordinates) resultStats.value = e.coordinates
     e.canvas.toBlob((blob: any) =>{        
         resultPreviewBase64.value = e.canvas.toDataURL();
-        console.log(resultPreviewBase64.value)
         displayPreview.value = true;
     })
 }

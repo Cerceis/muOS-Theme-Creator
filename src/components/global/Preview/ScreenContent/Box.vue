@@ -8,7 +8,8 @@
 </template>
  
 <script setup lang="ts">
-import { type ScreenContent, REAL_SIZE_REF } from '@/service/screen';
+import { REAL_SIZE_REF } from '@/service/screen';
+import { type ScreenContent } from '@/service/screenData';
 import { hexToRgba } from '@/service/shared';
 import { themeFunc } from '@/service/theme';
 import { type PropType, computed } from 'vue';

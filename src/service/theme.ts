@@ -61,7 +61,7 @@ export const themeFunc = {
                     {
                         id: "2",
                         label: "BACKGROUND", property: "BACKGROUND", value: "F8BBD0",
-                        des: "(HEX) Background colours baby! shows as right to left gradient if you use a wallpaper image",
+                        des: "(HEX without #) Background colours baby! shows as right to left gradient if you use a wallpaper image",
                         preview: true,
                     },
                     {
@@ -108,7 +108,7 @@ export const themeFunc = {
                         "label": "BATTERY_NORMAL",
                         "property": "BATTERY_NORMAL",
                         "value": "F7E318",
-                        "des": "battery colour",
+                        "des": "(HEX without #) Battery colour",
                         "preview": true,
                     },
                     {
@@ -116,7 +116,7 @@ export const themeFunc = {
                         "label": "BATTERY_ACTIVE",
                         "property": "BATTERY_ACTIVE",
                         "value": "85F718",
-                        "des": "charging battery colour",
+                        "des": "(HEX without #) Charging battery colour",
                         "preview": true,
                     },
                     {
@@ -124,7 +124,7 @@ export const themeFunc = {
                         "label": "BATTERY_LOW",
                         "property": "BATTERY_LOW",
                         "value": "D35C54",
-                        "des": "low battery colour",
+                        "des": "(HEX without #) Low battery colour",
                         "preview": true,
                     },
                     {
@@ -132,7 +132,7 @@ export const themeFunc = {
                         "label": "BATTERY_NORMAL_ALPHA",
                         "property": "BATTERY_NORMAL_ALPHA",
                         "value": "255",
-                        "des": "battery transparency",
+                        "des": "(0~255) Battery transparency",
                         "preview": true,
                     },
                     {
@@ -140,7 +140,7 @@ export const themeFunc = {
                         "label": "BATTERY_ACTIVE_ALPHA",
                         "property": "BATTERY_ACTIVE_ALPHA",
                         "value": "255",
-                        "des": "charging battery transparency",
+                        "des": "(0~255) Charging battery transparency",
                         "preview": true,
                     },
                     {
@@ -148,7 +148,7 @@ export const themeFunc = {
                         "label": "BATTERY_LOW_ALPHA",
                         "property": "BATTERY_LOW_ALPHA",
                         "value": "255",
-                        "des": "low battery transparency",
+                        "des": "(0~255) Low battery transparency",
                         "preview": true,
                     }
                 ]
@@ -163,7 +163,7 @@ export const themeFunc = {
                         "label": "NETWORK_NORMAL",
                         "property": "NETWORK_NORMAL",
                         "value": "F7E318",
-                        "des": "network icon colour",
+                        "des": "(HEX without #) Network icon colour",
                         preview: true,
                     },
                     {
@@ -171,7 +171,7 @@ export const themeFunc = {
                         "label": "NETWORK_ACTIVE",
                         "property": "NETWORK_ACTIVE",
                         "value": "85F718",
-                        "des": "network in-use colour",
+                        "des": "(HEX without #) Network in-use colour",
                         preview: true,
                     },
                     {
@@ -179,7 +179,7 @@ export const themeFunc = {
                         "label": "NETWORK_NORMAL_ALPHA",
                         "property": "NETWORK_NORMAL_ALPHA",
                         "value": "255",
-                        "des": "network colour transparency",
+                        "des": "(0~255) Network colour transparency",
                         preview: true,
                     },
                     {
@@ -187,7 +187,7 @@ export const themeFunc = {
                         "label": "NETWORK_ACTIVE_ALPHA",
                         "property": "NETWORK_ACTIVE_ALPHA",
                         "value": "255",
-                        "des": "network in-use colour transparency",
+                        "des": "(0~255) Network in-use colour transparency",
                         preview: true,
                     }
                 ]
@@ -202,7 +202,7 @@ export const themeFunc = {
                         "label": "BLUETOOTH_NORMAL",
                         "property": "BLUETOOTH_NORMAL",
                         "value": "F7E318",
-                        "des": "bluetooth colour",
+                        "des": "(Hex without #) Bluetooth colour",
                         preview: true,
                     },
                     {
@@ -210,7 +210,7 @@ export const themeFunc = {
                         "label": "BLUETOOTH_ACTIVE",
                         "property": "BLUETOOTH_ACTIVE",
                         "value": "85F718",
-                        "des": "bluetooth in-use colour",
+                        "des": "(Hex without #) Bluetooth in-use colour",
                         preview: true,
                     },
                     {
@@ -218,7 +218,7 @@ export const themeFunc = {
                         "label": "BLUETOOTH_NORMAL_ALPHA",
                         "property": "BLUETOOTH_NORMAL_ALPHA",
                         "value": "255",
-                        "des": "bluetooth transparency",
+                        "des": "(0~255) Bluetooth transparency",
                         preview: true,
                     },
                     {
@@ -226,7 +226,7 @@ export const themeFunc = {
                         "label": "BLUETOOTH_ACTIVE_ALPHA",
                         "property": "BLUETOOTH_ACTIVE_ALPHA",
                         "value": "255",
-                        "des": "bluetooth in-use transparency",
+                        "des": "(0~255) Bluetooth in-use transparency",
                         preview: true,
                     }
                 ]
@@ -241,7 +241,7 @@ export const themeFunc = {
                         "label": "DATETIME_TEXT",
                         "property": "DATETIME_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(Hex without #) Color of the datetime text",
                         preview: true,
                     },
                     {
@@ -249,7 +249,7 @@ export const themeFunc = {
                         "label": "DATETIME_ALPHA",
                         "property": "DATETIME_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(0~255) Transparency of the datetime text",
                         preview: true,
                     }
                 ]
@@ -815,6 +815,7 @@ export const themeFunc = {
             {
                 id: "108",
                 label: "charging",
+                preview: true,
                 child: [
                     {
                         id: "109",
@@ -851,7 +852,8 @@ export const themeFunc = {
                         "label": "CHARGER_Y_POS",
                         "property": "CHARGER_Y_POS",
                         "value": "165",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 480) The Y position of the charging text",
+                        "preview": true
                     }
                 ]
             },
@@ -1104,7 +1106,7 @@ export const themeFunc = {
                         "property": "default",
                         "value": [assetFunc.getByFilename("default-wallpaper").asFile()],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png) Your main wallpaper, if other are unset, this will be used as default",
                         "folderPath": ["image", "wall"],
 						"preview": true,
                     },
@@ -1114,7 +1116,7 @@ export const themeFunc = {
                         "property": "default",
                         "value": [],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "footer"]
                     },
                     {
@@ -1123,7 +1125,7 @@ export const themeFunc = {
                         "property": "default",
                         "value": [],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "header"]
                     },
                     {
@@ -1132,7 +1134,7 @@ export const themeFunc = {
                         "property": "muxassign",
                         "value": [],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "wall"],
                         "preview": true
                     },
@@ -1142,7 +1144,7 @@ export const themeFunc = {
                         "property": "muxcharge",
                         "value": [assetFunc.getByFilename("default-muxcharge").asFile()],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "wall"],
                         "preview": true
                     },
@@ -1152,7 +1154,7 @@ export const themeFunc = {
                         "property": "muxconfig",
                         "value": [],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1161,7 +1163,7 @@ export const themeFunc = {
                         "property": "muxcredits",
                         "value": [],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1170,7 +1172,7 @@ export const themeFunc = {
                         "property": "muxdevice",
                         "value": [],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1179,7 +1181,7 @@ export const themeFunc = {
                         "property": "muxfavourite",
                         "value": [],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1188,7 +1190,7 @@ export const themeFunc = {
                         "property": "muxhistory",
                         "value": [],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1197,7 +1199,7 @@ export const themeFunc = {
                         "property": "muxinfo",
                         "value": [],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1206,7 +1208,7 @@ export const themeFunc = {
                         "property": "muxlaunch",
                         "value": [],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "wall"],
 						"preview": true,
                     },
@@ -1216,7 +1218,7 @@ export const themeFunc = {
                         "property": "muxnetwork",
                         "value": [],
                         "format": ".png",
-                        "des": "",
+                        "des": "(.png)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1225,7 +1227,7 @@ export const themeFunc = {
                         "property": "muxplore",
                         "value": [],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"]
                     },
                     {
@@ -1234,7 +1236,7 @@ export const themeFunc = {
                         "property": "muxreset",
                         "value": [],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"]
                     },
                     {
@@ -1243,7 +1245,7 @@ export const themeFunc = {
                         "property": "muxrtc",
                         "value": [],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"]
                     },
                     {
@@ -1252,7 +1254,7 @@ export const themeFunc = {
                         "property": "muxstart",
                         "value": [assetFunc.getByFilename("default-muxcharge").asFile()],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"],
                         "preview": true
                     },
@@ -1262,7 +1264,7 @@ export const themeFunc = {
                         "property": "muxsysinfo",
                         "value": [],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"]
                     },
                     {
@@ -1271,7 +1273,7 @@ export const themeFunc = {
                         "property": "muxtester",
                         "value": [],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"]
                     },
                     {
@@ -1280,7 +1282,7 @@ export const themeFunc = {
                         "property": "muxtheme",
                         "value": [],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"]
                     },
                     {
@@ -1289,7 +1291,7 @@ export const themeFunc = {
                         "property": "muxtimezone",
                         "value": [],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"]
                     },
                     {
@@ -1298,7 +1300,7 @@ export const themeFunc = {
                         "property": "muxtracker",
                         "value": [],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"]
                     },
                     {
@@ -1307,7 +1309,7 @@ export const themeFunc = {
                         "property": "muxtweakadv",
                         "value": [],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"]
                     },
                     {
@@ -1316,7 +1318,7 @@ export const themeFunc = {
                         "property": "muxtweakgen",
                         "value": [],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"]
                     },
                     {
@@ -1325,7 +1327,7 @@ export const themeFunc = {
                         "property": "muxwebserv",
                         "value": [],
                         "format": ".png",
-                        "des": "", 
+                        "des": "(.png)", 
                         "folderpath": ["image", "wall"]
                     }
                 ]

@@ -1,21 +1,31 @@
 import { type ScreenData, type ScreenType } from "@/service/screen";
 /**
- * type     : The type of the child, will render accordingly.
- * row      : The screen is virtually split into col and row for easy placement.
- * col      : The screen is virtually split into col and row for easy placement.
- * offset   : When row/col is not accurate enough, adjust this offset for more precision.
- * expand   : Expand it's width or height to fill the screen.
-   Here a some rough visual reference for display row/col placement.
+ * type [string]    : The type(ScreenContentType) of the child, will render accordingly.
+ * text [string]    : The text, html is allowed. Should only worked with "text" child.
+ * row  [int/float] : The screen is virtually split into col and row for easy placement.
+ * col  [int/float] : The screen is virtually split into col and row for easy placement.
+ * offset           : When row/col is not accurate enough, adjust this offset for more precision.
+ *                    Offset accept either number or string. When it's a string, it's refering to
+ *                    a theme's ID (See service/theme.ts). When it's a number, it will be offset by
+ *                    that much pixel.
+ * expand           : Expand it's width or height to fill the screen.
+ * size             : The size of the element, usually used with "box" child.
+ * zIndex           : z-index, order of display.
+ * style            : Style related options
+ * icon: [string]   : Font awesome string, check out https://fontawesome.com/icons ex) "fa-solid fa-wifi"
+ 
+   Here a some rough visual REFERENCE(Not entired accurate) for display row/col placement.
+
   C 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|15|16|17|18|19|20|21|22 
 R ┌────────────────────────────────────────────────────────────────────┐
-0 │                          Header Around here                        │
+0 │                        Header Around here                          │
 1 │--------------------------------------------------------------------│
 2 │                                                                    │
 3 │                                                                    │
 4 │                                                                    │
 4 │                                                                    │
 5 │                                                                    │
-6 │                             The Screen                             │
+6 │                           The Screen                               │
 7 │                                                                    │
 8 │                                                                    │
 9 │                                                                    │
@@ -23,32 +33,67 @@ R ┌─────────────────────────
 11│                                                                    │
 12│                                                                    │
 13│--------------------------------------------------------------------│
-14│                           Footer around here                       │
+14│                        Footer around here                          │
   └────────────────────────────────────────────────────────────────────┘
+
+    How to use glyph ?
+    Sometimes the "icon" you see are not images, they are UNICODE glyph string.
+    See for https://shinmera.github.io/promptfont/ more info and how to use it.
+    PromptFont by Yukari "Shinmera" Hafner.
+
+    Example) The glyph ⇓ will be converted into a circular "A" button.
+    To display it, use a "text" type ScreenContent and include:
+    「 <i class=glyph>⇓</i> 」in the text.
+    {
+        text: `<i class=glyph>⇓</i> Confirm <i class=glyph>⇥</i> Help`,
+    }
  */
 export type ScreenContentType = 
-"text" | "image" | "icon" | "box" | "list"
-  
+"text" | "image" | "icon" | "box"
 export type ScreenContent = {
     id: string,
     type: ScreenContentType,
     text: string,
     row: number,
     col: number,
-    offset: {  x: number, y: number },
+    offset: {  x: number | string, y: number | string },
     expand: { x: boolean, y: boolean }
     size: {  w: number, h: number },
     zIndex: number,
     icon: string,
     style: {
+        /**
+         * If it's string[], it's refering to list of theme id.
+         * More info see 「# Look here Section 1」at service/screen.ts
+         */
+        // backgroud color
         background?: string[],
+        // background alpha
         backgroundAlpha?: string[],
+        // font color
         font?: string[],
+        // font alpha
         fontAlpha?: string[],
-        imageSrc?: string[],
-        imageAlpha?: string[],
+        imageSrc?: string[],    // Not implemented yet, still no uses.
+        imageAlpha?: string[],  // Not implemented yet, still no uses.
+        // text alignment
+        textAlign?: "center" | "left" | "right"
     }
 }
+/**
+ * These are some pre-defined child group map,
+ * like the header bar/ footer bar that's present 
+ * on most of the screen.
+ * To use these, just append it into the child field:
+ * Example) 
+ *     {
+ *       ...other sutff,
+ *       child: [
+ *          ... other child,
+ *          ...preDefiendChildElement.header <- Use "Spread operator"
+ *       ]
+ *     }
+ */
 export const preDefiendChildElement = {
 	header:[
 		{
@@ -92,7 +137,6 @@ export const preDefiendChildElement = {
 		},
 	]
 }
-// Could group the child together and apply to each screen for same child: ex) header/footer
 export const screenData: {[key in ScreenType]: ScreenData} = {
 	"Boot": {
 		title: "Boot",
@@ -159,7 +203,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			},
 			{
 				type: "text",
-				text: `Confirm Help`,
+				text: `<i class=glyph>⇓</i> Confirm <i class=glyph>⇥</i> Help`,
 				row: 14.25,
 				style: {
 					font: ["31"], fontAlpha: ["32"],
@@ -172,13 +216,21 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		title: "Charging",
 		preview: true,
 		wallpaper: ["153", "149"],
-		child: [],
-		/*
-		imageAssets: [],
-		textAssets: {
-			charging: "I forgot what the charging screen looks like  4.08v 99%"
-		},
-		*/
+		child: [
+            {
+                type: "text",
+                text: `Capacity: 75%    Voltage: 4.7v   Health: Good <br>
+                        Press POWER button to continue booting...
+                `,
+                offset: { y: "113" },
+                expand: { x: true },
+                style: {
+                    font: ["111"], fontAlpha: ["112"],
+                    background: ["109"], backgroundAlpha: ["110"],
+                    textAlign: "center"
+                }
+            }
+        ],
 	},
 	"Core Assignment": {
 		title: "Core Assignment",

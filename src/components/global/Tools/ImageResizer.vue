@@ -4,7 +4,7 @@
             <div class="grid align-start justify-center">
                 <v-radio-group 
                     label="Size"
-                    v-model="inputCheck"
+                    v-model="resizeInputCheck"
                     hide-details
                 >
                     <v-radio
@@ -31,7 +31,7 @@
                         :error-messages="errorMsg.width"
                         type="number"
                         label="Width(px)"
-                        v-model="inputWidth"
+                        v-model="resizeInputWidth"
                         :disabled="disabled.width"
                     >
                     </v-text-field>
@@ -42,7 +42,7 @@
                         :error-messages="errorMsg.height"
                         type="number"
                         label="Height(px)"
-                        v-model="inputHeight"
+                        v-model="resizeInputHeight"
                         :disabled="disabled.height"
                     >
                     </v-text-field>
@@ -104,31 +104,15 @@ import { newAlert } from "@/service/alert";
 import { promptDownloadZip } from "@/service/file";
 import { Generate } from "cerceis-lib";
 
-const inputWidth: Ref<number> = ref(640);
-const inputHeight: Ref<number> = ref(480);
-const inputCheck: Ref<number> = ref(3);
+const resizeInputWidth: Ref<number> = ref(640);
+const resizeInputHeight: Ref<number> = ref(480);
+const resizeInputCheck: Ref<number> = ref(3);
 const errorMsg: Ref<{width: string, height: string}> = ref({
 	width: "", height: "",
 });
 const disabled: Ref<{width: boolean, height: boolean}> = ref({
 	width: false, height: false,
 });
-watch(
-    () => inputCheck.value,
-    () => {
-        if(inputCheck.value === 1){
-            disabled.value.width = false;
-            disabled.value.height = true;
-        }else if(inputCheck.value === 2){
-            disabled.value.width = true;
-            disabled.value.height = false;
-        }else{
-            disabled.value.width = false;
-            disabled.value.height = false;
-        }
-                
-    }
-)
 
 const convertResult: Ref<{
     show: boolean,
@@ -177,11 +161,11 @@ const downloadAll = () => {
 const convert = async(e: any) => {
 	if(!e || !e.target || !e.target.files) return;
     if(e.target.files.length === 0) return;
-	inputWidth.value = Number(inputWidth.value)
-	inputHeight.value = Number(inputHeight.value)
+	resizeInputWidth.value = Number(resizeInputWidth.value)
+	resizeInputHeight.value = Number(resizeInputHeight.value)
 	if(
-		(inputHeight.value > 0) ||
-		(inputWidth.value > 0)
+		(resizeInputHeight.value > 0) ||
+		(resizeInputWidth.value > 0)
 	){
 		errorMsg.value.width = ""
 		errorMsg.value.height = ""
@@ -190,8 +174,8 @@ const convert = async(e: any) => {
 			let img = new Image()
 			img.onload = ()=>{
 				const imageRatio = Number(img.width)/Number(img.height)
-				const imageWidth = disabled.value.width ? Number(inputHeight.value)*imageRatio : Number(inputWidth.value);
-				const imageHeight = disabled.value.height ? Number(inputWidth.value)/imageRatio :Number(inputHeight.value);
+				const imageWidth = disabled.value.width ? Number(resizeInputHeight.value)*imageRatio : Number(resizeInputWidth.value);
+				const imageHeight = disabled.value.height ? Number(resizeInputWidth.value)/imageRatio :Number(resizeInputHeight.value);
 				const canvas = document.createElement('canvas')
 				canvas.width = imageWidth
 				canvas.height = imageHeight

@@ -1,6 +1,7 @@
 import JSZip from "jszip";
 import { selectedTheme } from "@/service/theme";
 import { TEXT_CREDIT, TEXT_SCHEME } from "@/service/text";
+import { assetFunc } from "./assets";
 
 /**
  * Generate a zipped theme
@@ -169,6 +170,23 @@ export const promptDownloadZip = (files: File[], zipname: string) => {
     .then(function(content) {
         promptDownload(content, `${zipname}.zip`)
     });
+}
+export const promptOpenFile = (accepts: string[] = ["image/*"]) => {
+    const tmpInput = document.createElement('input');
+    tmpInput.accept = accepts.join(",");
+    tmpInput.style.display = "none";
+    tmpInput.type = "file";
+    tmpInput.multiple = true;
+    document.body.appendChild(tmpInput);
+    tmpInput.click();
+    tmpInput.onchange = async(e: any) => {
+        if(!e || !e.target || !e.target.files) return;
+        if(e.target.files.length === 0) return;
+        for(let i = 0; i < e.target.files.length; i++){
+            await assetFunc.add(e.target.files[i]);
+        }
+        document.body.removeChild(tmpInput);
+    }
 }
 
 

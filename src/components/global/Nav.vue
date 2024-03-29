@@ -3,8 +3,9 @@
         <div class="font-weight-bold text-h5">
             muOS Theme Creator <span class="caption">v{{ VERSION }}</span>
         </div>
+        <div>Supported version > muOS v11</div>
         <div class="d-flex gap-1 align-center">
-            <TheToolBox />
+            <ImageEditor />
             <ToolTip text="Load theme">
                 <v-btn
                     @click=""
@@ -77,9 +78,9 @@ import { ref, type Ref } from "vue";
 import { VERSION } from "@/service/shared";
 import { devLog } from "@/service/devLog";
 import ToolTip from "@/components/buttons/ToolTip.vue";
-import TheToolBox from "@/components/global/Tools/TheToolBox.vue"
+import ImageEditor from "@/components/global/Tools/ImageEditor/ImageEditor.vue";
 //debug
-import { debug, tmpKey } from "@/service/debug";
+import { debug } from "@/service/debug";
 
 
 const showDevLog: Ref<boolean> = ref(false);

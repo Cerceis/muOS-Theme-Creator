@@ -37,6 +37,7 @@ export const screenList = [
 
 export type ScreenType = typeof screenList[number];
 /**
+ * # Look here Section 1
  * ╔═.✵.══════════╗
  *    Look here!
  * ╚══════════.✵.═╝
@@ -71,6 +72,7 @@ type NewScreenContentOptions = {
         fontAlpha?: string[],
         imageSrc?: string[],
         imageAlpha?: string[],
+        textAlign?: "center" | "left" | "right",
     }
 }
 export const newScreenContent = (options: NewScreenContentOptions = {}): ScreenContent => {
@@ -96,13 +98,10 @@ export const newScreenContent = (options: NewScreenContentOptions = {}): ScreenC
     return op as ScreenContent;
 }
 
-
 export interface Screen extends ScreenData{
     id: string,
 	child: ScreenContent[]
 }
-
-
 
 export const screen = ref({
     map: {} as { [key: string]: Screen },
