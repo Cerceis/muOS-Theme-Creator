@@ -3,9 +3,27 @@
         <div class="font-weight-bold text-h5">
             muOS Theme Creator <span class="caption">v{{ VERSION }}</span>
         </div>
-        <div>Supported version > muOS v11</div>
+        <v-alert 
+			variant="tonal" type="warning"
+			density="compact"
+			class="mx-3"
+		>
+			Currently in migration to v11, if found any bug, tag @Cerceis at discord.
+		</v-alert>
         <div class="d-flex gap-1 align-center">
-            <ImageEditor />
+			<ToolTip location="bottom">
+				<template v-slot:text>
+					What you can do here ? <br>
+					<ol class="pa-3">
+						<li>Resize image</li>
+						<li>Change image format</li>
+						<li>Crop image</li>
+						<li>Merge image</li>
+						<li>etc...</li>
+					</ol>
+				</template>
+				<ImageEditor />
+			</ToolTip>
             <ToolTip text="Load theme">
                 <v-btn
                     @click=""

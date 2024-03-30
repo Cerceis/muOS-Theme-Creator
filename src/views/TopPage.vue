@@ -15,22 +15,48 @@
                     label="author"
                     v-model="selectedTheme.author"
                 />
-                <div class="d-flex gap-1 justify-center">
-                    <v-btn
-                       @click="generateZipTheme"
-                       color="primary"
-                    >
-                        <v-icon>mdi-download</v-icon>
-                       GENERATE
-                    </v-btn>
-                    <!---v-btn
-                       @click=""
-                       color="primary"
-                    >
-                        <v-icon>mdi-download</v-icon>
-                       Scheme
-                    </!---v-btn--->
-                </div>
+				<v-menu location="right">
+					<template v-slot:activator="{ props }">
+						<v-btn v-bind="props" color="primary" class="w-100">
+							<v-icon>mdi-download</v-icon>
+							DOWNLOAD
+						</v-btn>
+					</template>
+					<v-list density="compact">
+						<v-list-item @click="generateZipTheme">
+							<template v-slot:prepend>
+								<v-icon>mdi-download</v-icon>
+								<v-icon>mdi-folder-zip</v-icon>
+							</template>
+							Theme
+						</v-list-item>
+						<ToolTip text="All your image will be resized and minimized to reduce file size automatically" location="right">
+							<v-list-item disabled>
+									<template v-slot:prepend>
+										<v-icon>mdi-download</v-icon>
+										<v-icon>mdi-folder-zip</v-icon>
+									</template>
+									Optimized Theme
+							</v-list-item>
+						</ToolTip>
+						<ToolTip text="Generate a preview image for your theme, place it into info/theme/preview/" location="right">
+							<v-list-item @click="" disabled>
+								<template v-slot:prepend>
+									<v-icon>mdi-download</v-icon>
+									<v-icon>mdi-image</v-icon>
+								</template>
+								Preview Image
+							</v-list-item>
+						</ToolTip>
+						<v-list-item @click="" disabled>
+							<template v-slot:prepend>
+								<v-icon>mdi-download</v-icon>
+								<v-icon>mdi-file</v-icon>
+							</template>
+							Scheme
+						</v-list-item>
+					</v-list>
+				</v-menu>
             </v-sheet>
             <v-divider class="my-2"/>
             <!----Group Menu------->

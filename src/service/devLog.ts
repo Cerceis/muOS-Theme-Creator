@@ -4,15 +4,33 @@ type DevLog = {
     text: string // html works
 }
 export const devLog: DevLog[] = [
+	{
+        date: "2024-03-30",
+        version: "v0.64",
+        text: `
+            <h4>Changes</h4>
+			- Fixed breaking changes that cause selecting turning into rainbow screen. <br>
+			- Migrating stuff to support muOS v11, at this point, v10 should still be compatible at this stage. <br>
+        `
+    },
+	{
+        date: "2024-03-29",
+        version: "v0.63",
+        text: `
+            <h4>Changes</h4>
+            - Merged all the image editing tools into one -> Image editor. <br>
+			- QoL changes <br>
+        `
+    },
     {
         date: "2024-03-28",
-        version: "v0.6",
+        version: "v0.64",
         text: `
             <h4>Changes</h4>
             - Reworked the entire Scree preview component easier to add and <br>
               manipulate. Easier for contributor to edit. <br>
-            - Added Image Resizer.
-            - Image Cropper in dev mode.
+            - Added Image Resizer.<br>
+            - Image Cropper in dev mode.<br>
         `
     },
     {

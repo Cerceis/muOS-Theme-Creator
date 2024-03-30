@@ -115,11 +115,11 @@ export const initFolderStructure = (): MUOSThemeFolderStructure | null => {
 }
 export const generateZipTheme = () => {
     try{
-
+		/*
         const folders = initFolderStructure();
         if(!folders) throw "ERROR NULL";
-        folders.get([]).file("credits.txt", TEXT_CREDIT(selectedTheme.value.author));    
-        folders.get(["scheme"]).file("default.txt", TEXT_SCHEME(selectedTheme.value.values));
+        folders.get([]).file("credits.txt", TEXT_CREDIT(selectedTheme.value.author), );    
+        folders.get(["scheme"]).file("default.txt", TEXT_SCHEME(selectedTheme.value.values)
 
         // Process images
         const imagesGroup = selectedTheme.value.values.find(group => group.label === "images");
@@ -140,6 +140,27 @@ export const generateZipTheme = () => {
         }
         
         folders.zip.generateAsync({type:"blob"})
+		*/
+		const zip = new JSZip();
+		zip.file("credits.txt", TEXT_CREDIT(selectedTheme.value.author));
+		zip.file("scheme/default.txt", TEXT_SCHEME(selectedTheme.value.values));
+		const imagesGroup = selectedTheme.value.values.find(group => group.label === "images");
+        if(imagesGroup){
+            for(let i = 0; i < imagesGroup.child.length; i++){
+                const child = imagesGroup.child[i];
+                if(
+                    !child.value || !child.folderPath ||
+                    child.value.length === 0 
+                ) continue;
+                const extendedFilename = `${child.property}${child.format}`;
+                if(child.folderPath.length === 0){
+                    zip.file(`${extendedFilename}`, child.value[0]);
+                    continue;
+                }
+                zip.file(`${child.folderPath.join('/')}/${extendedFilename}`, child.value[0]);
+            }
+        }
+		zip.generateAsync({type:"blob"})
         .then(function(content) {
             promptDownload(content, `${selectedTheme.value.zipName}.zip`)
         });
@@ -152,9 +173,8 @@ const img = zip.folder("images");
 img.file("smile.gif", imgData, {base64: true});
 */
 export const promptDownload = (fileData: Blob, filename: string) => {
-    const blob = new Blob([fileData]);
     const elem = window.document.createElement('a');
-    elem.href = window.URL.createObjectURL(blob);
+    elem.href = window.URL.createObjectURL(fileData);
     elem.download = filename;        
     elem.target = "_blank";
     document.body.appendChild(elem);
