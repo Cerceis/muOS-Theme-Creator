@@ -1,7 +1,7 @@
 import JSZip from "jszip";
 import { selectedTheme } from "@/service/theme";
 import { TEXT_CREDIT, TEXT_SCHEME } from "@/service/text";
-import { assetFunc } from "./assets";
+import { assetFunc, assets } from "./assets";
 
 /**
  * Generate a zipped theme
@@ -160,6 +160,18 @@ export const generateZipTheme = () => {
                 zip.file(`${child.folderPath.join('/')}/${extendedFilename}`, child.value[0]);
             }
         }
+
+		/**
+		 * Debug
+		 */
+		/*
+		const foundFont = assets.value.find(ass => ass.type === "font/otf");
+		console.log(foundFont)
+		if(foundFont && foundFont.bin !== null){
+			zip.file("font/default.bin", foundFont.bin);
+		}
+		*/
+
 		zip.generateAsync({type:"blob"})
         .then(function(content) {
             promptDownload(content, `${selectedTheme.value.zipName}.zip`)
@@ -208,6 +220,8 @@ export const promptOpenFile = (accepts: string[] = ["image/*"]) => {
         document.body.removeChild(tmpInput);
     }
 }
+
+
 
 
 /**

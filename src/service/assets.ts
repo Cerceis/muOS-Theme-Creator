@@ -36,10 +36,11 @@ export const assetFunc = {
         assets.value.push({
             id: Generate.objectId(),
             filename: filename,
-            base64: await fileToBase64(f), bin: null, 
+            base64: await fileToBase64(f), 
+			bin: f.type.includes("font") ? await fileToBinary(f) : null, 
             type: f.type,
             format: f.type.split("/")[1]
-        })
+        } as Asset)
     },
 	async addBase64(base64: string, name: string, type: string){
         const nameArr = name.split(".")
@@ -157,6 +158,23 @@ export const base64ToFile = (base64: string, filename: string, mimetype: string)
     const blob = new Blob([byteArray], { type: mimetype });
     // Create a File object from the Blob
     return new File([blob], filename, { type: mimetype });
+}
+
+export const fileToBinary = (file: File): Promise<ArrayBuffer> => {
+    return new Promise<ArrayBuffer>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (reader.result instanceof ArrayBuffer) {
+                resolve(reader.result);
+            } else {
+                reject(new Error("Failed to read file as ArrayBuffer"));
+            }
+        };
+        reader.onerror = () => {
+            reject(reader.error);
+        };
+        reader.readAsArrayBuffer(file);
+    });
 }
 
 export type AssetSelector = {
