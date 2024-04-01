@@ -1475,7 +1475,7 @@ export const themeFunc = {
                 child: [
                     {
                         id: "190.1",
-                        "label": "Font",
+                        "label": "Font (See: <a href=https://muos.dev/help/theme/font target=__blank>here !</a>)",
                         "property": "default",
                         "value": [],
                         "format": ".bin",

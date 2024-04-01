@@ -9,6 +9,14 @@
                 <ToolTip text="Replace ALL the color from EVERYWHERE">
                     <v-icon>mdi-help-circle</v-icon>
                 </ToolTip>
+                <ToolTip text="Switch">
+                    <v-btn
+                       @click="switchColorSwitcher"
+                       color="primary"
+                    >
+                        <v-icon>mdi-clover</v-icon>
+                    </v-btn>
+                </ToolTip>
             </div>
             <div class="d-flex justify-space-between align-center">
                 from: 
@@ -121,8 +129,13 @@ import { selectedTheme, selectedValueGroupLabel } from "@/service/theme";
 import AssetPanel from "@/components/global/Tools/AssetPanel.vue";
 
 // Replace color
-const fromColor: Ref<string> = ref("");
-const toColor: Ref<string> = ref("");
+const fromColor: Ref<string> = ref("F7E318");
+const toColor: Ref<string> = ref("F8BBD0");
+const switchColorSwitcher = () => {
+    const tmp = toColor.value;
+    toColor.value = fromColor.value;
+    fromColor.value = tmp;
+}
 
 const goToGroup = (pathString: string) => {
     const arr = pathString.split(" - ");

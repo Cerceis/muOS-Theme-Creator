@@ -109,7 +109,7 @@
                 <div class="centerBtm-panel mt-3 px-3">
                     <div v-for="child in selectedValueGroup.child" >
                         <div class="d-flex align-center gap-1">
-                            {{ child.label }}
+                            <div v-html="child.label"></div>
                             <v-chip v-if="child.preview" color="primary" size="x-small">
                                 <span class="font-weight-bold">P</span>
                             </v-chip>
