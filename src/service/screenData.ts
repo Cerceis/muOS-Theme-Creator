@@ -98,6 +98,15 @@ export type ScreenContent = {
  */
 export const preDefiendChildElement = {
 	header:[
+		// Need to investigate how we can use the FONT_HEADER items for offsets here.... - jupy <3
+		{
+			type: "box",
+			expand: { x: true },
+			size: { h: 30 * 1 },
+			style: {
+				background: ["33.1"], backgroundAlpha: ["33.2"],
+			}
+		},
 		{
 			type: "text",
 			text: `17:45`,
@@ -111,7 +120,7 @@ export const preDefiendChildElement = {
 			icon: "fa-brands fa-bluetooth-b",
 			col: 18,
 			style: {
-				font: ["23"], fontAlpha: ["25"],
+				font: ["22"], fontAlpha: ["24"],
 			}
 		},
 		{
@@ -119,7 +128,7 @@ export const preDefiendChildElement = {
 			icon: "fa-solid fa-wifi",
 			col: 18.75,
 			style: {
-				font: ["18"], fontAlpha: ["20"],
+				font: ["17"], fontAlpha: ["19"],
 			}
 		},
 		{
@@ -131,6 +140,17 @@ export const preDefiendChildElement = {
 			}
 		},
 	],
+	footer:[
+		{
+			type: "box",
+			row: 14,
+			expand: { x: true },
+			size: { h: 30 * 1.5 },
+			style: {
+				background: ["29.1"], backgroundAlpha: ["29.2"],
+			}
+		},
+	]
 }
 export const screenData: {[key in ScreenType]: ScreenData} = {
 	"Boot": {
@@ -144,6 +164,8 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["160", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
 			{
 				type: "text",
 				text: "muOS MAIN MENU",
@@ -207,6 +229,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
@@ -242,7 +265,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-			...preDefiendChildElement.header,
 		]
 	},
 	"Charging": {
@@ -270,6 +292,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["152", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "ASSIGN - Name - Name",
+				col: 6,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-server"></i> Core name <br>`,
@@ -322,21 +354,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 12 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "ASSIGN - Name - Name",
-				col: 6,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
@@ -390,8 +414,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"Config Screen": {
@@ -399,6 +421,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["154", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "CONFIGURATION",
+				col: 6.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `General Settings <br>`,
@@ -429,7 +461,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `
-					Theme Manager <br>
+					Theme Picker <br>
 					Archive Manager <br>
 					Wi-Fi Network <br>
 					Web Services <br>
@@ -446,21 +478,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 7 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "CONFIGURATION",
-				col: 6.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
@@ -514,8 +538,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"Credits Screen": {
@@ -523,6 +545,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["155", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "SUPPORTERS",
+				col: 7.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-chess-knight"></i> garlicOS <br>`,
@@ -565,21 +597,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 3 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "SUPPORTERS",
-				col: 8,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
@@ -615,8 +639,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"Device Selection Screen": {
@@ -624,6 +646,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["156", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "DEVICE TYPE",
+				col: 7.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-gamepad"></i> RG35XX - H <br>`,
@@ -668,21 +700,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 4 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "DEVICE TYPE",
-				col: 7.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇣</i>`,
@@ -718,8 +742,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"Favourites": {
@@ -727,6 +749,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["157", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "FAVOURITES",
+				col: 7.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-file"></i> Content Name <br>`,
@@ -772,21 +804,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 6 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "FAVOURITES",
-				col: 7.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
@@ -858,16 +882,23 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]	
 	},
 	"History": {
-		// Not available in muOS yet. Below is what i think it will look like - jupy <3
 		title: "History",
-		preview: false,
+		preview: true,
 		wallpaper: ["158", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "HISTORY",
+				col: 8.25,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-file"></i> Content Name <br>`,
@@ -913,21 +944,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 6 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "HISTORY",
-				col: 8.25,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
@@ -981,8 +1004,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]	
 	},
 	"Information Screen": {
@@ -990,6 +1011,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["159", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "INFORMATION",
+				col: 7.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-gamepad"></i> Input Tester <br>`,
@@ -1031,21 +1062,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 2 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "INFORMATION",
-				col: 7.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
@@ -1099,8 +1122,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"Network Configuration Screen": {
@@ -1108,6 +1129,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["161", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "WI-FI NETWORK",
+				col: 7,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-check-square"></i> Enabled <br>`,
@@ -1185,21 +1216,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 9 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "WI-FI NETWORK",
-				col: 7,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
@@ -1253,8 +1276,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"Explore Content": {
@@ -1262,6 +1283,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["162", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "EXPLORE",
+				col: 8.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-folder"></i> SD1 (mmc) <br>`,
@@ -1304,21 +1335,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 2 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "EXPLORE",
-				col: 8.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
@@ -1372,8 +1395,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"Reset Screen": {
@@ -1381,6 +1402,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["163", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "SYSTEM REFRESH",
+				col: 6.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-spray-can"></i> Clear Favourite Items <br>`,
@@ -1428,21 +1459,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 7 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "SYSTEM REFRESH",
-				col: 6.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
@@ -1496,8 +1519,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]	
 	},
 	"RTC Configuration": {
@@ -1505,6 +1526,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["164", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "DATE AND TIME",
+				col: 7,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-calendar"></i> Year <br>`,
@@ -1575,21 +1606,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 6 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "DATE AND TIME",
-				col: 6.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
@@ -1625,8 +1648,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]	
 	},
 	"Verbose Boot Startup": {
@@ -1638,13 +1659,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		child: [
             {
                 type: "text",
-                text: `muOS is now starting <br>
-                        Press wait...
+                text: `
+						muOS is now starting <br>
+                        Please wait...
+						<br>
                 `,
 				offset: { y: "119" },
                 expand: { x: true },
                 style: {
                     font: ["117"], fontAlpha: ["118"],
+					background: ["115"], backgroundAlpha: ["116"],
                     textAlign: "center",
                 }
             }
@@ -1655,6 +1679,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["166", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "SYSTEM DETAILS",
+				col: 6.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-server"></i> muOS Version <br>`,
@@ -1737,21 +1771,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 11 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "SYSTEM DETAILS",
-				col: 6.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
@@ -1787,8 +1813,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"Input Tester": {
@@ -1798,6 +1822,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["167", "149"],
 		child: [
 			// Header
+			...preDefiendChildElement.header,
 			{
 				type: "text",
 				text: "INPUT TESTER",
@@ -1807,26 +1832,35 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `Press POWER to finish testing`,
 				row: 14.25,
 				style: {
-					font: ["81"], fontAlpha: ["82"],
+					font: ["31"], fontAlpha: ["82"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
-	"Theme Manager": {
-		title: "Theme Manager",
+	"Theme Picker": {
+		title: "Theme Picker",
 		preview: true,
 		wallpaper: ["168", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
 			{
 				type: "text",
-				text: `<i class="fa-solid fa-palette"></i> Theme name <br>`,
+				text: "THEME PICKER",
+				col: 6.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-palette"></i> Your brand new theme name! <br>`,
 				row: 1,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
@@ -1876,21 +1910,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 12 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "THEME MANAGER",
-				col: 6.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
@@ -1944,8 +1970,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"Time Zone Configuration": {
@@ -1953,6 +1977,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["169", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "TIMEZONE",
+				col: 8,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-globe"></i> Africa/Abidjan <br>`,
@@ -2005,21 +2039,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 12 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "TIMEZONE",
-				col: 8,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
@@ -2055,8 +2081,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"Activity Tracker": {
@@ -2071,6 +2095,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["171", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "ADVANCED SETTINGS",
+				col: 6.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-gamepad"></i> Gamepad Wait <br>`,
@@ -2140,21 +2174,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 5 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "ADVANCED SETTINGS",
-				col: 6.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
@@ -2190,8 +2216,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"General Settings": {
@@ -2199,6 +2223,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["172", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "GENERAL SETTINGS",
+				col: 6.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-sharp fa-solid fa-circle-play"></i> Launcher Sound <br>`,
@@ -2270,21 +2304,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 7 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "GENERAL SETTINGS",
-				col: 6.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
@@ -2320,8 +2346,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
-			...preDefiendChildElement.header,
 		]
 	},
 	"Web Services": {
@@ -2329,6 +2353,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		preview: true,
 		wallpaper: ["173", "149"],
 		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "GENERAL SETTINGS",
+				col: 6.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-terminal"></i> Secure Shell <br>`,
@@ -2396,21 +2430,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 4 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
 			},
-			// Header
-			{
-				type: "text",
-				text: "GENERAL SETTINGS",
-				col: 6.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
 			// Footer
+			...preDefiendChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
@@ -2446,8 +2472,316 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["72"], fontAlpha: ["73"],
 				}
 			},
-
+		]
+	},
+	"Vol/Bright Bar": {
+		title: "Vol/Bright Bar",
+		preview: true,
+		wallpaper: ["160", "149"],
+		child: [
+			// Header
 			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "muOS MAIN MENU",
+				col: 6.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
+			// Volume/Brightness box - these have to stay in this order or Bad Things Will Happen.
+			{ // Box border
+				type: "box",
+				row: 12.4,
+				col: .40,
+				size: { h: 40 * 1, w: 30 * 20.5},
+				style: {
+					background: ["140.3"], backgroundAlpha: ["140.4"],
+				}
+			},
+			{ 	// Box container
+				type: "box",
+				row: 12.5,
+				col: .5,
+				size: { h: 35 * 1, w: 30 * 20.3},
+				style: {
+					background: ["140.1"], backgroundAlpha: ["140.2"],
+				}
+			},
+			{	// Inside bar
+				type: "box",
+				row: 12.85,
+				col: 2,
+				size: { h: 15 * 1, w: 30 * 18.4},
+				style: {
+					background: ["140.6"], backgroundAlpha: ["140.7"],
+				}
+			},
+			{	// "Moving / Active" bar
+				type: "box",
+				row: 12.85,
+				col: 2,
+				size: { h: 15 * 1, w: 30 * 10},
+				style: {
+					background: ["140.8"], backgroundAlpha: ["140.9"],
+				}
+			},
+			{ // Sound icon - need to figure out how to get it smaller, as fa-2xs is not working.
+				type: "icon",
+				icon: "fa-solid fa-volume-off fa-2xs",
+				row: 13,
+				col: .5,
+				style: {
+					font: ["140.11"], fontAlpha: ["140.12"],
+				}
+			},
+			{
+				type: "text",
+				text: `Explore Content <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
+				}
+			},
+			// Highlight
+			{
+				type: "box",
+				row: 1,
+				expand: { x: true },
+				style: {
+					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// Indicator
+			{
+				type: "box",
+				row: 1,
+				size: { w: 5 },
+				style: {
+					background: ["89"], backgroundAlpha: ["90"],
+				}
+			},
+			// Additional Text
+			{
+				type: "text",
+				text: `
+					Favourites <br>
+					History <br>
+					Information <br>
+					Configuration <br>
+					PortMaster <br>
+					RetroArch <br>
+					Reboot <br>
+					Shutdown <br>
+				`,
+				row: 2,
+				style: {
+					font: ["81"], fontAlpha: ["82"],
+				}
+			},
+			{
+				type: "box",
+				row: 2,
+				expand: { x: true },
+				size: { h: 30 * 8 },
+				style: {
+					background: ["75"], backgroundAlpha: ["76"],
+				}
+			},
+			// Footer
+			...preDefiendChildElement.footer,
+			{
+				type: "text",
+				text: `<i class=glyph>⇓</i>`,
+				row: 14.25,
+				style: {
+					font: ["46"], fontAlpha: ["47"],
+				}
+			},
+			{
+				type: "text",
+				text: `Confirm`,
+				row: 14.25,
+				col: 1,
+				style: {
+					font: ["48"], fontAlpha: ["49"],
+				}
+			},
+			{
+				type: "text",
+				text: `<i class=glyph>⇥</i>`,
+				row: 14.25,
+				col: 4.3,
+				style: {
+					font: ["70"], fontAlpha: ["71"],
+				}
+			},
+			{
+				type: "text",
+				text: `Help`,
+				row: 14.25,
+				col: 5.3,
+				style: {
+					font: ["72"], fontAlpha: ["73"],
+				}
+			},
+		]
+	},
+	"Notifications": {
+		title: "Notifications",
+		preview: true,
+		wallpaper: ["168", "149"],
+		child: [
+			// Header
+			...preDefiendChildElement.header,
+			{
+				type: "text",
+				text: "THEME PICKER",
+				col: 6.5,
+				style: {
+					font: ["35"], fontAlpha: ["36"]
+				}
+			},
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-palette"></i> Your brand new theme name! <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
+				}
+			},
+			// Highlight
+			{
+				type: "box",
+				row: 1,
+				expand: { x: true },
+				style: {
+					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// Indicator
+			{
+				type: "box",
+				row: 1,
+				size: { w: 5 },
+				style: {
+					background: ["89"], backgroundAlpha: ["90"],
+				}
+			},
+			// Additional Text
+			{
+				type: "text",
+				text: `
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+					<i class="fa-solid fa-palette"></i> Theme name <br>
+				`,
+				row: 2,
+				style: {
+					font: ["81"], fontAlpha: ["82"],
+				}
+			},
+			{
+				type: "box",
+				row: 2,
+				expand: { x: true },
+				size: { h: 30 * 12 },
+				style: {
+					background: ["75"], backgroundAlpha: ["76"],
+				}
+			},
+			// Notification box - these have to stay in this order or Bad Things Will Happen.
+			{ // Box border
+				type: "box",
+				row: 12.4,
+				col: .40,
+				size: { h: 42 * 1, w: 30 * 20.5},
+				style: {
+					background: ["139.3"], backgroundAlpha: ["139.4"],
+				}
+			},
+			{ 	// Box container
+				type: "box",
+				row: 12.5,
+				col: .5,
+				size: { h: 37 * 1, w: 30 * 20.3},
+				style: {
+					background: ["139.1"], backgroundAlpha: ["139.2"],
+				}
+			},
+			{	// 
+				type: "text",
+				text: `Loading Theme`,
+				row: 12.5,
+				col: .5,
+				style: {
+					font: ["139.6"], fontAlpha: ["139.7"],
+				}
+			},
+			// Footer
+			...preDefiendChildElement.footer,
+			{
+				type: "text",
+				text: `<i class=glyph>⇓</i>`,
+				row: 14.25,
+				style: {
+					font: ["46"], fontAlpha: ["47"],
+				}
+			},
+			{
+				type: "text",
+				text: `Confirm`,
+				row: 14.25,
+				col: 1,
+				style: {
+					font: ["48"], fontAlpha: ["49"],
+				}
+			},
+			{
+				type: "text",
+				text: `<i class=glyph>⇒</i>`,
+				row: 14.25,
+				col: 4.3,
+				style: {
+					font: ["50"], fontAlpha: ["51"],
+				}
+			},
+			{
+				type: "text",
+				text: `Back`,
+				row: 14.25,
+				col: 5.3,
+				style: {
+					font: ["52"], fontAlpha: ["53"],
+				}
+			},
+			{
+				type: "text",
+				text: `<i class=glyph>⇥</i>`,
+				row: 14.25,
+				col: 7.3,
+				style: {
+					font: ["70"], fontAlpha: ["71"],
+				}
+			},
+			{
+				type: "text",
+				text: `Info`,
+				row: 14.25,
+				col: 8.3,
+				style: {
+					font: ["72"], fontAlpha: ["73"],
+				}
+			},
 		]
 	},
 }
