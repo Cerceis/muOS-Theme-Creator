@@ -4,7 +4,7 @@
         <v-divider class="my-2"/>
         
         <div class="toolContentCon grid gap-1 px-2">
-            <div class="nowrap d-flex gap-1">
+            <div class="nowrap d-flex gap-1 justify-space-between">
                 Replace color
                 <ToolTip text="Replace ALL the color from EVERYWHERE">
                     <v-icon>mdi-help-circle</v-icon>
@@ -13,8 +13,9 @@
                     <v-btn
                        @click="switchColorSwitcher"
                        color="primary"
+                       size="36"
                     >
-                        <v-icon>mdi-clover</v-icon>
+                        <v-icon size="large">mdi-swap-horizontal-bold</v-icon>
                     </v-btn>
                 </ToolTip>
             </div>
