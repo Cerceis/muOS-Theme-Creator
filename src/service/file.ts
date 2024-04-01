@@ -1,5 +1,5 @@
 import JSZip from "jszip";
-import { selectedTheme } from "@/service/theme";
+import { type MUOSThemeValues, selectedTheme, themeFunc, whitelistSchemeLabels } from "@/service/theme";
 import { TEXT_CREDIT, TEXT_SCHEME } from "@/service/text";
 import { assetFunc, assets } from "./assets";
 import { screen } from "@/service/screen";
@@ -118,63 +118,33 @@ export const initFolderStructure = (): MUOSThemeFolderStructure | null => {
 }
 export const generateZipTheme = () => {
     try{
-		/*
-        const folders = initFolderStructure();
-        if(!folders) throw "ERROR NULL";
-        folders.get([]).file("credits.txt", TEXT_CREDIT(selectedTheme.value.author), );    
-        folders.get(["scheme"]).file("default.txt", TEXT_SCHEME(selectedTheme.value.values)
-
-        // Process images
-        const imagesGroup = selectedTheme.value.values.find(group => group.label === "images");
-        if(imagesGroup){
-            for(let i = 0; i < imagesGroup.child.length; i++){
-                const child = imagesGroup.child[i];
-                if(
-                    !child.value || !child.folderPath ||
-                    child.value.length === 0 
-                ) continue;
-                const extendedFilename = `${child.property}${child.format}`;
-                if(child.folderPath.length === 0){
-                    folders.get([]).file(extendedFilename, child.value[0]);
-                    continue;
-                }
-                folders.get(child.folderPath).file(extendedFilename, child.value[0]);
-            }
-        }
-        
-        folders.zip.generateAsync({type:"blob"})
-		*/
 		const zip = new JSZip();
 		zip.file("credits.txt", TEXT_CREDIT(selectedTheme.value.author));
 		zip.file("scheme/default.txt", TEXT_SCHEME(selectedTheme.value.values));
-		const imagesGroup = selectedTheme.value.values.find(group => group.label === "images");
-        if(imagesGroup){
-            for(let i = 0; i < imagesGroup.child.length; i++){
-                const child = imagesGroup.child[i];
-                if(
-                    !child.value || !child.folderPath ||
-                    child.value.length === 0 
-                ) continue;
-                const extendedFilename = `${child.property}${child.format}`;
-                if(child.folderPath.length === 0){
-                    zip.file(`${extendedFilename}`, child.value[0]);
-                    continue;
+        
+        /* 
+            Take note that actual folder name is singular name.
+        */
+        const assetGroup = ["images", "fonts", "sounds", "music"]
+        assetGroup.forEach(aG => {
+            const targetGroup = selectedTheme.value.values.find(group => group.label === aG);
+            if(targetGroup){
+                for(let i = 0; i < targetGroup.child.length; i++){
+                    const child = targetGroup.child[i];
+                    if(
+                        !child.value || !child.folderPath ||
+                        child.value.length === 0 
+                    ) continue;
+                    const extendedFilename = `${child.property}${child.format}`;
+                    if(child.folderPath.length === 0){
+                        zip.file(`${extendedFilename}`, child.value[0]);
+                        continue;
+                    }
+                    zip.file(`${child.folderPath.join('/')}/${extendedFilename}`, child.value[0]);
                 }
-                zip.file(`${child.folderPath.join('/')}/${extendedFilename}`, child.value[0]);
             }
-        }
-
-		/**
-		 * Debug
-		 */
-		/*
-		const foundFont = assets.value.find(ass => ass.type === "font/otf");
-		console.log(foundFont)
-		if(foundFont && foundFont.bin !== null){
-			zip.file("font/default.bin", foundFont.bin);
-		}
-		*/
-
+        })
+	
 		zip.generateAsync({type:"blob"})
         .then(function(content) {
             promptDownload(content, `${selectedTheme.value.zipName}.zip`)
@@ -203,22 +173,27 @@ export const promptDownloadZip = (files: File[], zipname: string) => {
         promptDownload(content, `${zipname}.zip`)
     });
 }
-export const promptOpenFile = (accepts: string[] = ["image/*"]) => {
-    const tmpInput = document.createElement('input');
-    tmpInput.accept = accepts.join(",");
-    tmpInput.style.display = "none";
-    tmpInput.type = "file";
-    tmpInput.multiple = true;
-    document.body.appendChild(tmpInput);
-    tmpInput.click();
-    tmpInput.onchange = async(e: any) => {
-        if(!e || !e.target || !e.target.files) return;
-        if(e.target.files.length === 0) return;
-        for(let i = 0; i < e.target.files.length; i++){
-            await assetFunc.add(e.target.files[i]);
+export const promptOpenFile = (accepts: string[] = ["image/*"], multiple: boolean = true, addToAsset: boolean = true): Promise<File[]> => {
+    return new Promise((resolve) => {
+        const tmpInput = document.createElement('input');
+        tmpInput.accept = accepts.join(",");
+        tmpInput.style.display = "none";
+        tmpInput.type = "file";
+        tmpInput.multiple = multiple;
+        document.body.appendChild(tmpInput);
+        tmpInput.click();
+        tmpInput.onchange = async(e: any) => {
+            if(!e || !e.target || !e.target.files) return;
+            if(e.target.files.length === 0) return;
+            if(addToAsset){
+                for(let i = 0; i < e.target.files.length; i++){
+                    await assetFunc.add(e.target.files[i]);
+                }
+            }
+            resolve(e.target.files);
+            document.body.removeChild(tmpInput);
         }
-        document.body.removeChild(tmpInput);
-    }
+    })
 }
 
 // Generate a preview image & download
@@ -248,85 +223,131 @@ export const downloadPreviewImage = async() => {
     img.src = await fileToBase64(previewFile);
 }
 
+// Loading
+export const initLoadingSequence = async() => {
+    const files = await promptOpenFile(["application/zip", "text/plain"], false, false);
+    if(!files || files.length === 0) return;
+    const file = files[0];
+    if(file.type === "text/plain"){
+        const reader = new FileReader();
+        reader.onload = () => {
+            const fileContent = reader.result as string;
+            loadSchemeFile(fileContent)
+        };
+        reader.readAsText(file);
+    }
+    if(file.type === "application/zip"){
+        await loadZipFile(file);
+    }
+}
 
 
+export const extractLabelContext = (input: string): string[] => {
+    const regex = /\[(.*?)\]/g;
+    const matches: string[] = [];
+    let match;
+    while ((match = regex.exec(input)) !== null) {
+        matches.push(match[1]);
+    }
+    return matches;
+}
+export const loadSchemeFile = async(schemeText: string) => {
+    const schemeArr = schemeText.split("\n");
+    let currentGroup: MUOSThemeValues | null = null;
+    for(let i = 0; i < schemeArr.length; i++){
+        if(!schemeArr[i]) continue;
+        const extractedLabel = extractLabelContext(schemeArr[i])[0];
+        if(whitelistSchemeLabels.includes(extractedLabel)){
+            const targetGroup = selectedTheme.value.values.find(group => group.label === extractedLabel);
+            if(targetGroup) currentGroup = targetGroup;
+            continue;
+        }
+        if(currentGroup){
+            // Extract value;
+            const lineArr = schemeArr[i].split("=");
+            const propertyName = lineArr[0].trim();
+            const valueString = lineArr[1].trim();
+            for(let j = 0; j < currentGroup.child.length; j++){
+                if(currentGroup.child[j].property === propertyName){
+                    currentGroup.child[j].value = valueString;
+                }
+            }
+        }
+    }
+}
+
+// Some expected mimetype
+const mimetypeConversionMap: any = {
+    "bmp": "image/bmp",
+    "png": "image/png",
+    "mp3": "audio/mp3",
+}
+export const loadZipFile = async(f: File) => {
+    const loadedZip = await JSZip.loadAsync(f);
+    const whitelistFiles = [
+        { path: "image/bootlogo.bmp", bindId: "148"},
+        { path: "image/wall/default.png", bindId: "149"},
+        { path: "image/wall/muxcharge.png", bindId: "153"},
+        { path: "image/wall/muxconfig.png", bindId: "154"},
+        { path: "image/wall/muxcredits.png", bindId: "155"},
+        { path: "image/wall/muxfavourite.png", bindId: "157"},
+        { path: "image/wall/muxhistory.png", bindId: "158"},
+        { path: "image/wall/muxinfo.png", bindId: "159"},
+        { path: "image/wall/muxlaunch.png", bindId: "160"},
+        { path: "image/wall/muxplore.png", bindId: "162"},
+        { path: "image/wall/muxreset.png", bindId: "163"},
+        { path: "image/wall/muxtheme.png", bindId: "168"},
+        { path: "image/wall/muxassign.png", bindId: "152"},
+        { path: "image/wall/muxdevice.png", bindId: "156"},
+        { path: "image/wall/muxnetwork.png", bindId: "161"},
+        { path: "image/wall/muxrtc.png", bindId: "164"},
+        { path: "image/wall/muxstart.png", bindId: "165"},
+        { path: "image/wall/muxsysinfo.png", bindId: "166"},
+        { path: "image/wall/muxtester.png", bindId: "167"},
+        { path: "image/wall/muxtimezone.png", bindId: "169"},
+        { path: "image/wall/muxtracker.png", bindId: "170"},
+        { path: "image/wall/muxtweakadv.png", bindId: "171"},
+        { path: "image/wall/muxtweakgen.png", bindId: "172"},
+        { path: "image/wall/muxwebserv.png", bindId: "173"},
+        { path: "sound/shutdown.mp3", bindId: "175"},
+        { path: "sound/reboot.mp3", bindId: "176"},
+        { path: "sound/navigate.mp3", bindId: "177"},
+        { path: "sound/confirm.mp3", bindId: "178"},
+        { path: "sound/back.mp3", bindId: "179"},
+        { path: "music/default.mp3", bindId: "181"},
+        { path: "font/default.bin", bindId: "190.1"},
+    ];
+    // Reset default groups value;
+    themeFunc.resetGroup("images");
+    themeFunc.resetGroup("sounds");
+    themeFunc.resetGroup("music")
+    themeFunc.resetGroup("fonts")
+    loadedZip.forEach(async(relativePath, zipEntry) => {
+        //Schema
+        if(zipEntry.name === "scheme/default.txt"){
+            loadSchemeFile(await zipEntry.async("text"))
+        }
+        const foundWhiteListData = whitelistFiles.find(wLF => wLF.path === zipEntry.name);
+        if(foundWhiteListData){    
+            const filename = zipEntry.name.split("/").pop();
+            const format = zipEntry.name.split(".").pop();
+            if(filename && format && mimetypeConversionMap[format]){
+                const cleanBlobFile = await zipEntry.async("blob")
+                const blob = new Blob([cleanBlobFile], { type: mimetypeConversionMap[format] });
+                const newFile = new File([blob], filename, { type: mimetypeConversionMap[format] });
+                assetFunc.add(new File([blob], filename, { type: mimetypeConversionMap[format] }));
+                const targetChild = themeFunc.getChild(foundWhiteListData.bindId);
+                if(targetChild){
+                    targetChild.value = [newFile];
+                }
+            }           
+        }
+    }); 
+}
 
 /**
-  // Function to load a font file
-  function loadFontsFile(url) {
-    if (!url) {
-      return Promise.reject("Font URL is undefined.");
-    }
-  
-    return fetch(url)
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.blob();
-      })
-      .catch(function (error) {
-        console.error("Error loading font file:", error);
-        displayErrorMessage('Error loading font file: ' + error.message);
-        throw error; // Propagate the error to the next catch block
-      });
-  }
-
-  // Function to load and add user-uploaded font files to the zip folder
-  function addUserFontFilesToZip(file, filename, folder) {
-    return new Promise(function (resolve, reject) {
-      if (file.size <= 200 * 1024) {
-        var reader = new FileReader();
-        reader.onload = function (event) {
-          if (folder) {
-            // Do not include "font/" in the file path
-            folder.file(filename, event.target.result, { binary: true });
-            resolve();
-          } else {
-            reject(new Error("Folder is not defined."));
-          }
-        };
-        reader.readAsArrayBuffer(file);
-      } else {
-        var errorMessage = "File '" + file.name + "' uploaded for '" + filename + "' exceeds 200KB limit.";
-        reject(errorMessage);
-        displayErrorMessage(errorMessage);
-      }
-    });
-  }
-  // Function to load and add user-uploaded sound files to the zip folder
-  function addUserSoundFilesToZip(file, filename, folder) {
-    return new Promise(function (resolve, reject) {
-      if (file.size <= 200 * 1024) { // Check if file size is less than or equal to 200KB
-        var reader = new FileReader();
-        reader.onload = function (event) {
-          folder.file(filename, event.target.result, { binary: true });
-          resolve();
-        };
-        reader.readAsArrayBuffer(file);
-      } else {
-        var errorMessage = "File '" + file.name + "' uploaded for '" + filename + "' exceeds 200KB limit.";
-        reject(errorMessage);
-        displayErrorMessage(errorMessage);
-      }
-    });
-  }
-
-  // Function to load and add user-uploaded sound files to the zip folder
-  function addUserMusicFilesToZip(file, filename, folder) {
-    return new Promise(function (resolve, reject) {
-      if (file.size <= 2 * 1024 * 1024) { // Check if file size is less than or equal to 2MB
-        var reader = new FileReader();
-        reader.onload = function (event) {
-          folder.file(filename, event.target.result, { binary: true });
-          resolve();
-        };
-        reader.readAsArrayBuffer(file);
-      } else {
-        var errorMessage = "File '" + file.name + "' uploaded for '" + filename + "' exceeds 200KB limit.";
-        reject(errorMessage);
-        displayErrorMessage(errorMessage);
-      }
-    });
-  }
+ * Attempts to determine the mime type of a file or blob
+ *
+ * @param file
+ * @returns {Promise<unknown>}
  */

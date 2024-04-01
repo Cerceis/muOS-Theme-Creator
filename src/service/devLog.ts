@@ -4,6 +4,21 @@ type DevLog = {
     text: string // html works
 }
 export const devLog: DevLog[] = [
+    {
+        date: "2024-4-01",
+        version: "v0.9999",
+        text: `
+            <h3>Finally, we are soo close to a full release !</h3>
+            <h4>Changes</h4>
+			- Load theme (scheme or zip). <br>
+			- Full muOS v11 support. <br>
+            - Depreciated v10 support. <br>
+            - Music. <br>
+            - Sound. <br>
+            - Font. <br>
+            - QoL Changes. <br>
+        `
+    },
 	{
         date: "2024-03-30",
         version: "v0.64",

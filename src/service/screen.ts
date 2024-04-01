@@ -47,7 +47,7 @@ export type ScreenType = typeof screenList[number];
 
  * - See theme.ts for the id.
  * - The order of the id matter when in an array,
- *   [least important, ... ,most important]
+ *   [most important, ... , least important]
  */
 export interface ScreenData{
     title: ScreenType

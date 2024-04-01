@@ -1,7 +1,20 @@
 <template>
     <div class="asset-grid">
         <ToolTip v-for="a in assets" location="top" :text="`${a.filename}.${a.type.split('/')[1]}`">
+            <div 
+                v-if="a.type.includes('audio/')"
+                class="asset-item-default rounded"
+            >   
+                <v-icon size="x-large">mdi-music</v-icon>
+            </div>
+            <div 
+                v-else-if="a.type.includes('application/')"
+                class="asset-item-default rounded"
+            >   
+                <v-icon size="x-large">mdi-format-font</v-icon>
+            </div>
             <ImagePreview 
+                v-else
                 class="asset-item rounded"
                 @click="selectedImage = a; showImage = true"
                 :src="a.base64"
@@ -67,5 +80,12 @@ const selectedImage: Ref<Asset | null> = ref(null);
     gap: .25em;
     grid-template-columns: repeat( auto-fill, 68px );
     justify-content: center;
+}
+.asset-item-default{
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    background-color: rgba(255,255,255,0.2);
 }
 </style>

@@ -13,6 +13,7 @@
         <div class="d-flex gap-1 align-center">
 			<ToolTip location="bottom">
 				<template v-slot:text>
+                    Still in development<br>
 					What you can do here ? <br>
 					<ol class="pa-3">
 						<li>Resize image</li>
@@ -24,13 +25,13 @@
 				</template>
 				<ImageEditor />
 			</ToolTip>
-            <ToolTip text="Load theme">
+            <ToolTip text="Load theme (scheme.txt or the zip file)">
                 <v-btn
-                    @click=""
+                    @click="initLoadingSequence"
                     color="primary"
-                    size="36"
                 >
                     <v-icon size="large">mdi-folder-open</v-icon>
+                    Load
                 </v-btn>
             </ToolTip>
             <v-btn
@@ -58,15 +59,6 @@
                     size="36"
                 >
                     <v-icon size="large">mdi-coffee</v-icon>
-                </v-btn>
-            </ToolTip>
-            <ToolTip text="Debug, please don't press it you monster!">
-                <v-btn
-                    @click="debug()"
-                    color="primary"
-                    size="36"
-                >
-                    <v-icon size="large">mdi-diamond-stone</v-icon>
                 </v-btn>
             </ToolTip>
         </div>
@@ -97,9 +89,7 @@ import { VERSION } from "@/service/shared";
 import { devLog } from "@/service/devLog";
 import ToolTip from "@/components/buttons/ToolTip.vue";
 import ImageEditor from "@/components/global/Tools/ImageEditor/ImageEditor.vue";
-//debug
-import { debug } from "@/service/debug";
-
+import { initLoadingSequence } from "@/service/file";
 
 const showDevLog: Ref<boolean> = ref(false);
 

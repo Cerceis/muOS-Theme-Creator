@@ -6,16 +6,19 @@ import axios from 'axios';
 import { type MUOSThemeChild } from "@/service/theme";
 import { Generate } from "cerceis-lib";
 
-import defaultAsset1 from "@/assets/images/defaultImages/bootlogo.bmp";
-import defaultAsset2 from "@/assets/images/defaultImages/wall/default.png";
-import defaultAsset3 from "@/assets/images/defaultImages/wall/muxcharge.png";
-import defaultAsset4 from "@/assets/images/defaultImages/wall/muxstart.png";
-
 const defaultAssetData = [
-    { filename: "bootlogo", path: defaultAsset1, type: "image/bmp" },
-    { filename: "default-wallpaper", path: defaultAsset2, type: "image/png" },
-    { filename: "default-muxcharge", path: defaultAsset3, type: "image/png" },
-    { filename: "default-muxstart", path: defaultAsset4, type: "image/png" },
+    { filename: "bootlogo", path: new URL('@/assets/images/defaultImages/bootlogo.bmp', import.meta.url), type: "image/bmp" },
+    { filename: "default-wallpaper", path: new URL('@/assets/images/defaultImages/wall/default.png', import.meta.url), type: "image/png" },
+    { filename: "default-muxcharge", path: new URL('@/assets/images/defaultImages/wall/muxcharge.png', import.meta.url), type: "image/png" },
+    { filename: "default-muxstart", path: new URL('@/assets/images/defaultImages/wall/muxstart.png', import.meta.url), type: "image/png" },
+    // Fonts
+    { filename: "Comicsans", path: new URL('@/assets/images/defaultImages/font/comicsans.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "Helvetica", path: new URL('@/assets/images/defaultImages/font/helvetica.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "OpenDyslexicNerdFont-Regular", path: new URL('@/assets/images/defaultImages/font/OpenDyslexicNerdFont-Regular.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "Papyrus", path: new URL('@/assets/images/defaultImages/font/Papyrus.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "ProductSans-Regular", path: new URL('@/assets/images/defaultImages/font/ProductSans-Regular.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "Roboto-Light", path: new URL('@/assets/images/defaultImages/font/Roboto-Light.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "SpaceMonoNerdFont-Regular", path: new URL('@/assets/images/defaultImages/font/SpaceMonoNerdFont-Regular.bin', import.meta.url), type: "application/octet-stream" },
 ]
 
 export type Asset = {
@@ -33,11 +36,11 @@ export const assetFunc = {
         const nameArr = f.name.split(".")
         nameArr.pop();
         const filename = nameArr.join(""); 
-        assets.value.push({
+        assets.value.unshift({
             id: Generate.objectId(),
             filename: filename,
             base64: await fileToBase64(f), 
-			bin: f.type.includes("font") ? await fileToBinary(f) : null, 
+			bin: f.type.includes("font") ? f : null, 
             type: f.type,
             format: f.type.split("/")[1]
         } as Asset)
@@ -46,7 +49,7 @@ export const assetFunc = {
         const nameArr = name.split(".")
         nameArr.pop();
         const filename = nameArr.join(""); 
-        assets.value.push({
+        assets.value.unshift({
             id: Generate.objectId(),
             filename: filename,
             base64: base64, bin: null, 
@@ -102,7 +105,7 @@ export const assetFunc = {
     }
 }
 
-export const downloadAndConvertToBase64 = async(url: string, type: string): Promise<string> => {
+export const downloadAndConvertToBase64 = async(url: any, type: string): Promise<string> => {
     try {
         // Make HTTP GET request to download the file
         const response = await axios.get(url, {
@@ -158,23 +161,6 @@ export const base64ToFile = (base64: string, filename: string, mimetype: string)
     const blob = new Blob([byteArray], { type: mimetype });
     // Create a File object from the Blob
     return new File([blob], filename, { type: mimetype });
-}
-
-export const fileToBinary = (file: File): Promise<ArrayBuffer> => {
-    return new Promise<ArrayBuffer>((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => {
-            if (reader.result instanceof ArrayBuffer) {
-                resolve(reader.result);
-            } else {
-                reject(new Error("Failed to read file as ArrayBuffer"));
-            }
-        };
-        reader.onerror = () => {
-            reject(reader.error);
-        };
-        reader.readAsArrayBuffer(file);
-    });
 }
 
 export type AssetSelector = {

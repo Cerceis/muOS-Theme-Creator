@@ -2,6 +2,7 @@
     <v-btn
        @click="showImageEditor = !showImageEditor"
        color="primary"
+       disabled
     >
         <v-icon>mdi-image</v-icon>
         Image Editor

@@ -2,7 +2,7 @@
  * All theme related logic.
  * Basically the main file.
  */
-import { Generate } from "cerceis-lib";
+import { Generate, Is } from "cerceis-lib";
 import { type Ref, ref, computed } from "vue";
 import { assetFunc } from "@/service/assets";
 
@@ -40,6 +40,12 @@ export const selectedTheme = computed(() => {
     if (!foundTheme) return themes.value[0];
     return foundTheme;
 })
+
+export const whitelistSchemeLabels = [
+    "background", "font", "battery", "network", "bluetooth", "date",
+    "footer", "header", "help", "navigation", "list", "image_list",
+    "charging", "verbose", "keyboard", "notification", "bar", "meta"
+];
 
 export const themeFunc = {
     new: () => {
@@ -1194,24 +1200,6 @@ export const themeFunc = {
 						"preview": true,
                     },
                     {
-                        id: "150",
-                        "label": "[Depreciated on v11] Footer:",
-                        "property": "default",
-                        "value": [],
-                        "format": ".png",
-                        "des": "(.png)",
-                        "folderPath": ["image", "footer"]
-                    },
-                    {
-                        id: "151",
-                        "label": "[Depreciated on v11] Header:",
-                        "property": "default",
-                        "value": [],
-                        "format": ".png",
-                        "des": "(.png)",
-                        "folderPath": ["image", "header"]
-                    },
-                    {
                         id: "152",
                         "label": "Core Assignment Wallpaper:",
                         "property": "muxassign",
@@ -1415,7 +1403,7 @@ export const themeFunc = {
                     }
                 ]
             },
-            { // TODO: 
+            { 
                 id: "174",
                 label: "sounds",
                 child: [
@@ -1424,68 +1412,75 @@ export const themeFunc = {
                         "label": "Shutdown sound:",
                         "property": "shutdown",
                         "value": [],
-                        "format": "",
-                        "des": ""
+                        "format": ".mp3",
+                        "folderPath": ["sound"],
+                        "des": "(.mp3) Your shudown sound"
                     },
                     {
                         id: "176",
                         "label": "Reboot sound:",
                         "property": "reboot",
                         "value": [],
-                        "format": "",
-                        "des": ""
+                        "format": ".mp3",
+                        "folderPath": ["sound"],
+                        "des": "(.mp3) Your reboot sound"
                     },
                     {
                         id: "177",
                         "label": "Navigate sound:",
                         "property": "navigate",
                         "value": [],
-                        "format": "",
-                        "des": ""
+                        "format": ".mp3",
+                        "folderPath": ["sound"],
+                        "des": "(.mp3) Your navigation sound"
                     },
                     {
                         id: "178",
                         "label": "Confirm sound:",
                         "property": "confirm",
                         "value": [],
-                        "format": "",
-                        "des": ""
+                        "format": ".mp3",
+                        "folderPath": ["sound"],
+                        "des": "(.mp3) Your 「confirm」 sound"
                     },
                     {
                         id: "179",
                         "label": "Back sound:",
                         "property": "back",
                         "value": [],
-                        "format": "",
-                        "des": ""
+                        "format": ".mp3",
+                        "folderPath": ["sound"],
+                        "des": "(.mp3) Your 「back」 sound"
                     }
                 ]
             },
-            { // TODO: 
+            { 
                 id: "180",
                 label: "music",
                 child: [
                     {
                         id: "181",
                         "label": "music file:",
-                        "property": "musicFile",
-                        "value": [],
+                        "property": "default",
+                        "value": [], 
                         "format": ".mp3",
-                        "des": ""
+                        "folderPath": ["music"],
+                        "des": "(.mp3) Your music"
                     }
                 ]
             },
-            { // TODO: 
+            {
                 id: "190",
                 label: "fonts",
                 child: [
                     {
                         id: "190.1",
-                        "label": "",
-                        "property": "",
+                        "label": "Font",
+                        "property": "default",
                         "value": [],
-                        "format": "",
-                        "des": ""
+                        "format": ".bin",
+                        "folderPath": ["font"],
+                        "des": "(.bin) A binary file of a converted font file"
                     }
                 ]
             },
@@ -1500,6 +1495,20 @@ export const themeFunc = {
         }
         return null;
     },
+    resetGroup(groupLabel: string){
+        for(let i = 0; i < selectedTheme.value.values.length; i++){
+            if(selectedTheme.value.values[i].label === groupLabel){
+                for(let j = 0; j < selectedTheme.value.values[i].child.length; j++){
+                    if(Is.array(selectedTheme.value.values[i].child[j].value)){
+                        selectedTheme.value.values[i].child[j].value = []
+                        continue;
+                    }
+                    selectedTheme.value.values[i].child[j].value = "";
+                }
+                return;
+            }
+        }
+    }
 }
 
 export const selectedValueGroupLabel: Ref<string> = ref("");

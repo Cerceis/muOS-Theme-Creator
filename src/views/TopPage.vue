@@ -120,7 +120,7 @@
                         <div class="d-flex">
                             <template v-if="
                                 child.format === '.png' || child.format === '.bmp' ||
-                                child.format === '.mp3' // TODO: Font
+                                child.format === '.mp3' || child.format === '.bin'
                             ">
                                 <div class="d-flex gap-1 w-100">
                                     <v-file-input
