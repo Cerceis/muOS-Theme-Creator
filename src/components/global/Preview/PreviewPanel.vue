@@ -27,7 +27,7 @@
             </v-list>
         </div>
         <div v-if="screen.initiated" class="d-flex gap-1 justify-center w-100" :key="`preview-${viewKey}`">
-            <div class="previewWrapper" style="width: 348px; height: 261px">
+            <div id="mainPreviewScreen" class="previewWrapper" style="width: 348px; height: 261px">
                 <div class="text-center text-caption">{{ screen.history[0].title }}</div>
                 <Screen :key="screen.history[0].id" :screen="screen.history[0]" :scale="0.54375" />
             </div>

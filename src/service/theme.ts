@@ -77,24 +77,84 @@ export const themeFunc = {
                 label: "font",
                 child: [
                     {
-                        id: "5",
-                        label: "FONT_PAD_TOP", property: "FONT_PAD_TOP", value: "0",
-                        des: "Space above font"
+                        id: "4.1",
+                        label: "FONT_HEADER_PAD_TOP", property: "FONT_HEADER_PAD_TOP", value: "8",
+                        des: ""
                     },
                     {
-                        id: "6",
-                        label: "FONT_PAD_BOTTOM", property: "FONT_PAD_BOTTOM", value: "0",
-                        des: "Space below font"
+                        id: "4.2",
+                        label: "FONT_HEADER_PAD_BOTTOM", property: "FONT_HEADER_PAD_BOTTOM", value: "0",
+                        des: ""
                     },
                     {
-                        id: "7",
-                        label: "FONT_LIST_PAD_TOP", property: "FONT_LIST_PAD_TOP", value: "-1",
-                        des: "Space ?? font"
+                        id: "4.3",
+                        label: "FONT_HEADER_ICON_PAD_TOP", property: "FONT_HEADER_ICON_PAD_TOP", value: "0",
+                        des: ""
                     },
                     {
-                        id: "8",
+                        id: "4.4",
+                        label: "FONT_HEADER_ICON_PAD_BOTTOM", property: "FONT_HEADER_ICON_PAD_BOTTOM", value: "0",
+                        des: ""
+                    },
+                    {
+                        id: "4.5",
+                        label: "FONT_FOOTER_PAD_TOP", property: "FONT_FOOTER_PAD_TOP", value: "0",
+                        des: ""
+                    },
+                    {
+                        id: "4.6",
+                        label: "FONT_FOOTER_PAD_BOTTOM", property: "FONT_FOOTER_PAD_BOTTOM", value: "0",
+                        des: ""
+                    },
+                    {
+                        id: "4.7",
+                        label: "FONT_FOOTER_ICON_PAD_TOP", property: "FONT_FOOTER_ICON_PAD_TOP", value: "0",
+                        des: ""
+                    },
+                    {
+                        id: "4.8",
+                        label: "FONT_FOOTER_ICON_PAD_BOTTOM", property: "FONT_FOOTER_ICON_PAD_BOTTOM", value: "0",
+                        des: ""
+                    },
+                    {
+                        id: "4.9",
+                        label: "FONT_MESSAGE_PAD_TOP", property: "FONT_MESSAGE_PAD_TOP", value: "0",
+                        des: ""
+                    },
+                    {
+                        id: "4.10",
+                        label: "FONT_MESSAGE_PAD_BOTTOM", property: "FONT_MESSAGE_PAD_BOTTOM", value: "0",
+                        des: ""
+                    },
+                    {
+                        id: "4.11",
+                        label: "FONT_MESSAGE_ICON_PAD_TOP", property: "FONT_MESSAGE_ICON_PAD_TOP", value: "0",
+                        des: ""
+                    },
+                    {
+                        id: "4.12",
+                        label: "FONT_MESSAGE_ICON_PAD_BOTTOM", property: "FONT_MESSAGE_ICON_PAD_BOTTOM", value: "0",
+                        des: ""
+                    },
+                    {
+                        id: "4.13",
+                        label: "FONT_LIST_PAD_TOP", property: "FONT_LIST_PAD_TOP", value: "-3",
+                        des: ""
+                    },
+                    {
+                        id: "4.14",
                         label: "FONT_LIST_PAD_BOTTOM", property: "FONT_LIST_PAD_BOTTOM", value: "0",
-                        des: "Space ?? font"
+                        des: ""
+                    },
+                    {
+                        id: "4.15",
+                        label: "FONT_LIST_ICON_PAD_TOP", property: "FONT_LIST_ICON_PAD_TOP", value: "5",
+                        des: ""
+                    },
+                    {
+                        id: "4.16",
+                        label: "FONT_LIST_ICON_PAD_BOTTOM", property: "FONT_LIST_ICON_PAD_BOTTOM", value: "0",
+                        des: ""
                     },
                 ]
             },
@@ -259,10 +319,17 @@ export const themeFunc = {
                 label: "footer",
                 child: [
                     {
-                        id: "30",
+                        id: "29.1",
                         "label": "FOOTER_BACKGROUND",
                         "property": "FOOTER_BACKGROUND",
                         "value": "100808",
+                        "des": "No description available yet. Check back soon!"
+                    },
+                    {
+                        id: "29.2",
+                        "label": "FOOTER_BACKGROUND_ALPHA",
+                        "property": "FOOTER_BACKGROUND_ALPHA",
+                        "value": "185",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
@@ -286,10 +353,17 @@ export const themeFunc = {
                 label: "header",
                 child: [
                     {
-                        id: "34",
+                        id: "33.1",
                         "label": "HEADER_BACKGROUND",
                         "property": "HEADER_BACKGROUND",
                         "value": "100808",
+                        "des": "No description available yet. Check back soon!"
+                    },
+                    {
+                        id: "33.2",
+                        "label": "HEADER_BACKGROUND_ALPHA",
+                        "property": "HEADER_BACKGROUND_ALPHA",
+                        "value": "185",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
@@ -597,7 +671,7 @@ export const themeFunc = {
                         id: "78",
                         "label": "LIST_DEFAULT_GRADIENT_STOP",
                         "property": "LIST_DEFAULT_GRADIENT_STOP",
-                        "value": "0",
+                        "value": "200",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
@@ -671,7 +745,7 @@ export const themeFunc = {
                         id: "88",
                         "label": "LIST_FOCUS_GRADIENT_STOP",
                         "property": "LIST_FOCUS_GRADIENT_STOP",
-                        "value": "0",
+                        "value": "200",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
@@ -710,101 +784,45 @@ export const themeFunc = {
             },
             {
                 id: "93",
-                label: "image list",
+                label: "image_list",
                 child: [
                     {
-                        id: "94",
-                        "label": "IMAGE_LIST_BORDER",
-                        "property": "IMAGE_LIST_BORDER",
-                        "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
-                    },
-                    {
-                        id: "95",
-                        "label": "IMAGE_LIST_BORDER_ALPHA",
-                        "property": "IMAGE_LIST_BORDER_ALPHA",
-                        "value": "175",
-                        "des": "No description available yet. Check back soon!"
-                    },
-                    {
-                        id: "96",
+                        id: "93.1",
                         "label": "IMAGE_LIST_RADIUS",
                         "property": "IMAGE_LIST_RADIUS",
                         "value": "3",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "97",
-                        "label": "IMAGE_LIST_SHADOW",
-                        "property": "IMAGE_LIST_SHADOW",
-                        "value": "FF00FF",
-                        "des": "No description available yet. Check back soon!"
-                    },
-                    {
-                        id: "98",
-                        "label": "IMAGE_LIST_SHADOW_ALPHA",
-                        "property": "IMAGE_LIST_SHADOW_ALPHA",
-                        "value": "255",
-                        "des": "No description available yet. Check back soon!"
-                    },
-                    {
-                        id: "99",
+                        id: "93.2",
                         "label": "IMAGE_LIST_RECOLOUR",
                         "property": "IMAGE_LIST_RECOLOUR",
                         "value": "F7E318",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "100",
+                        id: "93.3",
                         "label": "IMAGE_LIST_RECOLOUR_ALPHA",
                         "property": "IMAGE_LIST_RECOLOUR_ALPHA",
                         "value": "0",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "101",
-                        "label": "IMAGE_PREVIEW_BORDER",
-                        "property": "IMAGE_PREVIEW_BORDER",
-                        "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
-                    },
-                    {
-                        id: "102",
-                        "label": "IMAGE_PREVIEW_BORDER_ALPHA",
-                        "property": "IMAGE_PREVIEW_BORDER_ALPHA",
-                        "value": "175",
-                        "des": "No description available yet. Check back soon!"
-                    },
-                    {
-                        id: "103",
+                        id: "93.4",
                         "label": "IMAGE_PREVIEW_RADIUS",
                         "property": "IMAGE_PREVIEW_RADIUS",
                         "value": "3",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "104",
-                        "label": "IMAGE_PREVIEW_SHADOW",
-                        "property": "IMAGE_PREVIEW_SHADOW",
-                        "value": "FF00FF",
-                        "des": "No description available yet. Check back soon!"
-                    },
-                    {
-                        id: "105",
-                        "label": "IMAGE_PREVIEW_SHADOW_ALPHA",
-                        "property": "IMAGE_PREVIEW_SHADOW_ALPHA",
-                        "value": "255",
-                        "des": "No description available yet. Check back soon!"
-                    },
-                    {
-                        id: "106",
+                        id: "93.5",
                         "label": "IMAGE_PREVIEW_RECOLOUR",
                         "property": "IMAGE_PREVIEW_RECOLOUR",
                         "value": "F7E318",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "107",
+                        id: "93.6",
                         "label": "IMAGE_PREVIEW_RECOLOUR_ALPHA",
                         "property": "IMAGE_PREVIEW_RECOLOUR_ALPHA",
                         "value": "0",
@@ -903,126 +921,126 @@ export const themeFunc = {
                 label: "keyboard",
                 child: [
                     {
-                        id: "121",
+                        id: "120.1",
                         "label": "OSK_BACKGROUND",
                         "property": "OSK_BACKGROUND",
                         "value": "100808",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "122",
+                        id: "120.2",
                         "label": "OSK_BACKGROUND_ALPHA",
                         "property": "OSK_BACKGROUND_ALPHA",
-                        "value": "175",
+                        "value": "255",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "123",
+                        id: "120.3",
                         "label": "OSK_BORDER",
                         "property": "OSK_BORDER",
                         "value": "F7E318",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "124",
+                        id: "120.4",
                         "label": "OSK_BORDER_ALPHA",
                         "property": "OSK_BORDER_ALPHA",
                         "value": "255",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "125",
+                        id: "120.5",
                         "label": "OSK_RADIUS",
                         "property": "OSK_RADIUS",
                         "value": "3",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "126",
+                        id: "120.6",
                         "label": "OSK_TEXT",
                         "property": "OSK_TEXT",
                         "value": "A5B2B5",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "127",
+                        id: "120.7",
                         "label": "OSK_TEXT_ALPHA",
                         "property": "OSK_TEXT_ALPHA",
-                        "value": "175",
+                        "value": "255",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "128",
+                        id: "120.8",
                         "label": "OSK_TEXT_FOCUS",
                         "property": "OSK_TEXT_FOCUS",
                         "value": "F7E318",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "129",
+                        id: "120.9",
                         "label": "OSK_TEXT_FOCUS_ALPHA",
                         "property": "OSK_TEXT_FOCUS_ALPHA",
                         "value": "255",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "130",
+                        id: "120.10",
                         "label": "OSK_ITEM_BACKGROUND",
                         "property": "OSK_ITEM_BACKGROUND",
                         "value": "100808",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "131",
+                        id: "120.11",
                         "label": "OSK_ITEM_BACKGROUND_ALPHA",
                         "property": "OSK_ITEM_BACKGROUND_ALPHA",
                         "value": "255",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "132",
+                        id: "120.12",
                         "label": "OSK_ITEM_BACKGROUND_FOCUS",
                         "property": "OSK_ITEM_BACKGROUND_FOCUS",
                         "value": "100808",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "133",
+                        id: "120.13",
                         "label": "OSK_ITEM_BACKGROUND_FOCUS_ALPHA",
                         "property": "OSK_ITEM_BACKGROUND_FOCUS_ALPHA",
                         "value": "255",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "134",
+                        id: "120.14",
                         "label": "OSK_ITEM_BORDER",
                         "property": "OSK_ITEM_BORDER",
                         "value": "F7E318",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "135",
+                        id: "120.15",
                         "label": "OSK_ITEM_BORDER_ALPHA",
                         "property": "OSK_ITEM_BORDER_ALPHA",
                         "value": "175",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "136",
+                        id: "120.16",
                         "label": "OSK_ITEM_BORDER_FOCUS",
                         "property": "OSK_ITEM_BORDER_FOCUS",
                         "value": "F7E318",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "137",
+                        id: "120.17",
                         "label": "OSK_ITEM_BORDER_FOCUS_ALPHA",
                         "property": "OSK_ITEM_BORDER_FOCUS_ALPHA",
                         "value": "255",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "138",
+                        id: "120.18",
                         "label": "OSK_ITEM_RADIUS",
                         "property": "OSK_ITEM_RADIUS",
                         "value": "3",
@@ -1035,54 +1053,119 @@ export const themeFunc = {
                 label: "notification",
                 child: [
                     {
-                        id: "140",
+                        id: "139.1",
                         "label": "MSG_BACKGROUND",
                         "property": "MSG_BACKGROUND",
                         "value": "100808",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "141",
+                        id: "139.2",
                         "label": "MSG_BACKGROUND_ALPHA",
                         "property": "MSG_BACKGROUND_ALPHA",
-                        "value": "175",
+                        "value": "255",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "142",
+                        id: "139.3",
                         "label": "MSG_BORDER",
                         "property": "MSG_BORDER",
                         "value": "F7E318",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "143",
+                        id: "139.4",
                         "label": "MSG_BORDER_ALPHA",
                         "property": "MSG_BORDER_ALPHA",
                         "value": "255",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "144",
+                        id: "139.5",
                         "label": "MSG_RADIUS",
                         "property": "MSG_RADIUS",
                         "value": "3",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "145",
+                        id: "139.6",
                         "label": "MSG_TEXT",
                         "property": "MSG_TEXT",
                         "value": "F7E318",
                         "des": "No description available yet. Check back soon!"
                     },
                     {
-                        id: "146",
+                        id: "139.7",
                         "label": "MSG_TEXT_ALPHA",
                         "property": "MSG_TEXT_ALPHA",
                         "value": "255",
                         "des": "No description available yet. Check back soon!"
                     }
+                ]
+            },
+            {
+                id: "140",
+                label: "bar",
+                child: [
+                    {   id: "140.1",
+                        label: "BAR_BACKGROUND", property: "BAR_BACKGROUND", value: "100808",
+                        des: ""
+                    },
+                    {   id: "140.2",
+                        label: "BAR_BACKGROUND_ALPHA", property: "BAR_BACKGROUND_ALPHA", value: "255",
+                        des: ""
+                    },
+                    {   id: "140.3",
+                        label: "BAR_BORDER", property: "BAR_BORDER", value: "F7E318",
+                        des: ""
+                    },
+                    {   id: "140.4",
+                        label: "BAR_BORDER_ALPHA", property: "BAR_BORDER_ALPHA", value: "255",
+                        des: ""
+                    },
+                    {   id: "140.5",
+                        label: "BAR_RADIUS", property: "BAR_RADIUS", value: "3",
+                        des: ""
+                    },
+                    {   id: "140.6",
+                        label: "BAR_PROGRESS_BACKGROUND", property: "BAR_PROGRESS_BACKGROUND", value: "7E730C",
+                        des: ""
+                    },
+                    {   id: "140.7",
+                        label: "BAR_PROGRESS_BACKGROUND_ALPHA", property: "BAR_PROGRESS_BACKGROUND_ALPHA", value: "255",
+                        des: ""
+                    },
+                    {   id: "140.8",
+                        label: "BAR_PROGRESS_ACTIVE_BACKGROUND", property: "BAR_PROGRESS_ACTIVE_BACKGROUND", value: "F7E318",
+                        des: ""
+                    },
+                    {   id: "140.9",
+                        label: "BAR_PROGRESS_ACTIVE_BACKGROUND_ALPHA", property: "BAR_PROGRESS_ACTIVE_BACKGROUND_ALPHA", value: "255",
+                        des: ""
+                    },
+                    {   id: "140.10",
+                        label: "BAR_PROGRESS_RADIUS", property: "BAR_PROGRESS_RADIUS", value: "3",
+                        des: ""
+                    },
+                    {   id: "140.11",
+                        label: "BAR_ICON", property: "BAR_ICON", value: "F7E318",
+                        des: ""
+                    },
+                    {   id: "140.12",
+                        label: "BAR_ICON_ALPHA", property: "BAR_ICON_ALPHA", value: "255",
+                        des: ""
+                    },
+
+                ]
+            },
+            {
+                id: "141",
+                label: "meta",
+                child: [
+                    {   id: "141.1",
+                        label: "META_CUT", property: "META_CUT", value: "40",
+                        des: `(INT >= 0) "decides how many characters on each line before making a new one !" said Jupy.`
+                    },
                 ]
             },
             {
@@ -1392,7 +1475,20 @@ export const themeFunc = {
                     }
                 ]
             },
-            // TODO: fonts
+            { // TODO: 
+                id: "190",
+                label: "fonts",
+                child: [
+                    {
+                        id: "190.1",
+                        "label": "",
+                        "property": "",
+                        "value": [],
+                        "format": "",
+                        "des": ""
+                    }
+                ]
+            },
         ] as MUOSThemeValues[]
     },
     getChild(id: string){

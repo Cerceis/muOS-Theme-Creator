@@ -20,7 +20,7 @@ export const TEXT_SCHEME = (themeValue: MUOSThemeValues[]) => {
     const whitelistLabels = [
         "background", "font", "battery", "network", "bluetooth", "date",
         "footer", "header", "help", "navigation", "list", "image_list",
-        "charging", "verbose", "keyboard", "notification"
+        "charging", "verbose", "keyboard", "notification", "bar", "meta"
     ];
     for(let i = 0; i < themeValue.length; i++) {
         const tV = themeValue[i];

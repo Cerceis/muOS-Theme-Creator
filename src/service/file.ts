@@ -2,7 +2,10 @@ import JSZip from "jszip";
 import { selectedTheme } from "@/service/theme";
 import { TEXT_CREDIT, TEXT_SCHEME } from "@/service/text";
 import { assetFunc, assets } from "./assets";
-
+import { screen } from "@/service/screen";
+import html2canvas from "html2canvas";
+import { base64ToFile, fileToBase64 } from "@/service/assets";
+import { Delay } from "cerceis-lib";
 /**
  * Generate a zipped theme
  * file list:
@@ -180,10 +183,7 @@ export const generateZipTheme = () => {
         console.log(err)
     }
 }
-/*
-const img = zip.folder("images");
-img.file("smile.gif", imgData, {base64: true});
-*/
+
 export const promptDownload = (fileData: Blob, filename: string) => {
     const elem = window.document.createElement('a');
     elem.href = window.URL.createObjectURL(fileData);
@@ -219,6 +219,33 @@ export const promptOpenFile = (accepts: string[] = ["image/*"]) => {
         }
         document.body.removeChild(tmpInput);
     }
+}
+
+// Generate a preview image & download
+export const downloadPreviewImage = async() => {
+    screen.value.focus("Home");
+    await Delay(500);
+    const previewElement = document.getElementById('mainPreviewScreen')?.getElementsByClassName("previewCon");
+    if(!previewElement) return;
+    const resultCanvas = await html2canvas(previewElement[0] as any);
+    const b64 = resultCanvas.toDataURL();
+    const filename = `${selectedTheme.value.zipName}.png`;
+    const img = new Image()
+    img.onload = ()=>{
+        const imageWidth = 288;
+        const imageHeight = 216
+        const canvas = document.createElement('canvas')
+        canvas.width = imageWidth
+        canvas.height = imageHeight
+        const ctx = canvas.getContext('2d')
+        ctx?.drawImage(img, 0, 0, Number(imageWidth.toFixed(0)), Number(imageHeight.toFixed(0)))
+        promptDownload(
+            base64ToFile(canvas.toDataURL().split(",")[1], filename, "image/png"),
+            filename,
+        )
+    };
+    const previewFile = base64ToFile(b64.split(",")[1], filename, "image/png");
+    img.src = await fileToBase64(previewFile);
 }
 
 

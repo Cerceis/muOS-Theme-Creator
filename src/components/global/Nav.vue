@@ -8,7 +8,7 @@
 			density="compact"
 			class="mx-3"
 		>
-			Currently in migration to v11, if found any bug, tag @Cerceis at discord.
+			Should work in v11 now. Support for v10 is depreciated.
 		</v-alert>
         <div class="d-flex gap-1 align-center">
 			<ToolTip location="bottom">

@@ -39,8 +39,8 @@
 									Optimized Theme
 							</v-list-item>
 						</ToolTip>
-						<ToolTip text="Generate a preview image for your theme, place it into info/theme/preview/" location="right">
-							<v-list-item @click="" disabled>
+						<ToolTip text="Generate a preview image for your theme, place it into /theme/preview/" location="right">
+							<v-list-item @click="downloadPreviewImage">
 								<template v-slot:prepend>
 									<v-icon>mdi-download</v-icon>
 									<v-icon>mdi-image</v-icon>
@@ -188,7 +188,7 @@ import {
 } from "@/service/theme";
 import { ref, computed } from "vue";
 import type { ComputedRef, Ref } from "vue";
-import { generateZipTheme } from "@/service/file";
+import { generateZipTheme, downloadPreviewImage } from "@/service/file";
 import ColorPicker from "@/components/global/ColorPicker.vue";
 import ToolsPanel from "@/components/global/Tools/ToolsPanel.vue";
 import { isHexColor } from "@/service/shared";
