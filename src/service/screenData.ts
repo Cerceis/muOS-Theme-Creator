@@ -207,10 +207,9 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: `
 					Favourites <br>
 					History <br>
+					Applications <br>
 					Information <br>
 					Configuration <br>
-					PortMaster <br>
-					RetroArch <br>
 					Reboot <br>
 					Shutdown <br>
 				`,
@@ -223,7 +222,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "box",
 				row: 2,
 				expand: { x: true },
-				size: { h: 30 * 8 },
+				size: { h: 30 * 7 },
 				style: {
 					background: ["75"], backgroundAlpha: ["76"],
 				}
