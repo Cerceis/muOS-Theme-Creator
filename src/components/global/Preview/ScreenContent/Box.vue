@@ -33,6 +33,9 @@ const computedStyle = computed(() => {
             _cs.backgroundAlpha ? themeFunc.getChild(_cs.backgroundAlpha[0])?.value/255 : 1
         );
     }
+	if(_cs.borderRadius){
+		_style.borderRadius = `${themeFunc.getChild(_cs.borderRadius[0])?.value}px`;
+	}
     if(!props.content.expand || !props.content.expand.x)
         _style.width = `${props.content.size.w}px`;
     if(!props.content.expand || !props.content.expand.y)

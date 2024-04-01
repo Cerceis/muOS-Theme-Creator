@@ -44,7 +44,8 @@ export const selectedTheme = computed(() => {
 export const whitelistSchemeLabels = [
     "background", "font", "battery", "network", "bluetooth", "date",
     "footer", "header", "help", "navigation", "list", "image_list",
-    "charging", "verbose", "keyboard", "notification", "bar", "meta"
+    "charging", "verbose", "keyboard", "notification", "bar", "meta",
+	"misc"
 ];
 
 export const themeFunc = {
@@ -1172,6 +1173,20 @@ export const themeFunc = {
                         label: "META_CUT", property: "META_CUT", value: "40",
                         des: `(INT >= 0) "decides how many characters on each line before making a new one !" said Jupy.`
                     },
+                ]
+            },
+			{
+                id: "142",
+                label: "misc",
+                child: [
+                    {   id: "142.1",
+                        label: "ANIMATED_BACKGROUND", property: "ANIMATED_BACKGROUND", value: "1",
+                        des: `(0 or 1) Trigger background image format. 0 = PNG, 1 = GIF`
+                    },
+					{   id: "142.2",
+						label: "NAVIGATION_TYPE", property: "NAVIGATION_TYPE", value: "0",
+						des: `(0 or 1) Navigtion direction. 0 = Up & Down, 1 = Left & Right`
+					},
                 ]
             },
             {
