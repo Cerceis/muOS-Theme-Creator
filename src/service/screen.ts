@@ -27,12 +27,14 @@ export const screenList = [
     "Verbose Boot Startup",
     "System Information",
     "Input Tester",
-    "Theme Manager",
+    "Theme Picker",
     "Time Zone Configuration",
     "Activity Tracker",
     "Advanced Settings",
     "General Settings",
     "Web Services",
+    "Vol/Bright Bar",
+    "Notifications",
 ] as const
 
 export type ScreenType = typeof screenList[number];
