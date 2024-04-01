@@ -77,7 +77,9 @@ export type ScreenContent = {
         imageSrc?: string[],    // Not implemented yet, still no uses.
         imageAlpha?: string[],  // Not implemented yet, still no uses.
         // text alignment
-        textAlign?: "center" | "left" | "right"
+        textAlign?: "center" | "left" | "right",
+		// Border radius usually for box
+		borderRadius?: string[]
     }
 }
 /**
@@ -165,6 +167,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+					borderRadius: ["140.5"]
 				}
 			},
 			// Indicator

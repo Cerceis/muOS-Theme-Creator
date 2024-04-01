@@ -19,3 +19,6 @@ How to run:
 # Where to start contribute
 - You could search for 「TODO:」comments scatterd around the code, you could start there
 - You also could contribute by making some new preview screens. Go src/service/screenData.ts and read the instruction to make a preview screen. It's built on custom framework so no knowledge of Vue JS is needed but simple web knowledge.
+
+# How to:
+- Still in construction.
