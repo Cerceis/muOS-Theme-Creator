@@ -48,7 +48,7 @@
 								Preview Image
 							</v-list-item>
 						</ToolTip>
-						<v-list-item @click="" disabled>
+						<v-list-item @click="downloadScheme">
 							<template v-slot:prepend>
 								<v-icon>mdi-download</v-icon>
 								<v-icon>mdi-file</v-icon>
@@ -188,7 +188,7 @@ import {
 } from "@/service/theme";
 import { ref, computed } from "vue";
 import type { ComputedRef, Ref } from "vue";
-import { generateZipTheme, downloadPreviewImage } from "@/service/file";
+import { generateZipTheme, downloadPreviewImage, downloadScheme } from "@/service/file";
 import ColorPicker from "@/components/global/ColorPicker.vue";
 import ToolsPanel from "@/components/global/Tools/ToolsPanel.vue";
 import { isHexColor } from "@/service/shared";

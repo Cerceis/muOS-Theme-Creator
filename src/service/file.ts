@@ -154,6 +154,14 @@ export const generateZipTheme = () => {
     }
 }
 
+export const downloadScheme = () => {
+    promptDownload(
+        new Blob([TEXT_SCHEME(selectedTheme.value.values)], {type: 'text/plain'}),
+        "default.txt"
+    )
+    
+}
+
 export const promptDownload = (fileData: Blob, filename: string) => {
     const elem = window.document.createElement('a');
     elem.href = window.URL.createObjectURL(fileData);
