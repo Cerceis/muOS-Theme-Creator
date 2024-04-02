@@ -101,8 +101,9 @@ export const preDefiendChildElement = {
 		// Need to investigate how we can use the FONT_HEADER items for offsets here.... - jupy <3
 		{
 			type: "box",
+			row: -0.34,
 			expand: { x: true },
-			size: { h: 30 * 1 },
+			size: { h: 30 * 1.34 },
 			style: {
 				background: ["33.1"], backgroundAlpha: ["33.2"],
 			}
@@ -174,14 +175,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `Explore Content <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -190,6 +183,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
 					borderRadius: ["140.5"]
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-chess-rook"></i> Explore Content <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -205,13 +207,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `
-					Favourites <br>
-					History <br>
-					Applications <br>
-					Information <br>
-					Configuration <br>
-					Reboot <br>
-					Shutdown <br>
+					<i class="fa-solid fa-star"></i> Favourites <br>
+					<i class="fa-solid fa-history"></i> History <br>
+					<i class="fa-solid fa-shapes"></i> Applications <br>
+					<i class="fa-solid fa-info-circle"></i> Information <br>
+					<i class="fa-solid fa-cog"></i> Configuration <br>
+					<i class="fa-solid fa-arrows-rotate"></i> Reboot <br>
+					<i class="fa-solid fa-power-off"></i> Shutdown <br>
 				`,
 				row: 2,
 				style: {
@@ -301,14 +303,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-server"></i> Core name <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -316,6 +310,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-server"></i> Core name <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -430,14 +433,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `General Settings <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -445,6 +440,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `General Settings <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -554,14 +558,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-chess-knight"></i> garlicOS <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -569,6 +565,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-chess-knight"></i> garlicOS <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -655,14 +660,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-gamepad"></i> RG35XX - H <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -670,6 +667,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-gamepad"></i> RG35XX - H <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -758,14 +764,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-file"></i> Content Name <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -773,6 +771,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-file"></i> Content Name <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -898,14 +905,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-file"></i> Content Name <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -913,6 +912,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-file"></i> Content Name <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -1020,14 +1028,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-gamepad"></i> Input Tester <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -1035,6 +1035,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on Screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-gamepad"></i> Input Tester <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -1138,6 +1147,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
+			// Highlight
+			{
+				type: "box",
+				row: 1,
+				expand: { x: true },
+				style: {
+					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-check-square"></i> Enabled <br>`,
@@ -1153,15 +1172,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				col: 19,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
-				}
-			},
-			// Highlight
-			{
-				type: "box",
-				row: 1,
-				expand: { x: true },
-				style: {
-					background: ["85"], backgroundAlpha: ["86"],
 				}
 			},
 			// Indicator
@@ -1292,14 +1302,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-folder"></i> SD1 (mmc) <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -1307,6 +1309,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-folder"></i> SD1 (mmc) <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -1411,14 +1422,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-spray-can"></i> Clear Favourite Items <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -1426,6 +1429,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-spray-can"></i> Clear Favourite Items <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -1535,6 +1547,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
+			// Highlight
+			{
+				type: "box",
+				row: 1,
+				expand: { x: true },
+				style: {
+					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-calendar"></i> Year <br>`,
@@ -1550,15 +1572,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				col: 18.75,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
-				}
-			},
-			// Highlight
-			{
-				type: "box",
-				row: 1,
-				expand: { x: true },
-				style: {
-					background: ["85"], backgroundAlpha: ["86"],
 				}
 			},
 			// Indicator
@@ -1688,6 +1701,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
+			// Highlight
+			{
+				type: "box",
+				row: 1,
+				expand: { x: true },
+				style: {
+					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-server"></i> muOS Version <br>`,
@@ -1703,15 +1726,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				col: 14.4,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
-				}
-			},
-			// Highlight
-			{
-				type: "box",
-				row: 1,
-				expand: { x: true },
-				style: {
-					background: ["85"], backgroundAlpha: ["86"],
 				}
 			},
 			// Indicator
@@ -1857,14 +1871,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-palette"></i> Your brand new theme name! <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -1872,6 +1878,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-palette"></i> Your brand new theme name! <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -1986,14 +2001,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-globe"></i> Africa/Abidjan <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -2001,6 +2008,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-globe"></i> Africa/Abidjan <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -2104,6 +2120,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
+			// Highlight
+			{
+				type: "box",
+				row: 1,
+				expand: { x: true },
+				style: {
+					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-gamepad"></i> Gamepad Wait <br>`,
@@ -2119,15 +2145,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				col: 17.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
-				}
-			},
-			// Highlight
-			{
-				type: "box",
-				row: 1,
-				expand: { x: true },
-				style: {
-					background: ["85"], backgroundAlpha: ["86"],
 				}
 			},
 			// Indicator
@@ -2232,6 +2249,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
+			// Highlight
+			{
+				type: "box",
+				row: 1,
+				expand: { x: true },
+				style: {
+					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
 			{
 				type: "text",
 				text: `<i class="fa-sharp fa-solid fa-circle-play"></i> Launcher Sound <br>`,
@@ -2247,15 +2274,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				col: 17.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
-				}
-			},
-			// Highlight
-			{
-				type: "box",
-				row: 1,
-				expand: { x: true },
-				style: {
-					background: ["85"], backgroundAlpha: ["86"],
 				}
 			},
 			// Indicator
@@ -2362,6 +2380,16 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
+			// Highlight
+			{
+				type: "box",
+				row: 1,
+				expand: { x: true },
+				style: {
+					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-terminal"></i> Secure Shell <br>`,
@@ -2377,15 +2405,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				col: 17.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
-				}
-			},
-			// Highlight
-			{
-				type: "box",
-				row: 1,
-				expand: { x: true },
-				style: {
-					background: ["85"], backgroundAlpha: ["86"],
 				}
 			},
 			// Indicator
@@ -2534,14 +2553,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["140.11"], fontAlpha: ["140.12"],
 				}
 			},
-			{
-				type: "text",
-				text: `Explore Content <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -2549,6 +2560,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-chess-rook"></i> Explore Content <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
@@ -2564,14 +2584,13 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `
-					Favourites <br>
-					History <br>
-					Information <br>
-					Configuration <br>
-					PortMaster <br>
-					RetroArch <br>
-					Reboot <br>
-					Shutdown <br>
+					<i class="fa-solid fa-star"></i> Favourites <br>
+					<i class="fa-solid fa-history"></i> History <br>
+					<i class="fa-solid fa-shapes"></i> Applications <br>
+					<i class="fa-solid fa-info-circle"></i> Information <br>
+					<i class="fa-solid fa-cog"></i> Configuration <br>
+					<i class="fa-solid fa-arrows-rotate"></i> Reboot <br>
+					<i class="fa-solid fa-power-off"></i> Shutdown <br>
 				`,
 				row: 2,
 				style: {
@@ -2641,14 +2660,6 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					font: ["35"], fontAlpha: ["36"]
 				}
 			},
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-palette"></i> Your brand new theme name! <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
 			// Highlight
 			{
 				type: "box",
@@ -2656,6 +2667,15 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
+				}
+			},
+			// First words on screen
+			{
+				type: "text",
+				text: `<i class="fa-solid fa-palette"></i> Your brand new theme name! <br>`,
+				row: 1,
+				style: {
+					font: ["91"], fontAlpha: ["92"],
 				}
 			},
 			// Indicator
