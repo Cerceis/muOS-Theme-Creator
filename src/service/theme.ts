@@ -1162,7 +1162,8 @@ export const themeFunc = {
                     },
                     {   id: "140.10",
                         label: "BAR_PROGRESS_RADIUS", property: "BAR_PROGRESS_RADIUS", value: "3",
-                        des: ""
+                        des: "(INT >= 0) THe border radius of the progress bar in pixel",
+                        preview: true,
                     },
                     {   id: "140.11",
                         label: "BAR_ICON", property: "BAR_ICON", value: "F7E318",

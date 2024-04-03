@@ -54,6 +54,7 @@ export const volBrightBar: ScreenData = {
             size: { h: 15 * 1, w: 30 * 10},
             style: {
                 background: ["140.8"], backgroundAlpha: ["140.9"],
+                borderLeft: ["140.10"]
             }
         },
         { // Sound icon - need to figure out how to get it smaller, as fa-2xs is not working.

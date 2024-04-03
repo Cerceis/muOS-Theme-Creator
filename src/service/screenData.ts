@@ -106,7 +106,7 @@ export type ScreenContent = {
         textAlign?: "center" | "left" | "right",
         /*
             * ╔═.✵.══════════╗
-            *     Image
+            *      Image
             * ╚══════════.✵.═╝
          */
         imageSrc?: string[],    // Not implemented yet, still no uses.

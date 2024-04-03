@@ -75,6 +75,7 @@ type NewScreenContentOptions = {
         imageSrc?: string[],
         imageAlpha?: string[],
         textAlign?: "center" | "left" | "right",
+        // lol need to update
     }
 }
 export const newScreenContent = (options: NewScreenContentOptions = {}): ScreenContent => {
