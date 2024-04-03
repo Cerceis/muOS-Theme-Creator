@@ -1,4 +1,22 @@
 import { type ScreenData, type ScreenType } from "@/service/screen";
+import { preDefiendChildElement } from "@/service/screenData/preDefinedChildElements";
+// ScreenData imports
+import { boot } from "./screenData/boot";
+import { home } from "./screenData/home";
+import { charging } from "./screenData/charging";
+import { volBrightBar } from "./screenData/volBrightBar";
+
+
+/**
+ * How to create a screenData
+ * 1. Go to service/screenData/
+ * 2. Duplicated the file "_copy-this-boilerplate.ts" and give it a suitable name.
+ * 3. Change 「CHANGETHISNAME」 to a suitable name in the boilerplate.
+ * 4. Create your screenData.
+ * 5. import on top ^ ex) import { volBrightBar } from "./screenData/volBrightBar";
+ * 6. Add it to the correct field in 「screenData」in this file.
+ */
+
 /**
  * type [string]    : The type(ScreenContentType) of the child, will render accordingly.
  * text [string]    : The text, html is allowed. Should only worked with "text" child.
@@ -66,228 +84,61 @@ export type ScreenContent = {
          * If it's string[], it's refering to list of theme id.
          * More info see 「# Look here Section 1」at service/screen.ts
          */
+        /*
+            * ╔═.✵.══════════╗
+            *    Background
+            * ╚══════════.✵.═╝
+         */
         // backgroud color
         background?: string[],
         // background alpha
         backgroundAlpha?: string[],
+        /*
+            * ╔═.✵.══════════╗
+            *      Font
+            * ╚══════════.✵.═╝
+         */
         // font color
         font?: string[],
         // font alpha
         fontAlpha?: string[],
-        imageSrc?: string[],    // Not implemented yet, still no uses.
-        imageAlpha?: string[],  // Not implemented yet, still no uses.
         // text alignment
         textAlign?: "center" | "left" | "right",
+        /*
+            * ╔═.✵.══════════╗
+            *     Image
+            * ╚══════════.✵.═╝
+         */
+        imageSrc?: string[],    // Not implemented yet, still no uses.
+        imageAlpha?: string[],  // Not implemented yet, still no uses.
+        /*
+            * ╔═.✵.══════════╗
+            *      Border
+            * ╚══════════.✵.═╝
+         */
 		// Border radius usually for box
-		borderRadius?: string[]
+        /**
+         * All border > 2-point > 1-point
+         */
+        // All border
+		borderRadius?: string[],
+        // 2-point specific
+        borderTop?: string[],
+        borderBottom?: string[],
+        borderLeft?: string[],
+        borderRight?: string[],
+        // 1-point specific
+        borderTopLeft?: string[],
+        borderTopRight?: string[],
+        borderBottomLeft?: string[],
+        borderBottomRight?: string[],
     }
 }
-/**
- * These are some pre-defined child group map,
- * like the header bar/ footer bar that's present 
- * on most of the screen.
- * To use these, just append it into the child field:
- * Example) 
- *     {
- *       ...other sutff,
- *       child: [
- *          ... other child,
- *          ...preDefiendChildElement.header <- Use "Spread operator"
- *       ]
- *     }
- */
-export const preDefiendChildElement = {
-	header:[
-		// Need to investigate how we can use the FONT_HEADER items for offsets here.... - jupy <3
-		{
-			type: "box",
-			row: -0.34,
-			expand: { x: true },
-			size: { h: 30 * 1.34 },
-			style: {
-				background: ["33.1"], backgroundAlpha: ["33.2"],
-			}
-		},
-		{
-			type: "text",
-			text: `17:45`,
-			col: 0,
-			style: {
-				font: ["27"], fontAlpha: ["28"],
-			}
-		},
-		{
-			type: "icon",
-			icon: "fa-brands fa-bluetooth-b",
-			col: 18,
-			style: {
-				font: ["22"], fontAlpha: ["24"],
-			}
-		},
-		{
-			type: "icon",
-			icon: "fa-solid fa-wifi",
-			col: 18.75,
-			style: {
-				font: ["17"], fontAlpha: ["19"],
-			}
-		},
-		{
-			type: "icon",
-			icon: "fa-solid fa-battery-three-quarters",
-			col: 20,
-			style: {
-				font: ["10"], fontAlpha: ["13"],
-			}
-		},
-	],
-	footer:[
-		{
-			type: "box",
-			row: 14,
-			expand: { x: true },
-			size: { h: 30 * 1.5 },
-			style: {
-				background: ["29.1"], backgroundAlpha: ["29.2"],
-			}
-		},
-	]
-}
+
 export const screenData: {[key in ScreenType]: ScreenData} = {
-	"Boot": {
-		title: "Boot",
-		preview: true,
-		wallpaper: ["148", "149"],
-		child: []
-	},
-	"Home": {
-		title: "Home",
-		preview: true,
-		wallpaper: ["160", "149"],
-		child: [
-			// Header
-			...preDefiendChildElement.header,
-			{
-				type: "text",
-				text: "muOS MAIN MENU",
-				col: 6.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
-			// Highlight
-			{
-				type: "box",
-				row: 1,
-				expand: { x: true },
-				style: {
-					background: ["85"], backgroundAlpha: ["86"],
-					borderRadius: ["140.5"]
-				}
-			},
-			// First words on screen
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-chess-rook"></i> Explore Content <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
-			// Indicator
-			{
-				type: "box",
-				row: 1,
-				size: { w: 5 },
-				style: {
-					background: ["89"], backgroundAlpha: ["90"],
-				}
-			},
-			// Additional Text
-			{
-				type: "text",
-				text: `
-					<i class="fa-solid fa-star"></i> Favourites <br>
-					<i class="fa-solid fa-history"></i> History <br>
-					<i class="fa-solid fa-shapes"></i> Applications <br>
-					<i class="fa-solid fa-info-circle"></i> Information <br>
-					<i class="fa-solid fa-cog"></i> Configuration <br>
-					<i class="fa-solid fa-arrows-rotate"></i> Reboot <br>
-					<i class="fa-solid fa-power-off"></i> Shutdown <br>
-				`,
-				row: 2,
-				style: {
-					font: ["81"], fontAlpha: ["82"],
-				}
-			},
-			{
-				type: "box",
-				row: 2,
-				expand: { x: true },
-				size: { h: 30 * 7 },
-				style: {
-					background: ["75"], backgroundAlpha: ["76"],
-				}
-			},
-			// Footer
-			...preDefiendChildElement.footer,
-			{
-				type: "text",
-				text: `<i class=glyph>⇓</i>`,
-				row: 14.25,
-				style: {
-					font: ["46"], fontAlpha: ["47"],
-				}
-			},
-			{
-				type: "text",
-				text: `Confirm`,
-				row: 14.25,
-				col: 1,
-				style: {
-					font: ["48"], fontAlpha: ["49"],
-				}
-			},
-			{
-				type: "text",
-				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
-				col: 4.3,
-				style: {
-					font: ["70"], fontAlpha: ["71"],
-				}
-			},
-			{
-				type: "text",
-				text: `Help`,
-				row: 14.25,
-				col: 5.3,
-				style: {
-					font: ["72"], fontAlpha: ["73"],
-				}
-			},
-		]
-	},
-	"Charging": {
-		title: "Charging",
-		preview: true,
-		wallpaper: ["153", "149"],
-		child: [
-            {
-                type: "text",
-                text: `Capacity: 75%    Voltage: 4.7v   Health: Good <br>
-                        Press POWER button to continue booting...
-                `,
-                offset: { y: "113" },
-                expand: { x: true },
-                style: {
-                    font: ["111"], fontAlpha: ["112"],
-                    background: ["109"], backgroundAlpha: ["110"],
-                    textAlign: "center"
-                }
-            }
-        ],
-	},
+	"Boot": boot,
+	"Home": home,
+	"Charging": charging,
 	"Core Assignment": {
 		title: "Core Assignment",
 		preview: true,
@@ -2492,159 +2343,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			},
 		]
 	},
-	"Vol/Bright Bar": {
-		title: "Vol/Bright Bar",
-		preview: true,
-		wallpaper: ["160", "149"],
-		child: [
-			// Header
-			...preDefiendChildElement.header,
-			{
-				type: "text",
-				text: "muOS MAIN MENU",
-				col: 6.5,
-				style: {
-					font: ["35"], fontAlpha: ["36"]
-				}
-			},
-			// Volume/Brightness box - these have to stay in this order or Bad Things Will Happen.
-			{ // Box border
-				type: "box",
-				row: 12.4,
-				col: .40,
-				size: { h: 40 * 1, w: 30 * 20.5},
-				style: {
-					background: ["140.3"], backgroundAlpha: ["140.4"],
-				}
-			},
-			{ 	// Box container
-				type: "box",
-				row: 12.5,
-				col: .5,
-				size: { h: 35 * 1, w: 30 * 20.3},
-				style: {
-					background: ["140.1"], backgroundAlpha: ["140.2"],
-				}
-			},
-			{	// Inside bar
-				type: "box",
-				row: 12.85,
-				col: 2,
-				size: { h: 15 * 1, w: 30 * 18.4},
-				style: {
-					background: ["140.6"], backgroundAlpha: ["140.7"],
-				}
-			},
-			{	// "Moving / Active" bar
-				type: "box",
-				row: 12.85,
-				col: 2,
-				size: { h: 15 * 1, w: 30 * 10},
-				style: {
-					background: ["140.8"], backgroundAlpha: ["140.9"],
-				}
-			},
-			{ // Sound icon - need to figure out how to get it smaller, as fa-2xs is not working.
-				type: "icon",
-				icon: "fa-solid fa-volume-off fa-2xs",
-				row: 13,
-				col: .5,
-				style: {
-					font: ["140.11"], fontAlpha: ["140.12"],
-				}
-			},
-			// Highlight
-			{
-				type: "box",
-				row: 1,
-				expand: { x: true },
-				style: {
-					background: ["85"], backgroundAlpha: ["86"],
-				}
-			},
-			// First words on screen
-			{
-				type: "text",
-				text: `<i class="fa-solid fa-chess-rook"></i> Explore Content <br>`,
-				row: 1,
-				style: {
-					font: ["91"], fontAlpha: ["92"],
-				}
-			},
-			// Indicator
-			{
-				type: "box",
-				row: 1,
-				size: { w: 5 },
-				style: {
-					background: ["89"], backgroundAlpha: ["90"],
-				}
-			},
-			// Additional Text
-			{
-				type: "text",
-				text: `
-					<i class="fa-solid fa-star"></i> Favourites <br>
-					<i class="fa-solid fa-history"></i> History <br>
-					<i class="fa-solid fa-shapes"></i> Applications <br>
-					<i class="fa-solid fa-info-circle"></i> Information <br>
-					<i class="fa-solid fa-cog"></i> Configuration <br>
-					<i class="fa-solid fa-arrows-rotate"></i> Reboot <br>
-					<i class="fa-solid fa-power-off"></i> Shutdown <br>
-				`,
-				row: 2,
-				style: {
-					font: ["81"], fontAlpha: ["82"],
-				}
-			},
-			{
-				type: "box",
-				row: 2,
-				expand: { x: true },
-				size: { h: 30 * 8 },
-				style: {
-					background: ["75"], backgroundAlpha: ["76"],
-				}
-			},
-			// Footer
-			...preDefiendChildElement.footer,
-			{
-				type: "text",
-				text: `<i class=glyph>⇓</i>`,
-				row: 14.25,
-				style: {
-					font: ["46"], fontAlpha: ["47"],
-				}
-			},
-			{
-				type: "text",
-				text: `Confirm`,
-				row: 14.25,
-				col: 1,
-				style: {
-					font: ["48"], fontAlpha: ["49"],
-				}
-			},
-			{
-				type: "text",
-				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
-				col: 4.3,
-				style: {
-					font: ["70"], fontAlpha: ["71"],
-				}
-			},
-			{
-				type: "text",
-				text: `Help`,
-				row: 14.25,
-				col: 5.3,
-				style: {
-					font: ["72"], fontAlpha: ["73"],
-				}
-			},
-		]
-	},
+	"Vol/Bright Bar": volBrightBar,
 	"Notifications": {
 		title: "Notifications",
 		preview: true,

@@ -52,9 +52,9 @@ export type ScreenType = typeof screenList[number];
  *   [most important, ... , least important]
  */
 export interface ScreenData{
-    title: ScreenType
+    title: ScreenType | ""
     preview: boolean
-    wallpaper: string[],
+    wallpaper: string[]
     child: any[]
 }
 //{[key in ScreenType]: ScreenData}

@@ -74,7 +74,7 @@ export const themeFunc = {
                     {
                         id: "3",
                         label: "BACKGROUND_ALPHA", property: "BACKGROUND_ALPHA", value: "255",
-                        des: "(0~255) How visible you want the background to be",
+                        des: "(0 ~ 255) How visible you want the background to be",
                         preview: true,
                     },
                 ]
@@ -199,7 +199,7 @@ export const themeFunc = {
                         "label": "BATTERY_NORMAL_ALPHA",
                         "property": "BATTERY_NORMAL_ALPHA",
                         "value": "255",
-                        "des": "(0~255) Battery transparency",
+                        "des": "(0 ~ 255) Battery transparency",
                         "preview": true,
                     },
                     {
@@ -207,7 +207,7 @@ export const themeFunc = {
                         "label": "BATTERY_ACTIVE_ALPHA",
                         "property": "BATTERY_ACTIVE_ALPHA",
                         "value": "255",
-                        "des": "(0~255) Charging battery transparency",
+                        "des": "(0 ~ 255) Charging battery transparency",
                         "preview": true,
                     },
                     {
@@ -215,7 +215,7 @@ export const themeFunc = {
                         "label": "BATTERY_LOW_ALPHA",
                         "property": "BATTERY_LOW_ALPHA",
                         "value": "255",
-                        "des": "(0~255) Low battery transparency",
+                        "des": "(0 ~ 255) Low battery transparency",
                         "preview": true,
                     }
                 ]
@@ -246,7 +246,7 @@ export const themeFunc = {
                         "label": "NETWORK_NORMAL_ALPHA",
                         "property": "NETWORK_NORMAL_ALPHA",
                         "value": "255",
-                        "des": "(0~255) Network colour transparency",
+                        "des": "(0 ~ 255) Network colour transparency",
                         preview: true,
                     },
                     {
@@ -254,7 +254,7 @@ export const themeFunc = {
                         "label": "NETWORK_ACTIVE_ALPHA",
                         "property": "NETWORK_ACTIVE_ALPHA",
                         "value": "255",
-                        "des": "(0~255) Network in-use colour transparency",
+                        "des": "(0 ~ 255) Network in-use colour transparency",
                         preview: true,
                     }
                 ]
@@ -285,7 +285,7 @@ export const themeFunc = {
                         "label": "BLUETOOTH_NORMAL_ALPHA",
                         "property": "BLUETOOTH_NORMAL_ALPHA",
                         "value": "255",
-                        "des": "(0~255) Bluetooth transparency",
+                        "des": "(0 ~ 255) Bluetooth transparency",
                         preview: true,
                     },
                     {
@@ -293,7 +293,7 @@ export const themeFunc = {
                         "label": "BLUETOOTH_ACTIVE_ALPHA",
                         "property": "BLUETOOTH_ACTIVE_ALPHA",
                         "value": "255",
-                        "des": "(0~255) Bluetooth in-use transparency",
+                        "des": "(0 ~ 255) Bluetooth in-use transparency",
                         preview: true,
                     }
                 ]
@@ -316,7 +316,7 @@ export const themeFunc = {
                         "label": "DATETIME_ALPHA",
                         "property": "DATETIME_ALPHA",
                         "value": "255",
-                        "des": "(0~255) Transparency of the datetime text",
+                        "des": "(0 ~ 255) Transparency of the datetime text",
                         preview: true,
                     }
                 ]
@@ -1113,42 +1113,52 @@ export const themeFunc = {
             {
                 id: "140",
                 label: "bar",
+                preview: true,
                 child: [
                     {   id: "140.1",
                         label: "BAR_BACKGROUND", property: "BAR_BACKGROUND", value: "100808",
-                        des: ""
+                        des: "(HEX without #) The background color of the bar",
+                        preview: true,
                     },
                     {   id: "140.2",
                         label: "BAR_BACKGROUND_ALPHA", property: "BAR_BACKGROUND_ALPHA", value: "255",
-                        des: ""
+                        des: "(0 ~ 255) The transparency of the background",
+                        preview: true,
                     },
                     {   id: "140.3",
                         label: "BAR_BORDER", property: "BAR_BORDER", value: "F7E318",
-                        des: ""
+                        des: "(HEX without #) The background color of the bar border",
+                        preview: true,
                     },
                     {   id: "140.4",
                         label: "BAR_BORDER_ALPHA", property: "BAR_BORDER_ALPHA", value: "255",
-                        des: ""
+                        des: "(0 ~ 255) The transparency of the border",
+                        preview: true,
                     },
                     {   id: "140.5",
                         label: "BAR_RADIUS", property: "BAR_RADIUS", value: "3",
-                        des: ""
+                        des: "(INT >= 0) THe border radius of the bar in pixel",
+                        preview: true,
                     },
                     {   id: "140.6",
                         label: "BAR_PROGRESS_BACKGROUND", property: "BAR_PROGRESS_BACKGROUND", value: "7E730C",
-                        des: ""
+                        des: "(HEX without #) The color of the progress bar's background",
+                        preview: true,
                     },
                     {   id: "140.7",
                         label: "BAR_PROGRESS_BACKGROUND_ALPHA", property: "BAR_PROGRESS_BACKGROUND_ALPHA", value: "255",
-                        des: ""
+                        des: "(0 ~ 255) The transparency of the progress bar's background",
+                        preview: true,
                     },
                     {   id: "140.8",
                         label: "BAR_PROGRESS_ACTIVE_BACKGROUND", property: "BAR_PROGRESS_ACTIVE_BACKGROUND", value: "F7E318",
-                        des: ""
+                        des: "(HEX without #) The color of the progress bar",
+                        preview: true,
                     },
                     {   id: "140.9",
                         label: "BAR_PROGRESS_ACTIVE_BACKGROUND_ALPHA", property: "BAR_PROGRESS_ACTIVE_BACKGROUND_ALPHA", value: "255",
-                        des: ""
+                        des: "(0 ~ 255) The transparency of the progress bar",
+                        preview: true,
                     },
                     {   id: "140.10",
                         label: "BAR_PROGRESS_RADIUS", property: "BAR_PROGRESS_RADIUS", value: "3",
@@ -1156,11 +1166,13 @@ export const themeFunc = {
                     },
                     {   id: "140.11",
                         label: "BAR_ICON", property: "BAR_ICON", value: "F7E318",
-                        des: ""
+                        des: "(HEX without #) The color of the bar icon",
+                        preview: true,
                     },
                     {   id: "140.12",
                         label: "BAR_ICON_ALPHA", property: "BAR_ICON_ALPHA", value: "255",
-                        des: ""
+                        des: "(0 ~ 255) The transparency of the bar icon",
+                        preview: true,
                     },
 
                 ]
