@@ -6,6 +6,7 @@
                 <router-view></router-view>
             </div>
         </v-main>
+        <Popup />
         <Alert />
     </v-app>
 </template>
@@ -14,6 +15,7 @@
 import { onMounted } from "vue";
 import Nav from "@/components/global/Nav.vue";
 import Alert from "@/components/global/Alert.vue"
+import Popup from "@/components/global/Popup.vue";
 import { loadDefaultAssets } from "@/service/assets";
 
 onMounted(()=> {

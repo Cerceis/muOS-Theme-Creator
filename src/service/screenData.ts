@@ -65,7 +65,7 @@ R ┌─────────────────────────
     {
         text: `<i class=glyph>⇓</i> Confirm <i class=glyph>⇥</i> Help`,
     }
- */
+*/
 export type ScreenContentType = 
 "text" | "image" | "icon" | "box"
 export type ScreenContent = {
@@ -104,6 +104,17 @@ export type ScreenContent = {
         fontAlpha?: string[],
         // text alignment
         textAlign?: "center" | "left" | "right",
+        /*
+            * ╔═.✵.══════════╗
+            *     Padding Partially implemented
+            * ╚══════════.✵.═╝
+            * Note this padding does not work like normal CSS.
+            * It's literally adjusting it's absolute position.
+         */
+        padTop: string[],
+        padBottom: string[],
+        padLeft: string[],
+        padRight: string[],
         /*
             * ╔═.✵.══════════╗
             *      Image

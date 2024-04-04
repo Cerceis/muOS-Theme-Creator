@@ -13,7 +13,8 @@ export const home: ScreenData = {
             text: "muOS MAIN MENU",
             col: 6.5,
             style: {
-                font: ["35"], fontAlpha: ["36"]
+                font: ["35"], fontAlpha: ["36"],
+                padTop: ["4.1"]
             }
         },
         // Highlight

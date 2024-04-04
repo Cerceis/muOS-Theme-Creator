@@ -12,7 +12,7 @@
                         <v-icon size="large">mdi-close</v-icon>
                     </v-btn>
                 </div>
-                <!---v-text-field 
+                <v-text-field 
                     class="mx-3 mt-3"
                     v-model="keyword"
                     variant="outlined"
@@ -20,7 +20,7 @@
                     prepend-inner-icon="mdi-magnify"
                     placeholder="Search..."
                     hide-details
-                /--->
+                />
                 <div class="asset-selection-grid pa-3">
                     <div
                         v-for="a in assets"
@@ -61,7 +61,7 @@ const focusedId: Ref<string> = ref("");
 const applyValue = (selector: AssetSelector, a: Asset) => {
     const child = themeFunc.getChild(selector.target);
     if(!child) return;
-    child.value = [base64ToFile(a.base64.split(',')[1], `${a.filename}.${a.format}`, a.type)]
+    child.value = [base64ToFile(a.base64.split(',')[1], `${a.filename}`, a.type)]
     assetSelector.destroy(selector);
 }
  

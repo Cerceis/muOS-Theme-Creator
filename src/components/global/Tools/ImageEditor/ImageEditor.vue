@@ -238,7 +238,7 @@
                                     <div class="asset-item">
                                         <div class="text-caption">
                                             <v-checkbox 
-                                                :label="`${ a.filename }.${a.format}`.slice(0,12) + '...'"
+                                                :label="`${ a.filename }`.slice(0,12) + '...'"
                                                 hide-details
                                                 density="compact"
                                                 :value="a.id"
@@ -246,7 +246,7 @@
                                             >
                                             </v-checkbox>
                                         </div>
-                                        <ToolTip :text="`${ a.filename }.${a.format}`" location="left">
+                                        <ToolTip :text="`${ a.filename }`" location="left">
                                             <ImagePreview 
                                                 v-bind="props"
                                                 :src="a.base64"
@@ -342,7 +342,7 @@ const controls = [
                         .map( a => {
                             return base64ToFile(
                                 a.base64.split(",")[1], 
-                                `${a.filename}.${a.format}`,
+                                `${a.filename}`,
                                 a.type
                             )
                         }),
@@ -390,7 +390,7 @@ const assetControls = [
         func(a: Asset){
             promptDownload(
                 assetFunc.getByID(a.id).asFile(),
-                `${a?.filename}.${a?.format}`
+                `${a?.filename}`
             )
         }
     }

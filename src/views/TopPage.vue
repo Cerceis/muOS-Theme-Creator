@@ -23,7 +23,16 @@
 						</v-btn>
 					</template>
 					<v-list density="compact">
-						<v-list-item @click="generateZipTheme">
+                        <ToolTip text="Download an installable theme with preview image included, through Archive manager" location="right">
+                            <v-list-item @click="generateArchiveZipTheme()">
+                                <template v-slot:prepend>
+                                    <v-icon>mdi-download</v-icon>
+                                    <v-icon>mdi-folder-zip</v-icon>
+                                </template>
+                                Download Archive Theme
+                            </v-list-item>
+                        </ToolTip>
+						<v-list-item @click="generateZipTheme()">
 							<template v-slot:prepend>
 								<v-icon>mdi-download</v-icon>
 								<v-icon>mdi-folder-zip</v-icon>
@@ -40,7 +49,7 @@
 							</v-list-item>
 						</ToolTip>
 						<ToolTip text="Generate a preview image for your theme, place it into /theme/preview/" location="right">
-							<v-list-item @click="downloadPreviewImage">
+							<v-list-item @click="downloadPreviewImage()">
 								<template v-slot:prepend>
 									<v-icon>mdi-download</v-icon>
 									<v-icon>mdi-image</v-icon>
@@ -119,14 +128,13 @@
                         </div>
                         <div class="d-flex">
                             <template v-if="
-                                child.format === '.png' || child.format === '.bmp' ||
-                                child.format === '.mp3' || child.format === '.bin'
+                                child.format && Is.array(child.format)
                             ">
                                 <div class="d-flex gap-1 w-100">
                                     <v-file-input
                                         variant="outlined"
                                         density="compact"
-                                        v-model="child.value"
+                                        v-model="child.value as unknown as File[]"
                                         :accept="child.format ? child.format : ''"
                                         @change="addToAsset($event)"
                                     />
@@ -146,11 +154,10 @@
                                     variant="outlined"
                                     density="compact"
                                     v-model="child.value"
-                                    :accept="child.format ? child.format : ''"
                                 />    
                             </template>
                             <v-menu
-                                v-if="isHexColor(child.value)" 
+                                v-if="isHexColor(child.value as string)" 
                                 :close-on-content-click="false"
                             >
                                 <template v-slot:activator="{ props }">
@@ -163,7 +170,7 @@
                                     >
                                     </div>
                                 </template>
-                                <ColorPicker v-model="child.value" />
+                                <ColorPicker v-model="child.value as string" />
                             </v-menu>  
                         </div>
                     </div>
@@ -188,7 +195,7 @@ import {
 } from "@/service/theme";
 import { ref, computed } from "vue";
 import type { ComputedRef, Ref } from "vue";
-import { generateZipTheme, downloadPreviewImage, downloadScheme } from "@/service/file";
+import { generateZipTheme, downloadPreviewImage, downloadScheme, generateArchiveZipTheme } from "@/service/file";
 import ColorPicker from "@/components/global/ColorPicker.vue";
 import ToolsPanel from "@/components/global/Tools/ToolsPanel.vue";
 import { isHexColor } from "@/service/shared";
@@ -197,6 +204,7 @@ import ToolTip from "@/components/buttons/ToolTip.vue";
 import AssetSelectionPanel from "@/components/global/Tools/AssetSelectionPanel.vue";
 import { assetSelector, assetFunc } from "@/service/assets";
 import GroupPreview from "@/components/global/Preview/GroupPreview/GroupPreview.vue";
+import { Is } from "cerceis-lib";
 
 // Filtering
 const keyword: Ref<string> = ref("");

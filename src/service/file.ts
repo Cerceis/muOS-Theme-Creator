@@ -66,57 +66,11 @@ export type MUOSThemeFolderStructure = {
     },
     get: (folderPath: string[]) => JSZip,
 }
-export const initFolderStructure = (): MUOSThemeFolderStructure | null => {
-    try{
-        const zip = new JSZip();
-        const rootFolder = zip.folder(selectedTheme.value.zipName);
-        if(!rootFolder) throw "ERROR NULL";
-        // Creates all neccesary folders
-        const font = rootFolder.folder("font");
-        const image = rootFolder.folder("image");
-        const music = rootFolder.folder("music");
-        const scheme = rootFolder.folder("scheme");
-        const sound = rootFolder.folder("sound");
-        if(!font || !image || !music || !scheme || !sound) throw "ERROR NULL";
-        const footer = image.folder("footer");
-        const header = image.folder("header");
-        const wall = image.folder("wall");
-        if(!footer || !header || !wall) throw "ERROR NULL";
-        return {
-            zip: zip,
-            folder: rootFolder,
-            child:{
-                font: { folder: font },
-                image: {
-                    folder: image,
-                    child: {
-                        footer: { folder: footer },
-                        header: { folder: header },
-                        wall: { folder: wall },
-                    }
-                },
-                music: { folder: music },
-                sound: { folder: sound },
-                scheme: { folder: scheme },
-            },
-            get(folderPath: string[]){
-                if(folderPath.length === 0) return rootFolder;
-                let currentRoot = this as any;
-                for(let i = 0; i < folderPath.length; i++){
-                    const _folder = folderPath[i];
-                    const tree = currentRoot.child as any;
-                    if(!tree[_folder]) return currentRoot.folder;
-                    currentRoot = tree[_folder];
-                }
-                return currentRoot.folder;
-            }
-        }   
-    }catch(err){
-        console.log(err);
-        return null;
-    }
-}
-export const generateZipTheme = () => {
+/**
+ * 
+ * @param returnFile Instead of downloading it, return the generated file.
+ */
+export const generateZipTheme = async(returnFile: boolean = false) => {
     try{
 		const zip = new JSZip();
 		zip.file("credits.txt", TEXT_CREDIT(selectedTheme.value.author));
@@ -135,7 +89,8 @@ export const generateZipTheme = () => {
                         !child.value || !child.folderPath ||
                         child.value.length === 0 
                     ) continue;
-                    const extendedFilename = `${child.property}${child.format}`;
+                    const sourceFileFormat = ((child.value[0] as File).name.split(".")).pop();
+                    const extendedFilename = `${child.property}.${sourceFileFormat}`;
                     if(child.folderPath.length === 0){
                         zip.file(`${extendedFilename}`, child.value[0]);
                         continue;
@@ -144,24 +99,40 @@ export const generateZipTheme = () => {
                 }
             }
         })
-	
-		zip.generateAsync({type:"blob"})
-        .then(function(content) {
-            promptDownload(content, `${selectedTheme.value.zipName}.zip`)
-        });
+        const content = await zip.generateAsync({type:"blob"})
+        if(returnFile){
+            return content;
+        }
+        else{
+            promptDownload(content, `${selectedTheme.value.zipName}.zip`);
+        }
+		
     }catch(err){
         console.log(err)
     }
+}
+
+export const generateArchiveZipTheme = async() => {
+    const themeName = `${selectedTheme.value.zipName}.zip`;
+    const themeZip = await generateZipTheme(true) as Blob;
+    const zip = new JSZip();
+    zip.file(`mnt/mmc/MUOS/theme/${themeName}`, themeZip);
+    zip.file(`mnt/mmc/MUOS/theme/preview/${selectedTheme.value.zipName}.png`, await downloadPreviewImage(true) as Blob);
+    const content = await zip.generateAsync({type:"blob"});
+    promptDownload(content, `${selectedTheme.value.zipName}.archive.zip`);
 }
 
 export const downloadScheme = () => {
     promptDownload(
         new Blob([TEXT_SCHEME(selectedTheme.value.values)], {type: 'text/plain'}),
         "default.txt"
-    )
-    
+    )   
 }
-
+/**
+ * 
+ * @param fileData 
+ * @param filename name with extension
+ */
 export const promptDownload = (fileData: Blob, filename: string) => {
     const elem = window.document.createElement('a');
     elem.href = window.URL.createObjectURL(fileData);
@@ -171,6 +142,11 @@ export const promptDownload = (fileData: Blob, filename: string) => {
     elem.click();        
     document.body.removeChild(elem);
 }
+/**
+ * 
+ * @param files List of files
+ * @param zipname Name without .zip extension
+ */
 export const promptDownloadZip = (files: File[], zipname: string) => {
     const zip = new JSZip();
     for(let i = 0; i < files.length; i++) {
@@ -205,30 +181,37 @@ export const promptOpenFile = (accepts: string[] = ["image/*"], multiple: boolea
 }
 
 // Generate a preview image & download
-export const downloadPreviewImage = async() => {
-    screen.value.focus("Home");
-    await Delay(500);
-    const previewElement = document.getElementById('mainPreviewScreen')?.getElementsByClassName("previewCon");
-    if(!previewElement) return;
-    const resultCanvas = await html2canvas(previewElement[0] as any);
-    const b64 = resultCanvas.toDataURL();
-    const filename = `${selectedTheme.value.zipName}.png`;
-    const img = new Image()
-    img.onload = ()=>{
-        const imageWidth = 288;
-        const imageHeight = 216
-        const canvas = document.createElement('canvas')
-        canvas.width = imageWidth
-        canvas.height = imageHeight
-        const ctx = canvas.getContext('2d')
-        ctx?.drawImage(img, 0, 0, Number(imageWidth.toFixed(0)), Number(imageHeight.toFixed(0)))
-        promptDownload(
-            base64ToFile(canvas.toDataURL().split(",")[1], filename, "image/png"),
-            filename,
-        )
-    };
-    const previewFile = base64ToFile(b64.split(",")[1], filename, "image/png");
-    img.src = await fileToBase64(previewFile);
+export const downloadPreviewImage = async(returnFile: boolean = false) => {
+    return new Promise(async(resolve, reject) => {
+        screen.value.focus("Home");
+        await Delay(500);
+        const previewElement = document.getElementById('mainPreviewScreen')?.getElementsByClassName("previewCon");
+        if(!previewElement) return;
+        const resultCanvas = await html2canvas(previewElement[0] as any);
+        const b64 = resultCanvas.toDataURL();
+        const filename = `${selectedTheme.value.zipName}.png`;
+        const img = new Image()
+        img.onload = ()=>{
+            const imageWidth = 288;
+            const imageHeight = 216
+            const canvas = document.createElement('canvas')
+            canvas.width = imageWidth
+            canvas.height = imageHeight
+            const ctx = canvas.getContext('2d')
+            ctx?.drawImage(img, 0, 0, Number(imageWidth.toFixed(0)), Number(imageHeight.toFixed(0)))
+                const _file = base64ToFile(canvas.toDataURL().split(",")[1], filename, "image/png");
+                if(returnFile) resolve(_file)
+                else{
+                    promptDownload(
+                        _file,
+                        filename,
+                    )
+                    resolve(true)
+                }
+        };
+        const previewFile = base64ToFile(b64.split(",")[1], filename, "image/png");
+        img.src = await fileToBase64(previewFile);
+    })
 }
 
 // Loading
@@ -352,10 +335,3 @@ export const loadZipFile = async(f: File) => {
         }
     }); 
 }
-
-/**
- * Attempts to determine the mime type of a file or blob
- *
- * @param file
- * @returns {Promise<unknown>}
- */

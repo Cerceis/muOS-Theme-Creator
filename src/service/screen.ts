@@ -6,7 +6,7 @@ import { screenData, type ScreenContent } from "@/service/screenData";
 export const REAL_SIZE_REF = {
     screen: { w: 640, h: 480 },
     headerFooter: { w: 640, h: 42 },
-    font: { size: 20, padding: 10 },
+    font: { size: 20, padding: {x: 10, y: 0} },
     charging: { yPos: 350 },
     icon: { size: 24 }
 }

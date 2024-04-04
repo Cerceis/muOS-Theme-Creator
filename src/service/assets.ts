@@ -7,23 +7,23 @@ import { type MUOSThemeChild } from "@/service/theme";
 import { Generate } from "cerceis-lib";
 
 const defaultAssetData = [
-    { filename: "bootlogo", path: new URL('@/assets/images/defaultImages/bootlogo.bmp', import.meta.url), type: "image/bmp" },
-    { filename: "default-wallpaper", path: new URL('@/assets/images/defaultImages/wall/default.png', import.meta.url), type: "image/png" },
-    { filename: "default-muxcharge", path: new URL('@/assets/images/defaultImages/wall/muxcharge.png', import.meta.url), type: "image/png" },
-    { filename: "default-muxstart", path: new URL('@/assets/images/defaultImages/wall/muxstart.png', import.meta.url), type: "image/png" },
+    { filename: "bootlogo.bmp", path: new URL('@/assets/images/defaultImages/bootlogo.bmp', import.meta.url), type: "image/bmp" },
+    { filename: "default-wallpaper.png", path: new URL('@/assets/images/defaultImages/wall/default.png', import.meta.url), type: "image/png" },
+    { filename: "default-muxcharge.png", path: new URL('@/assets/images/defaultImages/wall/muxcharge.png', import.meta.url), type: "image/png" },
+    { filename: "default-muxstart.png", path: new URL('@/assets/images/defaultImages/wall/muxstart.png', import.meta.url), type: "image/png" },
     // Fonts
-    { filename: "Comicsans", path: new URL('@/assets/images/defaultImages/font/comicsans.bin', import.meta.url), type: "application/octet-stream" },
-    { filename: "Helvetica", path: new URL('@/assets/images/defaultImages/font/helvetica.bin', import.meta.url), type: "application/octet-stream" },
-    { filename: "OpenDyslexicNerdFont-Regular", path: new URL('@/assets/images/defaultImages/font/OpenDyslexicNerdFont-Regular.bin', import.meta.url), type: "application/octet-stream" },
-    { filename: "Papyrus", path: new URL('@/assets/images/defaultImages/font/Papyrus.bin', import.meta.url), type: "application/octet-stream" },
-    { filename: "ProductSans-Regular", path: new URL('@/assets/images/defaultImages/font/ProductSans-Regular.bin', import.meta.url), type: "application/octet-stream" },
-    { filename: "Roboto-Light", path: new URL('@/assets/images/defaultImages/font/Roboto-Light.bin', import.meta.url), type: "application/octet-stream" },
-    { filename: "SpaceMonoNerdFont-Regular", path: new URL('@/assets/images/defaultImages/font/SpaceMonoNerdFont-Regular.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "Comicsans.bin", path: new URL('@/assets/images/defaultImages/font/comicsans.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "Helvetica.bin", path: new URL('@/assets/images/defaultImages/font/helvetica.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "OpenDyslexicNerdFont-Regular.bin", path: new URL('@/assets/images/defaultImages/font/OpenDyslexicNerdFont-Regular.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "Papyrus.bin", path: new URL('@/assets/images/defaultImages/font/Papyrus.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "ProductSans-Regular.bin", path: new URL('@/assets/images/defaultImages/font/ProductSans-Regular.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "Roboto-Light.bin", path: new URL('@/assets/images/defaultImages/font/Roboto-Light.bin', import.meta.url), type: "application/octet-stream" },
+    { filename: "SpaceMonoNerdFont-Regular.bin", path: new URL('@/assets/images/defaultImages/font/SpaceMonoNerdFont-Regular.bin', import.meta.url), type: "application/octet-stream" },
 ]
 
 export type Asset = {
     id: string,
-    filename: string,
+    filename: string, // Name with format.
     base64: string,
     bin: File | Blob | null,
     type: string,
@@ -33,12 +33,9 @@ export const assets: Ref<Asset[]> = ref([])
 export const assetFunc = {
     _selectedAsset: null as null | Asset,
     async add(f: File){
-        const nameArr = f.name.split(".")
-        nameArr.pop();
-        const filename = nameArr.join(""); 
         assets.value.unshift({
             id: Generate.objectId(),
-            filename: filename,
+            filename: f.name,
             base64: await fileToBase64(f), 
 			bin: f.type.includes("font") ? f : null, 
             type: f.type,
@@ -99,7 +96,7 @@ export const assetFunc = {
         }
         return base64ToFile(
             this._selectedAsset.base64.split(",")[1],
-            `${this._selectedAsset.filename}.${this._selectedAsset.format}`,
+            `${this._selectedAsset.filename}`,
             this._selectedAsset.type
         )
     }

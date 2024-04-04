@@ -40,7 +40,7 @@ const computedStyle = computed(() => {
     if(props.content.offset){
         if(props.content.offset.y){
             if(Is.string(props.content.offset.y))
-                _style.top += REAL_SIZE_REF.screen.h - (themeFunc.getChild(props.content.offset.y as string)?.value ?? 0)/2 - 40;
+                _style.top += REAL_SIZE_REF.screen.h - (Number(themeFunc.getChild(props.content.offset.y as string)?.value as string) ?? 0)/2 - 40;
             if(Is.number(props.content.offset.y))
                 _style.top += REAL_SIZE_REF.screen.h - (props.content.offset.y as number)/2 - 40;
         }

@@ -45,41 +45,41 @@ const generateBorderString = (
 const computedStyle = computed(() => {
     const _style: any = {
         fontSize: `${REAL_SIZE_REF.font.size}px`,
-        margin: `${REAL_SIZE_REF.font.padding}px 0`,
+        margin: `${REAL_SIZE_REF.font.padding.y}px 0px`,
     };
     const _cs = props.content.style;
     if(_cs.background){
         _style.backgroundColor = hexToRgba(
-            themeFunc.getChild(_cs.background[0])?.value,
-            _cs.backgroundAlpha ? themeFunc.getChild(_cs.backgroundAlpha[0])?.value/255 : 1
+            themeFunc.getChild(_cs.background[0])?.value as string,
+            _cs.backgroundAlpha ? Number(themeFunc.getChild(_cs.backgroundAlpha[0])?.value)/255 : 1
         );
     }
     if(_cs.borderTopLeft){
-		_style.borderRadius = generateBorderString(themeFunc.getChild(_cs.borderTopLeft[0])?.value, true, false, false, false); 
+		_style.borderRadius = generateBorderString(Number(themeFunc.getChild(_cs.borderTopLeft[0])?.value), true, false, false, false); 
 	}
     if(_cs.borderTopRight){
-		_style.borderRadius = generateBorderString(themeFunc.getChild(_cs.borderTopRight[0])?.value, false, true, false, false); 
+		_style.borderRadius = generateBorderString(Number(themeFunc.getChild(_cs.borderTopRight[0])?.value), false, true, false, false); 
 	}
     if(_cs.borderBottomLeft){
-		_style.borderRadius = generateBorderString(themeFunc.getChild(_cs.borderBottomLeft[0])?.value, false, false, true, false); 
+		_style.borderRadius = generateBorderString(Number(themeFunc.getChild(_cs.borderBottomLeft[0])?.value), false, false, true, false); 
 	}
     if(_cs.borderBottomRight){
-		_style.borderRadius = generateBorderString(themeFunc.getChild(_cs.borderBottomRight[0])?.value, false, false, false, true); 
+		_style.borderRadius = generateBorderString(Number(themeFunc.getChild(_cs.borderBottomRight[0])?.value), false, false, false, true); 
 	}
     if(_cs.borderTop){
-		_style.borderRadius = generateBorderString(themeFunc.getChild(_cs.borderTop[0])?.value, true, true); 
+		_style.borderRadius = generateBorderString(Number(themeFunc.getChild(_cs.borderTop[0])?.value), true, true); 
 	}
     if(_cs.borderBottom){
-		_style.borderRadius = generateBorderString(themeFunc.getChild(_cs.borderBottom[0])?.value, false, false, true, true); 
+		_style.borderRadius = generateBorderString(Number(themeFunc.getChild(_cs.borderBottom[0])?.value), false, false, true, true); 
 	}
     if(_cs.borderLeft){
-		_style.borderRadius = generateBorderString(themeFunc.getChild(_cs.borderLeft[0])?.value, true, false, true, false); 
+		_style.borderRadius = generateBorderString(Number(themeFunc.getChild(_cs.borderLeft[0])?.value), true, false, true, false); 
 	}
     if(_cs.borderRight){
-		_style.borderRadius = generateBorderString(themeFunc.getChild(_cs.borderRight[0])?.value, false, true, false, true); 
+		_style.borderRadius = generateBorderString(Number(themeFunc.getChild(_cs.borderRight[0])?.value), false, true, false, true); 
 	}
 	if(_cs.borderRadius){
-		_style.borderRadius = generateBorderString(themeFunc.getChild(_cs.borderRadius[0])?.value, true, true, true, true);
+		_style.borderRadius = generateBorderString(Number(themeFunc.getChild(_cs.borderRadius[0])?.value), true, true, true, true);
 	}
     if(!props.content.expand || !props.content.expand.x)
         _style.width = `${props.content.size.w}px`;

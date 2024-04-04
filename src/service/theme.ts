@@ -24,8 +24,8 @@ export type MUOSThemeChild = {
     label: string,
     property: string,
     des: string,
-    value: any,
-    format?: string,
+    value: string | File[],
+    format?: string[],
     folderPath?: string[],
     preview?: boolean
 }
@@ -59,7 +59,7 @@ export const themeFunc = {
         themes.value.push(tmp);
     },
     newValues: () => {
-        return [
+        const tmp: MUOSThemeValues[] = [
             {
                 id: "1",
                 label: "background",
@@ -1211,8 +1211,8 @@ export const themeFunc = {
                         id: "148",
                         "label": "Bootlogo:",
                         "property": "bootlogo",
-                        "value": [assetFunc.getByFilename("bootlogo").asFile()],
-                        "format": ".bmp",
+                        "value": [assetFunc.getByFilename("bootlogo.bmp").asFile()],
+                        "format": [".bmp"],
                         "des": "(.bmp) Your boot logo",
                         "folderPath": ["image"],
 						"preview": true,
@@ -1221,9 +1221,9 @@ export const themeFunc = {
                         id: "149",
                         "label": "Wallpaper (png only):",
                         "property": "default",
-                        "value": [assetFunc.getByFilename("default-wallpaper").asFile()],
-                        "format": ".png",
-                        "des": "(.png) Your main wallpaper, if other are unset, this will be used as default",
+                        "value": [assetFunc.getByFilename("default-wallpaper.png").asFile()],
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif) Your main wallpaper, if other are unset, this will be used as default",
                         "folderPath": ["image", "wall"],
 						"preview": true,
                     },
@@ -1232,8 +1232,8 @@ export const themeFunc = {
                         "label": "Core Assignment Wallpaper:",
                         "property": "muxassign",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)",
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)",
                         "folderPath": ["image", "wall"],
                         "preview": true
                     },
@@ -1241,9 +1241,9 @@ export const themeFunc = {
                         id: "153",
                         "label": "Charging Wallpaper:",
                         "property": "muxcharge",
-                        "value": [assetFunc.getByFilename("default-muxcharge").asFile()],
-                        "format": ".png",
-                        "des": "(.png)",
+                        "value": [assetFunc.getByFilename("default-muxcharge.png").asFile()],
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)",
                         "folderPath": ["image", "wall"],
                         "preview": true
                     },
@@ -1252,8 +1252,8 @@ export const themeFunc = {
                         "label": "Config Screen Wallpaper:",
                         "property": "muxconfig",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)",
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1261,8 +1261,8 @@ export const themeFunc = {
                         "label": "Credits Screen Wallpaper:",
                         "property": "muxcredits",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)",
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1270,8 +1270,8 @@ export const themeFunc = {
                         "label": "Device Selection Screen Wallpaper:",
                         "property": "muxdevice",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)",
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1279,8 +1279,8 @@ export const themeFunc = {
                         "label": "Favourites Wallpaper:",
                         "property": "muxfavourite",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)",
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1288,8 +1288,8 @@ export const themeFunc = {
                         "label": "History Wallpaper:",
                         "property": "muxhistory",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)",
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1297,8 +1297,8 @@ export const themeFunc = {
                         "label": "Information Screen Wallpaper:",
                         "property": "muxinfo",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)",
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1306,8 +1306,8 @@ export const themeFunc = {
                         "label": "Home Screen Wallpaper:",
                         "property": "muxlaunch",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)",
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)",
                         "folderPath": ["image", "wall"],
 						"preview": true,
                     },
@@ -1316,8 +1316,8 @@ export const themeFunc = {
                         "label": "Network Configuration Screen Wallpaper:",
                         "property": "muxnetwork",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)",
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)",
                         "folderPath": ["image", "wall"]
                     },
                     {
@@ -1325,36 +1325,36 @@ export const themeFunc = {
                         "label": "Explore Content Wallpaper:",
                         "property": "muxplore",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"]
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"]
                     },
                     {
                         id: "163",
                         "label": "Reset Screen Wallpaper:",
                         "property": "muxreset",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"]
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"]
                     },
                     {
                         id: "164",
                         "label": "RTC Configuration Wallpaper:",
                         "property": "muxrtc",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"]
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"]
                     },
                     {
                         id: "165",
                         "label": "Verbose Boot Startup Wallpaper:",
                         "property": "muxstart",
-                        "value": [assetFunc.getByFilename("default-muxcharge").asFile()],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"],
+                        "value": [assetFunc.getByFilename("default-muxcharge.png").asFile()],
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"],
                         "preview": true
                     },
                     {
@@ -1362,72 +1362,72 @@ export const themeFunc = {
                         "label": "System Information Wallpaper:",
                         "property": "muxsysinfo",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"]
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"]
                     },
                     {
                         id: "167",
                         "label": "Input Tester Wallpaper:",
                         "property": "muxtester",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"]
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"]
                     },
                     {
                         id: "168",
                         "label": "Theme Manager Wallpaper:",
                         "property": "muxtheme",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"]
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"]
                     },
                     {
                         id: "169",
                         "label": "Time Zone Configuration Wallpaper:",
                         "property": "muxtimezone",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"]
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"]
                     },
                     {
                         id: "170",
                         "label": "Activity Tracker Wallpaper:",
                         "property": "muxtracker",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"]
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"]
                     },
                     {
                         id: "171",
                         "label": "Advanced Settings Wallpaper:",
                         "property": "muxtweakadv",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"]
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"]
                     },
                     {
                         id: "172",
                         "label": "General Settings Wallpaper:",
                         "property": "muxtweakgen",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"]
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"]
                     },
                     {
                         id: "173",
                         "label": "Web Services Wallpaper:",
                         "property": "muxwebserv",
                         "value": [],
-                        "format": ".png",
-                        "des": "(.png)", 
-                        "folderpath": ["image", "wall"]
+                        "format": [".png", ".gif"],
+                        "des": "(.png or .gif)", 
+                        "folderPath": ["image", "wall"]
                     }
                 ]
             },
@@ -1440,7 +1440,7 @@ export const themeFunc = {
                         "label": "Shutdown sound:",
                         "property": "shutdown",
                         "value": [],
-                        "format": ".mp3",
+                        "format": [".mp3"],
                         "folderPath": ["sound"],
                         "des": "(.mp3) Your shudown sound"
                     },
@@ -1449,7 +1449,7 @@ export const themeFunc = {
                         "label": "Reboot sound:",
                         "property": "reboot",
                         "value": [],
-                        "format": ".mp3",
+                        "format": [".mp3"],
                         "folderPath": ["sound"],
                         "des": "(.mp3) Your reboot sound"
                     },
@@ -1458,7 +1458,7 @@ export const themeFunc = {
                         "label": "Navigate sound:",
                         "property": "navigate",
                         "value": [],
-                        "format": ".mp3",
+                        "format": [".mp3"],
                         "folderPath": ["sound"],
                         "des": "(.mp3) Your navigation sound"
                     },
@@ -1467,7 +1467,7 @@ export const themeFunc = {
                         "label": "Confirm sound:",
                         "property": "confirm",
                         "value": [],
-                        "format": ".mp3",
+                        "format": [".mp3"],
                         "folderPath": ["sound"],
                         "des": "(.mp3) Your 「confirm」 sound"
                     },
@@ -1476,7 +1476,7 @@ export const themeFunc = {
                         "label": "Back sound:",
                         "property": "back",
                         "value": [],
-                        "format": ".mp3",
+                        "format": [".mp3"],
                         "folderPath": ["sound"],
                         "des": "(.mp3) Your 「back」 sound"
                     }
@@ -1491,7 +1491,7 @@ export const themeFunc = {
                         "label": "music file:",
                         "property": "default",
                         "value": [], 
-                        "format": ".mp3",
+                        "format": [".mp3"],
                         "folderPath": ["music"],
                         "des": "(.mp3) Your music"
                     }
@@ -1506,13 +1506,14 @@ export const themeFunc = {
                         "label": "Font (See: <a href=https://muos.dev/help/theme/font target=__blank>here !</a>)",
                         "property": "default",
                         "value": [],
-                        "format": ".bin",
+                        "format": [".bin"],
                         "folderPath": ["font"],
                         "des": "(.bin) A binary file of a converted font file"
                     }
                 ]
             },
-        ] as MUOSThemeValues[]
+        ]
+        return tmp
     },
     getChild(id: string){
         for(let i = 0; i < selectedTheme.value.values.length; i++){

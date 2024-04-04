@@ -3,7 +3,7 @@
         <div class="font-weight-bold">TOOLS</div>
         <v-divider class="my-2"/>
         
-        <div class="toolContentCon grid gap-1 px-2">
+        <div class="toolContentCon grid gap-1">
             <div class="nowrap d-flex gap-1 justify-space-between">
                 Replace color
                 <ToolTip text="Replace ALL the color from EVERYWHERE">
@@ -158,7 +158,7 @@ const goToGroup = (pathString: string) => {
 <style scoped>
 .colorPaletteGrid{
     display: grid;
-    grid-template-columns: repeat( auto-fit, 40px );
+    grid-template-columns: repeat( auto-fit, 42px );
 }
 .toolCon{
     min-width: 220px
