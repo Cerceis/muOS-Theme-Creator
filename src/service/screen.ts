@@ -103,7 +103,7 @@ export const newScreenContent = (options: NewScreenContentOptions = {}): ScreenC
 
 export interface Screen extends ScreenData{
     id: string,
-	child: ScreenContent[]
+	child: ScreenContent[],
 }
 
 export const screen = ref({
@@ -157,4 +157,3 @@ export const screen = ref({
             this.history.pop();
     },
 })
-

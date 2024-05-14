@@ -70,13 +70,16 @@
             <v-divider class="my-2"/>
             <!----Group Menu------->
             <v-sheet class="px-3 py-3">
+				<div class="mb-2">
+					<FileBrowserPanel />
+				</div>
                 <v-text-field 
                     v-model="keyword"
                     variant="outlined"
                     density="compact"
                     prepend-inner-icon="mdi-magnify"
                     placeholder="Search..."
-                    hide-details
+                    hide-details 
                 />
             </v-sheet>
             <v-list class="groupMenu-panel">
@@ -116,7 +119,10 @@
                 </div>
                 <v-divider />
                 <div class="centerBtm-panel mt-3 px-3">
-                    <div v-for="child in selectedValueGroup.child" >
+					<template v-if="selectedValueGroup.id === '147'">
+						<AssetAdder :theme-group="selectedValueGroup" />
+					</template>
+                    <div v-else v-for="child in selectedValueGroup.child" >
                         <div class="d-flex align-center gap-1">
                             <div v-html="child.label"></div>
                             <v-chip v-if="child.preview" color="primary" size="x-small">
@@ -193,9 +199,9 @@ import {
     type MUOSThemeValues,
     selectedValueGroupLabel, selectedValueGroup,
 } from "@/service/theme";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import type { ComputedRef, Ref } from "vue";
-import { generateZipTheme, downloadPreviewImage, downloadScheme, generateArchiveZipTheme } from "@/service/file";
+import { generateZipTheme, downloadPreviewImage, downloadScheme, generateArchiveZipTheme, initFolderStructureLogic } from "@/service/file";
 import ColorPicker from "@/components/global/ColorPicker.vue";
 import ToolsPanel from "@/components/global/Tools/ToolsPanel.vue";
 import { isHexColor } from "@/service/shared";
@@ -205,6 +211,12 @@ import AssetSelectionPanel from "@/components/global/Tools/AssetSelectionPanel.v
 import { assetSelector, assetFunc } from "@/service/assets";
 import GroupPreview from "@/components/global/Preview/GroupPreview/GroupPreview.vue";
 import { Is } from "cerceis-lib";
+import FileBrowserPanel from "@/components/global/FileBrowser/FileBrowserPanel.vue";
+import AssetAdder from "@/components/global/AssetAdder/AssetAdder.vue";
+
+onMounted(() => {
+	initFolderStructureLogic();
+})
 
 // Filtering
 const keyword: Ref<string> = ref("");
@@ -224,6 +236,8 @@ const filteredList: ComputedRef<MUOSThemeValues[]> = computed(() => {
         )
     })
 })
+
+
 
 const addToAsset = (e: any) => {
     if(!e || !e.target || !e.target.files) return;
@@ -245,7 +259,7 @@ const addToAsset = (e: any) => {
     overflow-y: scroll;
 }
 .groupMenu-panel{
-    height: calc(100vh - 60px - 12px - 184px - 64px - 24px);
+    height: calc(100vh - 60px - 12px - 184px - 64px - 24px - 36px);
     overflow-y: scroll;
 }
 </style>

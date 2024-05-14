@@ -47,9 +47,9 @@ const computedStyle = computed(() => {
     }
     if(props.content.expand){
         if(props.content.expand.x)
-            _style.width = "100%";
+            _style.width = `${REAL_SIZE_REF.screen.w}px`;
         if(props.content.expand.y)
-            _style.height = "100%";
+            _style.height = `${REAL_SIZE_REF.screen.h}px`;
     }
     if(props.content.zIndex){
         _style.zIndex = props.content.zIndex;

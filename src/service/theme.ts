@@ -3,8 +3,9 @@
  * Basically the main file.
  */
 import { Generate, Is } from "cerceis-lib";
-import { type Ref, ref, computed } from "vue";
+import { type Ref, ref, computed, watch } from "vue";
 import { assetFunc } from "@/service/assets";
+import { Subject } from 'rxjs';
 
 type MUOSTheme = {
     id: string,
@@ -27,7 +28,7 @@ export type MUOSThemeChild = {
     value: string | File[],
     format?: string[],
     folderPath?: string[],
-    preview?: boolean
+    preview?: boolean,
 }
 export const themes: Ref<MUOSTheme[]> = ref([]);
 export const selectedThemeId: Ref<string> = ref("");
@@ -37,7 +38,9 @@ export const selectedTheme = computed(() => {
         return themes.value[0];
     }
     const foundTheme = themes.value.find(t => t.id === selectedThemeId.value);
-    if (!foundTheme) return themes.value[0];
+    if (!foundTheme) {
+		return themes.value[0];
+	}
     return foundTheme;
 })
 
@@ -165,6 +168,19 @@ export const themeFunc = {
                     },
                 ]
             },
+			{
+				id: "5",
+                label: "status",
+                child: [
+                    {
+                        id: "5.1",
+                        label: "PADDING_RIGHT", 
+						property: "PADDING_RIGHT", 
+						value: "0",
+                        des: ""
+                    },
+                ]
+			},
             {
                 id: "9",
                 label: "battery",
@@ -307,7 +323,7 @@ export const themeFunc = {
                         id: "27",
                         "label": "DATETIME_TEXT",
                         "property": "DATETIME_TEXT",
-                        "value": "F7E318",
+                        "value": "FFFFFF",
                         "des": "(Hex without #) Color of the datetime text",
                         preview: true,
                     },
@@ -318,7 +334,16 @@ export const themeFunc = {
                         "value": "255",
                         "des": "(0 ~ 255) Transparency of the datetime text",
                         preview: true,
-                    }
+                    },
+					{
+                        id: "26.3",
+                        "label": "PADDING_LEFT",
+                        "property": "PADDING_LEFT",
+                        "value": "0",
+                        "des": "(INT > 0) Left padding for the date",
+                        preview: false,
+                    },
+					
                 ]
             },
             {
@@ -448,6 +473,13 @@ export const themeFunc = {
                 id: "45",
                 label: "navigation",
                 child: [
+					{
+                        id: "45.2",
+                        "label": "ALIGNMENT",
+                        "property": "ALIGNMENT",
+                        "value": "0",
+                        "des": "(INT > 0) Alignment of gylph"
+                    },
                     {
                         id: "46",
                         "label": "NAV_A_GLYPH",
@@ -1192,16 +1224,90 @@ export const themeFunc = {
                 id: "142",
                 label: "misc",
                 child: [
+                    {   id: "142.0",
+                        label: "STATIC_ALIGNMENT", property: "STATIC_ALIGNMENT", value: "4",
+                        des: `
+                            (0 ~ 4) Change the functionality of the static image, similar to how it works with content box images
+                            0 = Bottom + Front, 1 = Middle + Front, 2 = Top + Front, 3 = Fullscreen + Behind, 4 = Fullscreen + Front
+                        `
+                    },
                     {   id: "142.1",
-                        label: "ANIMATED_BACKGROUND", property: "ANIMATED_BACKGROUND", value: "1",
+                        label: "ANIMATED_BACKGROUND", property: "ANIMATED_BACKGROUND", value: "0",
                         des: `(0 or 1) Trigger background image format. 0 = PNG, 1 = GIF`
                     },
 					{   id: "142.2",
 						label: "NAVIGATION_TYPE", property: "NAVIGATION_TYPE", value: "0",
 						des: `(0 or 1) Navigtion direction. 0 = Up & Down, 1 = Left & Right`
 					},
+					{   id: "142.3",
+						label: "CONTENT_PADDING_LEFT", property: "CONTENT_PADDING_LEFT", value: "0",
+						des: `(INT >= 0) Left content padding`
+					},
+					{   id: "142.4",
+						label: "CONTENT_WIDTH", property: "CONTENT_WIDTH", value: "0",
+						des: `(INT >= 0) Width of content`
+					},
                 ]
             },
+			{
+                id: "143",
+                label: "roll",
+                child: [
+                    {   id: "143.0",
+                        label: "ROLL_TEXT", property: "ROLL_TEXT", value: "7E730C",
+                        des: `(HEX without #)`
+                    },
+					{   id: "143.1",
+                        label: "ROLL_TEXT_ALPHA", property: "ROLL_TEXT_ALPHA", value: "175",
+                        des: `(0 ~ 255) Transparency`
+                    },
+					{   id: "143.2",
+                        label: "ROLL_BACKGROUND", property: "ROLL_BACKGROUND", value: "100808",
+                        des: `(HEX without #)`
+                    },
+					{   id: "143.3",
+                        label: "ROLL_BACKGROUND_ALPHA", property: "ROLL_BACKGROUND_ALPHA", value: "0",
+                        des: `(0 ~ 255) Transparency`
+                    },
+					{   id: "143.4",
+                        label: "ROLL_RADIUS", property: "ROLL_RADIUS", value: "3",
+                        des: `(INT >= 0) Border radius in pixel`
+                    },
+					{   id: "143.5",
+                        label: "ROLL_SELECT_TEXT", property: "ROLL_SELECT_TEXT", value: "F7E318",
+                        des: `(HEX without #)`
+                    },
+					{   id: "143.6",
+                        label: "ROLL_SELECT_TEXT_ALPHA", property: "ROLL_SELECT_TEXT_ALPHA", value: "255",
+                        des: `(0 ~ 255) Transparency`
+                    },
+					{   id: "143.7",
+                        label: "ROLL_SELECT_BACKGROUND", property: "ROLL_SELECT_BACKGROUND", value: "7E730C",
+                        des: `(HEX without #)`
+                    },
+					{   id: "143.8",
+                        label: "ROLL_SELECT_BACKGROUND_ALPHA", property: "ROLL_SELECT_BACKGROUND_ALPHA", value: "175",
+                        des: `(0 ~ 255) Transparency`
+                    },
+					{   id: "143.9",
+                        label: "ROLL_SELECT_RADIUS", property: "ROLL_SELECT_RADIUS", value: "3",
+                        des: `(INT >= 0) Border radius in pixel`
+                    },
+					{   id: "143.10",
+                        label: "ROLL_BORDER_COLOUR", property: "ROLL_BORDER_COLOUR", value: "F7E318",
+                        des: `(HEX without #)`
+                    },
+					{   id: "143.11",
+						label: "ROLL_BORDER_ALPHA", property: "ROLL_BORDER_ALPHA", value: "175",
+						des: `(0 ~ 255) Transparency`
+					},
+					{   id: "143.12",
+						label: "ROLL_BORDER_RADIUS", property: "ROLL_BORDER_RADIUS", value: "3",
+						des: `(INT >= 0) Border radius in pixel`
+					},
+                ]
+            },
+			// Assets
             {
                 id: "147",
                 label: "images",
@@ -1211,7 +1317,7 @@ export const themeFunc = {
                         id: "148",
                         "label": "Bootlogo:",
                         "property": "bootlogo",
-                        "value": [assetFunc.getByFilename("bootlogo.bmp").asFile()],
+                        "value": [],
                         "format": [".bmp"],
                         "des": "(.bmp) Your boot logo",
                         "folderPath": ["image"],
@@ -1221,7 +1327,7 @@ export const themeFunc = {
                         id: "149",
                         "label": "Wallpaper (png only):",
                         "property": "default",
-                        "value": [assetFunc.getByFilename("default-wallpaper.png").asFile()],
+                        "value": [],
                         "format": [".png", ".gif"],
                         "des": "(.png or .gif) Your main wallpaper, if other are unset, this will be used as default",
                         "folderPath": ["image", "wall"],
@@ -1515,6 +1621,29 @@ export const themeFunc = {
         ]
         return tmp
     },
+	subscribeToChild(id: string){
+		for(let i = 0; i < selectedTheme.value.values.length; i++){
+            for(let j = 0; j < selectedTheme.value.values[i].child.length; j++){
+                if(selectedTheme.value.values[i].child[j].id === id){
+					const tmpSub = new Subject<MUOSThemeChild>();
+					const watcherDestroyer = watch(
+						() => selectedTheme.value.values[i].child[j].value,
+						() => {
+							tmpSub.next(selectedTheme.value.values[i].child[j]);
+						}
+					)
+					return {
+						subject: tmpSub,
+						destroy: () => {
+							watcherDestroyer();
+							tmpSub.complete();
+						}
+					}
+				}
+            }
+        }
+		return null;
+	},
     getChild(id: string){
         for(let i = 0; i < selectedTheme.value.values.length; i++){
             for(let j = 0; j < selectedTheme.value.values[i].child.length; j++){

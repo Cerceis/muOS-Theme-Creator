@@ -3,8 +3,8 @@
  */
 import { type Ref, ref } from "vue";
 import axios from 'axios';
-import { type MUOSThemeChild } from "@/service/theme";
 import { Generate } from "cerceis-lib";
+import { themeFunc } from "./theme";
 
 const defaultAssetData = [
     { filename: "bootlogo.bmp", path: new URL('@/assets/images/defaultImages/bootlogo.bmp', import.meta.url), type: "image/bmp" },
@@ -20,6 +20,996 @@ const defaultAssetData = [
     { filename: "Roboto-Light.bin", path: new URL('@/assets/images/defaultImages/font/Roboto-Light.bin', import.meta.url), type: "application/octet-stream" },
     { filename: "SpaceMonoNerdFont-Regular.bin", path: new URL('@/assets/images/defaultImages/font/SpaceMonoNerdFont-Regular.bin', import.meta.url), type: "application/octet-stream" },
 ]
+
+const defaultFixedImageAssetInfo = [
+    {
+        "label": "Default",
+        "property": "default",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Apps",
+        "property": "muxapps",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Apps - Portmaster",
+        "property": "portmaster",
+        "path": [
+            "image",
+            "wall",
+            "muxapps"
+        ]
+    },
+    {
+        "label": "Apps - Retroarch",
+        "property": "retroarch",
+        "path": [
+            "image",
+            "wall",
+            "muxapps"
+        ]
+    },
+    {
+        "label": "Apps - Dingux",
+        "property": "dingux",
+        "path": [
+            "image",
+            "wall",
+            "muxapps"
+        ]
+    },
+    {
+        "label": "Apps - Assign",
+        "property": "muxassign",
+        "path": [
+            "image",
+            "wall",
+            "muxapps"
+        ]
+    },
+    {
+        "label": "Apps - Charge",
+        "property": "muxcharge",
+        "path": [
+            "image",
+            "wall",
+            "muxapps"
+        ]
+    },
+    {
+        "label": "Config",
+        "property": "muxconfig",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Config - General",
+        "property": "general",
+        "path": [
+            "image",
+            "wall",
+            "muxconfig"
+        ]
+    },
+    {
+        "label": "Config - Theme",
+        "property": "theme",
+        "path": [
+            "image",
+            "wall",
+            "muxconfig"
+        ]
+    },
+    {
+        "label": "Config - Archive",
+        "property": "archive",
+        "path": [
+            "image",
+            "wall",
+            "muxconfig"
+        ]
+    },
+    {
+        "label": "Config - Network",
+        "property": "network",
+        "path": [
+            "image",
+            "wall",
+            "muxconfig"
+        ]
+    },
+    {
+        "label": "Config - Service",
+        "property": "service",
+        "path": [
+            "image",
+            "wall",
+            "muxconfig"
+        ]
+    },
+    {
+        "label": "Config - Clock",
+        "property": "clock",
+        "path": [
+            "image",
+            "wall",
+            "muxconfig"
+        ]
+    },
+    {
+        "label": "Config - Device",
+        "property": "device",
+        "path": [
+            "image",
+            "wall",
+            "muxconfig"
+        ]
+    },
+    {
+        "label": "Config - Refresh",
+        "property": "refresh",
+        "path": [
+            "image",
+            "wall",
+            "muxconfig"
+        ]
+    },
+    {
+        "label": "Credits",
+        "property": "muxcredits",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Device",
+        "property": "muxdevice",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Device - rg28xx",
+        "property": "rg28xx",
+        "path": [
+            "image",
+            "wall",
+            "muxdevice"
+        ]
+    },
+    {
+        "label": "Device - rg35xx-h",
+        "property": "rg35xx-h",
+        "path": [
+            "image",
+            "wall",
+            "muxdevice"
+        ]
+    },
+    {
+        "label": "Device - rg35xx-plus",
+        "property": "rg35xx-plus",
+        "path": [
+            "image",
+            "wall",
+            "muxdevice"
+        ]
+    },
+    {
+        "label": "Device - rg35xx-2024",
+        "property": "rg35xx-2024",
+        "path": [
+            "image",
+            "wall",
+            "muxdevice"
+        ]
+    },
+    {
+        "label": "Favourite",
+        "property": "muxfavourite",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "History",
+        "property": "muxhistory",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Info",
+        "property": "muxinfo",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Info - Tracker",
+        "property": "tracker",
+        "path": [
+            "image",
+            "wall",
+            "muxinfo"
+        ]
+    },
+    {
+        "label": "Info - Tester",
+        "property": "tester",
+        "path": [
+            "image",
+            "wall",
+            "muxinfo"
+        ]
+    },
+    {
+        "label": "Info - System",
+        "property": "system",
+        "path": [
+            "image",
+            "wall",
+            "muxinfo"
+        ]
+    },
+    {
+        "label": "Info - Credit",
+        "property": "credit",
+        "path": [
+            "image",
+            "wall",
+            "muxinfo"
+        ]
+    },
+    {
+        "label": "Launch (Main)",
+        "property": "muxlaunch",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Launch - Explore",
+        "property": "explore",
+        "path": [
+            "image",
+            "wall",
+            "muxlaunch"
+        ]
+    },
+    {
+        "label": "Launch - Favourite",
+        "property": "favourite",
+        "path": [
+            "image",
+            "wall",
+            "muxlaunch"
+        ]
+    },
+    {
+        "label": "Launch - History",
+        "property": "history",
+        "path": [
+            "image",
+            "wall",
+            "muxlaunch"
+        ]
+    },
+    {
+        "label": "Launch - Apps",
+        "property": "apps",
+        "path": [
+            "image",
+            "wall",
+            "muxlaunch"
+        ]
+    },
+    {
+        "label": "Launch - Info",
+        "property": "info",
+        "path": [
+            "image",
+            "wall",
+            "muxlaunch"
+        ]
+    },
+    {
+        "label": "Launch - Config",
+        "property": "config",
+        "path": [
+            "image",
+            "wall",
+            "muxlaunch"
+        ]
+    },
+    {
+        "label": "Launch - Reboot",
+        "property": "reboot",
+        "path": [
+            "image",
+            "wall",
+            "muxlaunch"
+        ]
+    },
+    {
+        "label": "Launch - Shutdown",
+        "property": "shutdown",
+        "path": [
+            "image",
+            "wall",
+            "muxlaunch"
+        ]
+    },
+    {
+        "label": "Netscan",
+        "property": "muxnetscan",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Network",
+        "property": "muxnetwork",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Network - Enable",
+        "property": "enable",
+        "path": [
+            "image",
+            "wall",
+            "muxnetwork"
+        ]
+    },
+    {
+        "label": "Network - Identifier",
+        "property": "identifier",
+        "path": [
+            "image",
+            "wall",
+            "muxnetwork"
+        ]
+    },
+    {
+        "label": "Network - Password",
+        "property": "password",
+        "path": [
+            "image",
+            "wall",
+            "muxnetwork"
+        ]
+    },
+    {
+        "label": "Network - Type",
+        "property": "type",
+        "path": [
+            "image",
+            "wall",
+            "muxnetwork"
+        ]
+    },
+    {
+        "label": "Network - Address",
+        "property": "address",
+        "path": [
+            "image",
+            "wall",
+            "muxnetwork"
+        ]
+    },
+    {
+        "label": "Network - Subnet",
+        "property": "subnet",
+        "path": [
+            "image",
+            "wall",
+            "muxnetwork"
+        ]
+    },
+    {
+        "label": "Network - Gateway",
+        "property": "gateway",
+        "path": [
+            "image",
+            "wall",
+            "muxnetwork"
+        ]
+    },
+    {
+        "label": "Network - Dns",
+        "property": "dns",
+        "path": [
+            "image",
+            "wall",
+            "muxnetwork"
+        ]
+    },
+    {
+        "label": "Network - Status",
+        "property": "status",
+        "path": [
+            "image",
+            "wall",
+            "muxnetwork"
+        ]
+    },
+    {
+        "label": "Network - Connect",
+        "property": "connect",
+        "path": [
+            "image",
+            "wall",
+            "muxnetwork"
+        ]
+    },
+    {
+        "label": "Explore",
+        "property": "muxplore",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Reset",
+        "property": "muxreset",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Reset - Favourite",
+        "property": "favourite",
+        "path": [
+            "image",
+            "wall",
+            "muxreset"
+        ]
+    },
+    {
+        "label": "Reset - History",
+        "property": "history",
+        "path": [
+            "image",
+            "wall",
+            "muxreset"
+        ]
+    },
+    {
+        "label": "Reset - Activity",
+        "property": "activity",
+        "path": [
+            "image",
+            "wall",
+            "muxreset"
+        ]
+    },
+    {
+        "label": "Reset - Config",
+        "property": "config",
+        "path": [
+            "image",
+            "wall",
+            "muxreset"
+        ]
+    },
+    {
+        "label": "Reset - Cache",
+        "property": "cache",
+        "path": [
+            "image",
+            "wall",
+            "muxreset"
+        ]
+    },
+    {
+        "label": "Reset - Retroarch",
+        "property": "retroarch",
+        "path": [
+            "image",
+            "wall",
+            "muxreset"
+        ]
+    },
+    {
+        "label": "Reset - Network",
+        "property": "network",
+        "path": [
+            "image",
+            "wall",
+            "muxreset"
+        ]
+    },
+    {
+        "label": "Reset - Portmaster",
+        "property": "portmaster",
+        "path": [
+            "image",
+            "wall",
+            "muxreset"
+        ]
+    },
+    {
+        "label": "RTC",
+        "property": "muxrtc",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "RTC - Year",
+        "property": "year",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "RTC - Month",
+        "property": "month",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "RTC - Day",
+        "property": "day",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "RTC - Hour",
+        "property": "hour",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "RTC - Minute",
+        "property": "minute",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "RTC - Notation",
+        "property": "notation",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "RTC - Timezone",
+        "property": "timezone",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Start",
+        "property": "muxstart",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "System Info",
+        "property": "muxsysinfo",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "System Info - Version",
+        "property": "version",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "System Info - Retroarch",
+        "property": "retroarch",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "System Info - Kernel",
+        "property": "kernel",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "System Info - Uptime",
+        "property": "uptime",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "System Info - CPU",
+        "property": "cpu",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "System Info - Speed",
+        "property": "speed",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "System Info - Governor",
+        "property": "governor",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "System Info - Memory",
+        "property": "memory",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "System Info - Temp",
+        "property": "temp",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "System Info - Service",
+        "property": "service",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "System Info - Capacity",
+        "property": "capacity",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "System Info - Voltage",
+        "property": "voltage",
+        "path": [
+            "image",
+            "wall",
+            "muxsysinfo"
+        ]
+    },
+    {
+        "label": "Input Tester",
+        "property": "muxtester",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Theme",
+        "property": "muxtheme",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Timezone",
+        "property": "muxtimezone",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Tracker",
+        "property": "muxtracker",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Tweak Advance",
+        "property": "muxtweakadv",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Tweak Advance - Swap",
+        "property": "swap",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakadv"
+        ]
+    },
+    {
+        "label": "Tweak Advance - Thermal",
+        "property": "thermal",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakadv"
+        ]
+    },
+    {
+        "label": "Tweak Advance - Font",
+        "property": "font",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakadv"
+        ]
+    },
+    {
+        "label": "Tweak Advance - Verbose",
+        "property": "verbose",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakadv"
+        ]
+    },
+    {
+        "label": "Tweak Advance - Volume",
+        "property": "volume",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakadv"
+        ]
+    },
+    {
+        "label": "Tweak Advance - Offset",
+        "property": "offset",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakadv"
+        ]
+    },
+    {
+        "label": "Tweak General",
+        "property": "muxtweakgen",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Tweak General - Sound",
+        "property": "sound",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakgen"
+        ]
+    },
+    {
+        "label": "Tweak General - Startup",
+        "property": "startup",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakgen"
+        ]
+    },
+    {
+        "label": "Tweak General - Sleep",
+        "property": "sleep",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakgen"
+        ]
+    },
+    {
+        "label": "Tweak General - Shutdown",
+        "property": "shutdown",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakgen"
+        ]
+    },
+    {
+        "label": "Tweak General - Battery",
+        "property": "battery",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakgen"
+        ]
+    },
+    {
+        "label": "Tweak General - Night",
+        "property": "night",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakgen"
+        ]
+    },
+    {
+        "label": "Tweak General - Interface",
+        "property": "interface",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakgen"
+        ]
+    },
+    {
+        "label": "Tweak General - Advanced",
+        "property": "advanced",
+        "path": [
+            "image",
+            "wall",
+            "muxtweakgen"
+        ]
+    },
+    {
+        "label": "Visual",
+        "property": "muxvisual",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Visual - Battery",
+        "property": "battery",
+        "path": [
+            "image",
+            "wall",
+            "muxvisual"
+        ]
+    },
+    {
+        "label": "Visual - Network",
+        "property": "network",
+        "path": [
+            "image",
+            "wall",
+            "muxvisual"
+        ]
+    },
+    {
+        "label": "Visual - Bluetooth",
+        "property": "bluetooth",
+        "path": [
+            "image",
+            "wall",
+            "muxvisual"
+        ]
+    },
+    {
+        "label": "Visual - Clock",
+        "property": "clock",
+        "path": [
+            "image",
+            "wall",
+            "muxvisual"
+        ]
+    },
+    {
+        "label": "Web Services",
+        "property": "muxwebserv",
+        "path": [
+            "image",
+            "wall"
+        ]
+    },
+    {
+        "label": "Web Services - Shell",
+        "property": "shell",
+        "path": [
+            "image",
+            "wall",
+            "muxwebserv"
+        ]
+    },
+    {
+        "label": "Web Services - Browser",
+        "property": "browser",
+        "path": [
+            "image",
+            "wall",
+            "muxwebserv"
+        ]
+    },
+    {
+        "label": "Web Services - Terminal",
+        "property": "terminal",
+        "path": [
+            "image",
+            "wall",
+            "muxwebserv"
+        ]
+    },
+    {
+        "label": "Web Services - Sync",
+        "property": "sync",
+        "path": [
+            "image",
+            "wall",
+            "muxwebserv"
+        ]
+    },
+    {
+        "label": "Web Services - NTP",
+        "property": "ntp",
+        "path": [
+            "image",
+            "wall",
+            "muxwebserv"
+        ]
+    }
+]
+
 
 export type Asset = {
     id: string,
@@ -128,6 +1118,17 @@ export const loadDefaultAssets = async() => {
             format: defaultAssetData[i].type.split("/")[1]
         })
     }
+
+	// Apply to themeValue
+	const assetBindingMap = {
+		"148": "bootlogo.bmp",
+		"149": "default-wallpaper.png"
+	}
+	for(let childId in assetBindingMap){
+		const _child = themeFunc.getChild(childId);
+		if(!_child) continue;
+		_child.value = [assetFunc.getByFilename(assetBindingMap[childId as keyof typeof assetBindingMap]).asFile()];
+	}
 }
 
 export const fileToBase64 = (file: File | Blob): Promise<string> => {
@@ -167,6 +1168,9 @@ export type AssetSelector = {
 }
 export const assetSelectorList: Ref<AssetSelector[]> = ref([])
 export const assetSelector = {
+	/**
+	 * childId = theme child id;
+	 */
     new(childId: string){
         assetSelectorList.value.push({
             id: Generate.objectId(),

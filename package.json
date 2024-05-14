@@ -17,6 +17,7 @@
         "html2canvas": "^1.4.1",
         "jszip": "^3.10.1",
         "roboto-fontface": "*",
+        "rxjs": "^7.8.1",
         "vue": "^3.3.11",
         "vue-advanced-cropper": "^2.8.8",
         "vue-router": "^4.2.5",

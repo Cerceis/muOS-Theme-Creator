@@ -1,8 +1,6 @@
 <template>
     <fi 
-        :style="{
-            margin: `${REAL_SIZE_REF.font.padding.y}px ${REAL_SIZE_REF.font.padding.x}px`
-        }"
+        :style="computedStyle"
         :i="content.icon" 
         :size="REAL_SIZE_REF.icon.size"
         :color="computedIconColorStyle"
@@ -33,5 +31,23 @@ const computedIconColorStyle = computed(() => {
         )
     }
     return colorString
+})
+
+const computedStyle = computed(() => {
+    const _style: any = {
+        position: "absolute",
+        margin: `${REAL_SIZE_REF.font.padding.y}px ${REAL_SIZE_REF.font.padding.x}px`
+    };
+    const _cs = props.content.style;
+
+
+    if(_cs.padTop){
+        _style.top = `${themeFunc.getChild(_cs.padTop[0])?.value as string}px`;
+    }
+    if(_cs.padBottom){
+        _style.bottom = `${themeFunc.getChild(_cs.padBottom[0])?.value as string}px`;
+    }
+    
+    return _style
 })
 </script>

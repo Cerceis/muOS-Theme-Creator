@@ -29,6 +29,14 @@ const computedStyle = computed(() => {
         margin: `${REAL_SIZE_REF.font.padding.y}px ${REAL_SIZE_REF.font.padding.x}px`,
     };
     const _cs = props.content.style;
+
+    if(props.content.expand){
+        if(props.content.expand.x)
+            _style.width = `${REAL_SIZE_REF.screen.w}px`;
+        if(props.content.expand.y)
+            _style.height = `${REAL_SIZE_REF.screen.h}px`;
+    }
+
     if(_cs.font)
         _style.color = hexToRgba(themeFunc.getChild(_cs.font[0])?.value as string);
     if(_cs.fontAlpha)
@@ -42,9 +50,10 @@ const computedStyle = computed(() => {
 
     if(_cs.padTop){
         _style.top = `${themeFunc.getChild(_cs.padTop[0])?.value as string}px`;
-        console.log(_style)
     }
-    
+    if(_cs.padBottom){
+        _style.bottom = `${themeFunc.getChild(_cs.padBottom[0])?.value as string}px`;
+    }
     
     if(_cs.textAlign){
         _style.textAlign = _cs.textAlign;
@@ -55,10 +64,9 @@ const computedStyle = computed(() => {
 </script>
  
 <style scoped>
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 .noto{
     font-family: "Noto Sans", sans-serif;
     letter-spacing: 2px
 }
-</style> 
+</style>  

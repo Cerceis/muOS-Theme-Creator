@@ -1,11 +1,12 @@
 import JSZip from "jszip";
-import { type MUOSThemeValues, selectedTheme, themeFunc, whitelistSchemeLabels } from "@/service/theme";
+import { type MUOSThemeChild, type MUOSThemeValues, selectedTheme, themeFunc, whitelistSchemeLabels } from "@/service/theme";
 import { TEXT_CREDIT, TEXT_SCHEME } from "@/service/text";
-import { assetFunc, assets } from "./assets";
+import { assetFunc, assets, } from "./assets";
 import { screen } from "@/service/screen";
 import html2canvas from "html2canvas";
 import { base64ToFile, fileToBase64 } from "@/service/assets";
-import { Delay } from "cerceis-lib";
+import { Delay, Generate, Is } from "cerceis-lib";
+import { ref, type Ref } from "vue";
 /**
  * Generate a zipped theme
  * file list:
@@ -47,25 +48,148 @@ import { Delay } from "cerceis-lib";
  *     default.txt
  * - sound
  */
-export type MUOSThemeFolderStructure = {
-    zip: JSZip,
-    folder: JSZip,
-    child:{
-        font: { folder: JSZip },
-        image: {
-            folder: JSZip,
-            child: {
-                footer: { folder: JSZip },
-                header: { folder: JSZip },
-                wall: { folder: JSZip },
-            }
-        },
-        music: { folder: JSZip },
-        sound: { folder: JSZip },
-        scheme: { folder: JSZip },
-    },
-    get: (folderPath: string[]) => JSZip,
+export type FolderEntityType = "folder" | "file";
+export interface FolderEntityInfo{
+	id: string
+    type: FolderEntityType,
+	filename: string, // act as id.
+    locked: boolean,
 }
+export interface FolderFileEntity extends FolderEntityInfo{
+    assetId: string | null
+}
+export interface FolderFolderEntity extends FolderEntityInfo{
+	expand: boolean,
+    children: (FolderFileEntity | FolderFolderEntity)[];
+}
+export const folderStructure: Ref<(FolderFileEntity | FolderFolderEntity)[]> = ref([]);
+
+export type newEntityOptions = {
+	filename?: string, locked?: boolean, assetId?: string
+
+}
+
+export const selectedFolderEntity: Ref<FolderFileEntity | FolderFolderEntity | null> = ref(null)
+
+type themeFolderFunctions = {
+	_folderCounter: 0, _fileCounter: 0,
+    new:(entityType: FolderEntityType, options?: newEntityOptions) => FolderFileEntity | FolderFolderEntity,
+	addTo: (path: string, entity: FolderFileEntity | FolderFolderEntity) => boolean,
+}
+export const themeFolderFunctions: themeFolderFunctions = {
+	_folderCounter: 0,
+	_fileCounter: 0,
+    new(entityType, options: newEntityOptions = {}){
+		const appliedOptions = {
+			filename: "",
+			locked: false,
+			... options
+		}
+        if(entityType === "file"){
+            const tmpFile: FolderFileEntity = {
+				id: Generate.objectId(),
+                type: "file",
+				filename: appliedOptions.filename ?? `New Folder ${this._folderCounter++}`,
+                locked: appliedOptions.locked,
+                assetId: appliedOptions.assetId ?? null,
+            }
+            return tmpFile
+        }
+        const tmpFolder: FolderFolderEntity = {
+			id: Generate.objectId(),
+            type: "folder",
+			filename: appliedOptions.filename ?? `New Folder ${this._fileCounter++}`,
+            locked: appliedOptions.locked,
+			expand: false,
+            children: []
+        }
+        return tmpFolder
+    },
+	addTo(path: string, entity: FolderFileEntity | FolderFolderEntity){
+		/**
+		 * path parsing
+		 * ex) /image/wall/
+		 * Remove the 1st and trailing "/"
+		 */
+		let _path = path;
+		if(_path.at(0) === "/"){ _path = _path.slice(1,_path.length)}
+		if(_path.at(-1) === "/"){ _path = _path.slice(0,_path.length-1)}
+		// root
+		if(_path === ""){
+			folderStructure.value.push(entity)
+			return true;
+		}
+
+		const pathArr = _path.split("/");
+		
+		const _internalLoop = (rootFolder: (FolderFileEntity | FolderFolderEntity)[], pArr: string[]) => {
+			console.log(pArr)
+			const currentPath = pArr.shift();
+			if(!currentPath){
+				rootFolder.push(entity);
+				return;
+			}
+			// 1. Find the target child
+			const target = rootFolder.find(e => e.filename === currentPath && e.type === "folder") as undefined | FolderFolderEntity;
+			if(!target){
+				console.log("here")
+				const _tmp = themeFolderFunctions.new("folder", {filename: currentPath, locked: false}) as FolderFolderEntity;
+				rootFolder.push(_tmp);
+				return _internalLoop(_tmp.children, pArr);
+			}
+			return _internalLoop(target.children, pArr);
+		}
+	
+		_internalLoop(folderStructure.value, pathArr);
+	
+		return true;
+	},
+}
+
+// Folder Structure initiation.
+/**
+ * FUNC: generateZipTheme should generate based on this folder structure.
+ * theme structure - Bind to -> folder structure - Export to -> ZIP
+ * 		|
+ * 		v
+ * 	- Export to -> schema -> ZIP
+ */
+export let folderStructureInitiated = false;
+export const initFolderStructureLogic = () => {
+	if(folderStructureInitiated) return;
+	folderStructureInitiated = true;
+	themeFolderFunctions.addTo("/", themeFolderFunctions.new("file", {filename: "credits.txt", locked: true}));
+	themeFolderFunctions.addTo("/", themeFolderFunctions.new("folder", {filename: "font", locked: true}));
+	themeFolderFunctions.addTo("/", themeFolderFunctions.new("folder", {filename: "image", locked: true}));
+	themeFolderFunctions.addTo("/", themeFolderFunctions.new("folder", {filename: "music", locked: true}));
+	themeFolderFunctions.addTo("/", themeFolderFunctions.new("folder", {filename: "scheme", locked: true}));
+	themeFolderFunctions.addTo("/", themeFolderFunctions.new("folder", {filename: "sound", locked: true}));
+
+	themeFolderFunctions.addTo("/image", themeFolderFunctions.new("folder", {filename: "wall", locked: true}));
+
+	// Subscribe to childs]
+	const newSubscriberFunction = () => {
+		return (v: MUOSThemeChild) => {
+			console.log(v.id)
+			if(!v.folderPath || !v.value || !Is.array(v.value) || !(v.value[0] instanceof File)) return;
+			const tmpFile = v.value[0] as File;
+			console.log(tmpFile.name)
+			const fileFormat = tmpFile.name.split(".").pop();
+			const joinedPath = v.folderPath.join("/");
+			themeFolderFunctions.addTo(joinedPath, themeFolderFunctions.new("file", {filename: `${v.property}.${fileFormat}`, locked: true}));
+			// Need a refer to asset
+		}
+	}
+	
+	const listOfChildToSubscribe: string[] = [
+		"148", "149",
+	];
+	for(let i = 0; i < listOfChildToSubscribe.length; i++){
+		themeFunc.subscribeToChild(listOfChildToSubscribe[i])?.subject.subscribe({
+			next: newSubscriberFunction(),
+		});	
+	}
+} 
 /**
  * 
  * @param returnFile Instead of downloading it, return the generated file.
@@ -98,6 +222,10 @@ export const generateZipTheme = async(returnFile: boolean = false) => {
                     zip.file(`${child.folderPath.join('/')}/${extendedFilename}`, child.value[0]);
                 }
             }
+            // Create a "static folder in images"
+            if(aG === 'images'){
+                zip.folder("/image/static")
+            }
         })
         const content = await zip.generateAsync({type:"blob"})
         if(returnFile){
@@ -117,7 +245,7 @@ export const generateArchiveZipTheme = async() => {
     const themeZip = await generateZipTheme(true) as Blob;
     const zip = new JSZip();
     zip.file(`mnt/mmc/MUOS/theme/${themeName}`, themeZip);
-    zip.file(`mnt/mmc/MUOS/theme/preview/${selectedTheme.value.zipName}.png`, await downloadPreviewImage(true) as Blob);
+    zip.file(`mnt/mmc/MUOS/theme/preview/${selectedTheme. value.zipName}.png`, await downloadPreviewImage(true) as Blob);
     const content = await zip.generateAsync({type:"blob"});
     promptDownload(content, `${selectedTheme.value.zipName}.archive.zip`);
 }

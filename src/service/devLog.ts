@@ -4,6 +4,18 @@ type DevLog = {
     text: string // html works
 }
 export const devLog: DevLog[] = [
+	{
+        date: "2024-5-02",
+        version: "v1.04",
+        text: `
+			- [x] Added new properties to schema.
+            - [x] Currently implementing paddings, previews will looks weird until fixed.<br>
+            - [ ] Filebrowser implemented.<br>
+			- [ ] Reworked images, sounds and music due to the implementation of filebrowser.<br>
+            For Devs: <br>
+			- [x] Good luck
+        `
+    },
     {
         date: "2024-4-04",
         version: "v1.02",
@@ -12,10 +24,10 @@ export const devLog: DevLog[] = [
             - [x] Added gif as supported format.<br>
             - [x] Redesign assets panel.<br>
             - [x] Installable Archive theme<br>
-            - [ ] Currently implementing paddings, previews will looks weird until fixed.<br>
+            - [x] Currently implementing paddings, previews will looks weird until fixed.<br>
             
             For Devs: <br>
-            - [ ] Added “padding” to style, partially, still experimenting.<br>
+            - [x] Added “padding” to style, partially, still experimenting.<br>
             - [x] Asset filename includes file format<br>
         `
     },

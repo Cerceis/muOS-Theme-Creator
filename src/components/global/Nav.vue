@@ -8,7 +8,7 @@
 			density="compact"
 			class="mx-3"
 		>
-			Should work in v11 now. Support for v10 is depreciated.
+			Basic theme should work. Advance uses are not tested.
 		</v-alert>
         <div class="d-flex gap-1 align-center">
 			<ToolTip location="bottom">
