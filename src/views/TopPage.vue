@@ -208,13 +208,14 @@ import { isHexColor } from "@/service/shared";
 import PreviewPanel from "@/components/global/Preview/PreviewPanel.vue";
 import ToolTip from "@/components/buttons/ToolTip.vue";
 import AssetSelectionPanel from "@/components/global/Tools/AssetSelectionPanel.vue";
-import { assetSelector, assetFunc } from "@/service/assets";
+import { assetSelector, assetFunc, loadDefaultAssets } from "@/service/assets";
 import GroupPreview from "@/components/global/Preview/GroupPreview/GroupPreview.vue";
 import { Is } from "cerceis-lib";
 import FileBrowserPanel from "@/components/global/FileBrowser/FileBrowserPanel.vue";
 import AssetAdder from "@/components/global/AssetAdder/AssetAdder.vue";
 
 onMounted(() => {
+	loadDefaultAssets()
 	initFolderStructureLogic();
 })
 
@@ -236,8 +237,6 @@ const filteredList: ComputedRef<MUOSThemeValues[]> = computed(() => {
         )
     })
 })
-
-
 
 const addToAsset = (e: any) => {
     if(!e || !e.target || !e.target.files) return;

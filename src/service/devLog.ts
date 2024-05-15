@@ -5,6 +5,13 @@ type DevLog = {
 }
 export const devLog: DevLog[] = [
 	{
+        date: "2024-5-15",
+        version: "v1.06",
+        text: `
+			°˖✧◝(*ﾟ▽ﾟ*)◜✧˖°
+        `
+    },
+	{
         date: "2024-5-02",
         version: "v1.04",
         text: `

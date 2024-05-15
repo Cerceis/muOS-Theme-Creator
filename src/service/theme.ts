@@ -4,7 +4,7 @@
  */
 import { Generate, Is } from "cerceis-lib";
 import { type Ref, ref, computed, watch } from "vue";
-import { assetFunc } from "@/service/assets";
+import { assetFunc, defaultFixedImageAssetInfo } from "@/service/assets";
 import { Subject } from 'rxjs';
 
 type MUOSTheme = {
@@ -1323,218 +1323,18 @@ export const themeFunc = {
                         "folderPath": ["image"],
 						"preview": true,
                     },
-                    {
-                        id: "149",
-                        "label": "Wallpaper (png only):",
-                        "property": "default",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif) Your main wallpaper, if other are unset, this will be used as default",
-                        "folderPath": ["image", "wall"],
-						"preview": true,
-                    },
-                    {
-                        id: "152",
-                        "label": "Core Assignment Wallpaper:",
-                        "property": "muxassign",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)",
-                        "folderPath": ["image", "wall"],
-                        "preview": true
-                    },
-                    {
-                        id: "153",
-                        "label": "Charging Wallpaper:",
-                        "property": "muxcharge",
-                        "value": [assetFunc.getByFilename("default-muxcharge.png").asFile()],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)",
-                        "folderPath": ["image", "wall"],
-                        "preview": true
-                    },
-                    {
-                        id: "154",
-                        "label": "Config Screen Wallpaper:",
-                        "property": "muxconfig",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)",
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "155",
-                        "label": "Credits Screen Wallpaper:",
-                        "property": "muxcredits",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)",
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "156",
-                        "label": "Device Selection Screen Wallpaper:",
-                        "property": "muxdevice",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)",
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "157",
-                        "label": "Favourites Wallpaper:",
-                        "property": "muxfavourite",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)",
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "158",
-                        "label": "History Wallpaper:",
-                        "property": "muxhistory",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)",
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "159",
-                        "label": "Information Screen Wallpaper:",
-                        "property": "muxinfo",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)",
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "160",
-                        "label": "Home Screen Wallpaper:",
-                        "property": "muxlaunch",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)",
-                        "folderPath": ["image", "wall"],
-						"preview": true,
-                    },
-                    {
-                        id: "161",
-                        "label": "Network Configuration Screen Wallpaper:",
-                        "property": "muxnetwork",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)",
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "162",
-                        "label": "Explore Content Wallpaper:",
-                        "property": "muxplore",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "163",
-                        "label": "Reset Screen Wallpaper:",
-                        "property": "muxreset",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "164",
-                        "label": "RTC Configuration Wallpaper:",
-                        "property": "muxrtc",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "165",
-                        "label": "Verbose Boot Startup Wallpaper:",
-                        "property": "muxstart",
-                        "value": [assetFunc.getByFilename("default-muxcharge.png").asFile()],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"],
-                        "preview": true
-                    },
-                    {
-                        id: "166",
-                        "label": "System Information Wallpaper:",
-                        "property": "muxsysinfo",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "167",
-                        "label": "Input Tester Wallpaper:",
-                        "property": "muxtester",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "168",
-                        "label": "Theme Manager Wallpaper:",
-                        "property": "muxtheme",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "169",
-                        "label": "Time Zone Configuration Wallpaper:",
-                        "property": "muxtimezone",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "170",
-                        "label": "Activity Tracker Wallpaper:",
-                        "property": "muxtracker",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "171",
-                        "label": "Advanced Settings Wallpaper:",
-                        "property": "muxtweakadv",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "172",
-                        "label": "General Settings Wallpaper:",
-                        "property": "muxtweakgen",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"]
-                    },
-                    {
-                        id: "173",
-                        "label": "Web Services Wallpaper:",
-                        "property": "muxwebserv",
-                        "value": [],
-                        "format": [".png", ".gif"],
-                        "des": "(.png or .gif)", 
-                        "folderPath": ["image", "wall"]
-                    }
+					...defaultFixedImageAssetInfo.map((dfiai, i) => {
+						return {
+							id: `148.${i+1}`,
+							label: dfiai.label,
+							property: dfiai.property,
+							value: [],
+							format: [".png", ".gif"],
+							des: "",
+							folderPath: dfiai.path,
+							preview: false
+						} as MUOSThemeChild
+					}),
                 ]
             },
             { 

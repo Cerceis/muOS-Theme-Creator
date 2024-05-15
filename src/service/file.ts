@@ -1,12 +1,12 @@
 import JSZip from "jszip";
 import { type MUOSThemeChild, type MUOSThemeValues, selectedTheme, themeFunc, whitelistSchemeLabels } from "@/service/theme";
 import { TEXT_CREDIT, TEXT_SCHEME } from "@/service/text";
-import { assetFunc, assets, } from "./assets";
+import { assetFunc, assets, defaultFixedImageAssetInfo, } from "./assets";
 import { screen } from "@/service/screen";
 import html2canvas from "html2canvas";
 import { base64ToFile, fileToBase64 } from "@/service/assets";
 import { Delay, Generate, Is } from "cerceis-lib";
-import { ref, type Ref } from "vue";
+import { ref, type Ref, watch } from "vue";
 /**
  * Generate a zipped theme
  * file list:
@@ -123,7 +123,6 @@ export const themeFolderFunctions: themeFolderFunctions = {
 		const pathArr = _path.split("/");
 		
 		const _internalLoop = (rootFolder: (FolderFileEntity | FolderFolderEntity)[], pArr: string[]) => {
-			console.log(pArr)
 			const currentPath = pArr.shift();
 			if(!currentPath){
 				rootFolder.push(entity);
@@ -132,7 +131,6 @@ export const themeFolderFunctions: themeFolderFunctions = {
 			// 1. Find the target child
 			const target = rootFolder.find(e => e.filename === currentPath && e.type === "folder") as undefined | FolderFolderEntity;
 			if(!target){
-				console.log("here")
 				const _tmp = themeFolderFunctions.new("folder", {filename: currentPath, locked: false}) as FolderFolderEntity;
 				rootFolder.push(_tmp);
 				return _internalLoop(_tmp.children, pArr);
@@ -149,10 +147,23 @@ export const themeFolderFunctions: themeFolderFunctions = {
 // Folder Structure initiation.
 /**
  * FUNC: generateZipTheme should generate based on this folder structure.
- * theme structure - Bind to -> folder structure - Export to -> ZIP
- * 		|
- * 		v
- * 	- Export to -> schema -> ZIP
+					┌───────────────────┐
+		┌───────────│  Theme Structure  │
+		│           └───────────────────┘
+		│                     │
+		│ Generate on         │   One way bind
+		│   demand            │unless, subscribed.
+		│                     │
+		▼                     ▼
+	┌─────────┐      ┌───────────────────┐
+	│ Schema  │─────▶│ Folder Structure  │
+	└─────────┘      └───────────────────┘
+		│                     │
+		│ Export              │ Export
+		▼                     ▼
+	┌───────────┐            ┌─────┐
+	│Text output│            │ ZIP │
+	└───────────┘            └─────┘
  */
 export let folderStructureInitiated = false;
 export const initFolderStructureLogic = () => {
@@ -167,28 +178,41 @@ export const initFolderStructureLogic = () => {
 
 	themeFolderFunctions.addTo("/image", themeFolderFunctions.new("folder", {filename: "wall", locked: true}));
 
-	// Subscribe to childs]
-	const newSubscriberFunction = () => {
+	// Subscribe functions
+	const newThemeChildSubscribeFunction = () => {
 		return (v: MUOSThemeChild) => {
-			console.log(v.id)
-			if(!v.folderPath || !v.value || !Is.array(v.value) || !(v.value[0] instanceof File)) return;
+			if(!v.folderPath || !v.value || !Is.array(v.value) || !(v.value[0] instanceof File)) {
+				console.log("delete")
+				return;
+			}
 			const tmpFile = v.value[0] as File;
-			console.log(tmpFile.name)
 			const fileFormat = tmpFile.name.split(".").pop();
 			const joinedPath = v.folderPath.join("/");
 			themeFolderFunctions.addTo(joinedPath, themeFolderFunctions.new("file", {filename: `${v.property}.${fileFormat}`, locked: true}));
-			// Need a refer to asset
 		}
 	}
 	
-	const listOfChildToSubscribe: string[] = [
-		"148", "149",
-	];
-	for(let i = 0; i < listOfChildToSubscribe.length; i++){
-		themeFunc.subscribeToChild(listOfChildToSubscribe[i])?.subject.subscribe({
-			next: newSubscriberFunction(),
+	const listOfThemeChildIdToSubscribe: string[] = ["148"];
+	for(let i = 1; i <= defaultFixedImageAssetInfo.length; i++){
+		listOfThemeChildIdToSubscribe.push(`148.${i}`)
+	}
+	// Do the same for fonts sounds and music
+	const assetGroup = ["fonts", "sounds", "music"]
+        assetGroup.forEach(aG => {
+            const targetGroup = selectedTheme.value.values.find(group => group.label === aG);
+            if(targetGroup){
+                for(let i = 0; i < targetGroup.child.length; i++){
+                    const child = targetGroup.child[i];
+                    listOfThemeChildIdToSubscribe.push(child.id);
+                }
+            }
+		})
+	for(let i = 0; i < listOfThemeChildIdToSubscribe.length; i++){
+		themeFunc.subscribeToChild(listOfThemeChildIdToSubscribe[i])?.subject.subscribe({
+			next: newThemeChildSubscribeFunction(),
 		});	
 	}
+
 } 
 /**
  * 

@@ -8,7 +8,7 @@
 			density="compact"
 			class="mx-3"
 		>
-			Basic theme should work. Advance uses are not tested.
+			Preview ? What preview ? I don't see any preview.
 		</v-alert>
         <div class="d-flex gap-1 align-center">
 			<ToolTip location="bottom">

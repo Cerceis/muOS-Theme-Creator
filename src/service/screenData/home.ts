@@ -4,7 +4,7 @@ import { type ScreenData } from "@/service/screen";
 export const home: ScreenData = {
     title: "Home",
     preview: true,
-    wallpaper: ["160", "149"],
+    wallpaper: ["160", "148.1"],
     child: [
         // Header
         ...preDefiendChildElement.header,

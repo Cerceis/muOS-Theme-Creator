@@ -4,7 +4,7 @@ import { type ScreenData } from "@/service/screen";
 export const charging: ScreenData = {
     title: "Charging",
     preview: true,
-    wallpaper: ["153", "149"],
+    wallpaper: ["153", "148.7"],
     child: [
         {
             type: "text",

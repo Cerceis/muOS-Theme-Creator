@@ -21,8 +21,12 @@ const defaultAssetData = [
     { filename: "SpaceMonoNerdFont-Regular.bin", path: new URL('@/assets/images/defaultImages/font/SpaceMonoNerdFont-Regular.bin', import.meta.url), type: "application/octet-stream" },
 ]
 
-const defaultFixedImageAssetInfo = [
+export type DefaultFixedImageAssetInfoItem = {
+	id: number, label: string, property: string, path: string[],
+}
+export const defaultFixedImageAssetInfo: DefaultFixedImageAssetInfoItem[] = [
     {
+        "id": 1,
         "label": "Default",
         "property": "default",
         "path": [
@@ -31,6 +35,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 2,
         "label": "Apps",
         "property": "muxapps",
         "path": [
@@ -39,6 +44,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 3,
         "label": "Apps - Portmaster",
         "property": "portmaster",
         "path": [
@@ -48,6 +54,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 4,
         "label": "Apps - Retroarch",
         "property": "retroarch",
         "path": [
@@ -57,6 +64,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 5,
         "label": "Apps - Dingux",
         "property": "dingux",
         "path": [
@@ -66,6 +74,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 6,
         "label": "Apps - Assign",
         "property": "muxassign",
         "path": [
@@ -75,6 +84,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 7,
         "label": "Apps - Charge",
         "property": "muxcharge",
         "path": [
@@ -84,6 +94,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 8,
         "label": "Config",
         "property": "muxconfig",
         "path": [
@@ -92,6 +103,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 9,
         "label": "Config - General",
         "property": "general",
         "path": [
@@ -101,6 +113,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 10,
         "label": "Config - Theme",
         "property": "theme",
         "path": [
@@ -110,6 +123,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 11,
         "label": "Config - Archive",
         "property": "archive",
         "path": [
@@ -119,6 +133,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 12,
         "label": "Config - Network",
         "property": "network",
         "path": [
@@ -128,6 +143,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 13,
         "label": "Config - Service",
         "property": "service",
         "path": [
@@ -137,6 +153,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 14,
         "label": "Config - Clock",
         "property": "clock",
         "path": [
@@ -146,6 +163,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 15,
         "label": "Config - Device",
         "property": "device",
         "path": [
@@ -155,6 +173,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 16,
         "label": "Config - Refresh",
         "property": "refresh",
         "path": [
@@ -164,6 +183,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 17,
         "label": "Credits",
         "property": "muxcredits",
         "path": [
@@ -172,6 +192,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 18,
         "label": "Device",
         "property": "muxdevice",
         "path": [
@@ -180,6 +201,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 19,
         "label": "Device - rg28xx",
         "property": "rg28xx",
         "path": [
@@ -189,6 +211,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 20,
         "label": "Device - rg35xx-h",
         "property": "rg35xx-h",
         "path": [
@@ -198,6 +221,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 21,
         "label": "Device - rg35xx-plus",
         "property": "rg35xx-plus",
         "path": [
@@ -207,6 +231,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 22,
         "label": "Device - rg35xx-2024",
         "property": "rg35xx-2024",
         "path": [
@@ -216,6 +241,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 23,
         "label": "Favourite",
         "property": "muxfavourite",
         "path": [
@@ -224,6 +250,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 24,
         "label": "History",
         "property": "muxhistory",
         "path": [
@@ -232,6 +259,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 25,
         "label": "Info",
         "property": "muxinfo",
         "path": [
@@ -240,6 +268,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 26,
         "label": "Info - Tracker",
         "property": "tracker",
         "path": [
@@ -249,6 +278,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 27,
         "label": "Info - Tester",
         "property": "tester",
         "path": [
@@ -258,6 +288,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 28,
         "label": "Info - System",
         "property": "system",
         "path": [
@@ -267,6 +298,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 29,
         "label": "Info - Credit",
         "property": "credit",
         "path": [
@@ -276,6 +308,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 30,
         "label": "Launch (Main)",
         "property": "muxlaunch",
         "path": [
@@ -284,6 +317,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 31,
         "label": "Launch - Explore",
         "property": "explore",
         "path": [
@@ -293,6 +327,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 32,
         "label": "Launch - Favourite",
         "property": "favourite",
         "path": [
@@ -302,6 +337,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 33,
         "label": "Launch - History",
         "property": "history",
         "path": [
@@ -311,6 +347,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 34,
         "label": "Launch - Apps",
         "property": "apps",
         "path": [
@@ -320,6 +357,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 35,
         "label": "Launch - Info",
         "property": "info",
         "path": [
@@ -329,6 +367,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 36,
         "label": "Launch - Config",
         "property": "config",
         "path": [
@@ -338,6 +377,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 37,
         "label": "Launch - Reboot",
         "property": "reboot",
         "path": [
@@ -347,6 +387,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 38,
         "label": "Launch - Shutdown",
         "property": "shutdown",
         "path": [
@@ -356,6 +397,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 39,
         "label": "Netscan",
         "property": "muxnetscan",
         "path": [
@@ -364,6 +406,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 40,
         "label": "Network",
         "property": "muxnetwork",
         "path": [
@@ -372,6 +415,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 41,
         "label": "Network - Enable",
         "property": "enable",
         "path": [
@@ -381,6 +425,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 42,
         "label": "Network - Identifier",
         "property": "identifier",
         "path": [
@@ -390,6 +435,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 43,
         "label": "Network - Password",
         "property": "password",
         "path": [
@@ -399,6 +445,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 44,
         "label": "Network - Type",
         "property": "type",
         "path": [
@@ -408,6 +455,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 45,
         "label": "Network - Address",
         "property": "address",
         "path": [
@@ -417,6 +465,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 46,
         "label": "Network - Subnet",
         "property": "subnet",
         "path": [
@@ -426,6 +475,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 47,
         "label": "Network - Gateway",
         "property": "gateway",
         "path": [
@@ -435,6 +485,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 48,
         "label": "Network - Dns",
         "property": "dns",
         "path": [
@@ -444,6 +495,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 49,
         "label": "Network - Status",
         "property": "status",
         "path": [
@@ -453,6 +505,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 50,
         "label": "Network - Connect",
         "property": "connect",
         "path": [
@@ -462,6 +515,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 51,
         "label": "Explore",
         "property": "muxplore",
         "path": [
@@ -470,6 +524,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 52,
         "label": "Reset",
         "property": "muxreset",
         "path": [
@@ -478,6 +533,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 53,
         "label": "Reset - Favourite",
         "property": "favourite",
         "path": [
@@ -487,6 +543,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 54,
         "label": "Reset - History",
         "property": "history",
         "path": [
@@ -496,6 +553,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 55,
         "label": "Reset - Activity",
         "property": "activity",
         "path": [
@@ -505,6 +563,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 56,
         "label": "Reset - Config",
         "property": "config",
         "path": [
@@ -514,6 +573,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 57,
         "label": "Reset - Cache",
         "property": "cache",
         "path": [
@@ -523,6 +583,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 58,
         "label": "Reset - Retroarch",
         "property": "retroarch",
         "path": [
@@ -532,6 +593,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 59,
         "label": "Reset - Network",
         "property": "network",
         "path": [
@@ -541,6 +603,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 60,
         "label": "Reset - Portmaster",
         "property": "portmaster",
         "path": [
@@ -550,6 +613,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 61,
         "label": "RTC",
         "property": "muxrtc",
         "path": [
@@ -558,6 +622,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 62,
         "label": "RTC - Year",
         "property": "year",
         "path": [
@@ -566,6 +631,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 63,
         "label": "RTC - Month",
         "property": "month",
         "path": [
@@ -574,6 +640,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 64,
         "label": "RTC - Day",
         "property": "day",
         "path": [
@@ -582,6 +649,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 65,
         "label": "RTC - Hour",
         "property": "hour",
         "path": [
@@ -590,6 +658,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 66,
         "label": "RTC - Minute",
         "property": "minute",
         "path": [
@@ -598,6 +667,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 67,
         "label": "RTC - Notation",
         "property": "notation",
         "path": [
@@ -606,6 +676,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 68,
         "label": "RTC - Timezone",
         "property": "timezone",
         "path": [
@@ -614,6 +685,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 69,
         "label": "Start",
         "property": "muxstart",
         "path": [
@@ -622,6 +694,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 70,
         "label": "System Info",
         "property": "muxsysinfo",
         "path": [
@@ -630,6 +703,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 71,
         "label": "System Info - Version",
         "property": "version",
         "path": [
@@ -639,6 +713,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 72,
         "label": "System Info - Retroarch",
         "property": "retroarch",
         "path": [
@@ -648,6 +723,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 73,
         "label": "System Info - Kernel",
         "property": "kernel",
         "path": [
@@ -657,6 +733,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 74,
         "label": "System Info - Uptime",
         "property": "uptime",
         "path": [
@@ -666,6 +743,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 75,
         "label": "System Info - CPU",
         "property": "cpu",
         "path": [
@@ -675,6 +753,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 76,
         "label": "System Info - Speed",
         "property": "speed",
         "path": [
@@ -684,6 +763,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 77,
         "label": "System Info - Governor",
         "property": "governor",
         "path": [
@@ -693,6 +773,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 78,
         "label": "System Info - Memory",
         "property": "memory",
         "path": [
@@ -702,6 +783,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 79,
         "label": "System Info - Temp",
         "property": "temp",
         "path": [
@@ -711,6 +793,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 80,
         "label": "System Info - Service",
         "property": "service",
         "path": [
@@ -720,6 +803,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 81,
         "label": "System Info - Capacity",
         "property": "capacity",
         "path": [
@@ -729,6 +813,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 82,
         "label": "System Info - Voltage",
         "property": "voltage",
         "path": [
@@ -738,6 +823,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 83,
         "label": "Input Tester",
         "property": "muxtester",
         "path": [
@@ -746,6 +832,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 84,
         "label": "Theme",
         "property": "muxtheme",
         "path": [
@@ -754,6 +841,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 85,
         "label": "Timezone",
         "property": "muxtimezone",
         "path": [
@@ -762,6 +850,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 86,
         "label": "Tracker",
         "property": "muxtracker",
         "path": [
@@ -770,6 +859,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 87,
         "label": "Tweak Advance",
         "property": "muxtweakadv",
         "path": [
@@ -778,6 +868,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 88,
         "label": "Tweak Advance - Swap",
         "property": "swap",
         "path": [
@@ -787,6 +878,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 89,
         "label": "Tweak Advance - Thermal",
         "property": "thermal",
         "path": [
@@ -796,6 +888,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 90,
         "label": "Tweak Advance - Font",
         "property": "font",
         "path": [
@@ -805,6 +898,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 91,
         "label": "Tweak Advance - Verbose",
         "property": "verbose",
         "path": [
@@ -814,6 +908,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 92,
         "label": "Tweak Advance - Volume",
         "property": "volume",
         "path": [
@@ -823,6 +918,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 93,
         "label": "Tweak Advance - Offset",
         "property": "offset",
         "path": [
@@ -832,6 +928,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 94,
         "label": "Tweak General",
         "property": "muxtweakgen",
         "path": [
@@ -840,6 +937,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 95,
         "label": "Tweak General - Sound",
         "property": "sound",
         "path": [
@@ -849,6 +947,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 96,
         "label": "Tweak General - Startup",
         "property": "startup",
         "path": [
@@ -858,6 +957,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 97,
         "label": "Tweak General - Sleep",
         "property": "sleep",
         "path": [
@@ -867,6 +967,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 98,
         "label": "Tweak General - Shutdown",
         "property": "shutdown",
         "path": [
@@ -876,6 +977,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 99,
         "label": "Tweak General - Battery",
         "property": "battery",
         "path": [
@@ -885,6 +987,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 100,
         "label": "Tweak General - Night",
         "property": "night",
         "path": [
@@ -894,6 +997,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 101,
         "label": "Tweak General - Interface",
         "property": "interface",
         "path": [
@@ -903,6 +1007,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 102,
         "label": "Tweak General - Advanced",
         "property": "advanced",
         "path": [
@@ -912,6 +1017,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 103,
         "label": "Visual",
         "property": "muxvisual",
         "path": [
@@ -920,6 +1026,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 104,
         "label": "Visual - Battery",
         "property": "battery",
         "path": [
@@ -929,6 +1036,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 105,
         "label": "Visual - Network",
         "property": "network",
         "path": [
@@ -938,6 +1046,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 106,
         "label": "Visual - Bluetooth",
         "property": "bluetooth",
         "path": [
@@ -947,6 +1056,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 107,
         "label": "Visual - Clock",
         "property": "clock",
         "path": [
@@ -956,6 +1066,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 108,
         "label": "Web Services",
         "property": "muxwebserv",
         "path": [
@@ -964,6 +1075,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 109,
         "label": "Web Services - Shell",
         "property": "shell",
         "path": [
@@ -973,6 +1085,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 110,
         "label": "Web Services - Browser",
         "property": "browser",
         "path": [
@@ -982,6 +1095,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 111,
         "label": "Web Services - Terminal",
         "property": "terminal",
         "path": [
@@ -991,6 +1105,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 112,
         "label": "Web Services - Sync",
         "property": "sync",
         "path": [
@@ -1000,6 +1115,7 @@ const defaultFixedImageAssetInfo = [
         ]
     },
     {
+        "id": 113,
         "label": "Web Services - NTP",
         "property": "ntp",
         "path": [
@@ -1009,8 +1125,6 @@ const defaultFixedImageAssetInfo = [
         ]
     }
 ]
-
-
 export type Asset = {
     id: string,
     filename: string, // Name with format.
@@ -1122,7 +1236,8 @@ export const loadDefaultAssets = async() => {
 	// Apply to themeValue
 	const assetBindingMap = {
 		"148": "bootlogo.bmp",
-		"149": "default-wallpaper.png"
+		"148.1": "default-wallpaper.png",
+		"148.7": "default-muxcharge.png"
 	}
 	for(let childId in assetBindingMap){
 		const _child = themeFunc.getChild(childId);

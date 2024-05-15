@@ -19,6 +19,7 @@
             </v-btn>
         </div>
 		<v-sheet class="pa-3 h-100" style="overflow-y: scroll">
+			Still work in progress, but you can use it as reference.
 			<div class="d-flex gap-1 font-weight-bold text-h6 mb-3 align-center">
 				Selected:
 				<div>
