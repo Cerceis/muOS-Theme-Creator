@@ -1,4 +1,4 @@
-import { preDefiendChildElement } from "@/service/screenData/preDefinedChildElements";
+import { preDefinedChildElement } from "@/service/screenData/preDefinedChildElements";
 import { type ScreenData } from "@/service/screen";
 
 export const volBrightBar: ScreenData = {
@@ -7,7 +7,7 @@ export const volBrightBar: ScreenData = {
     wallpaper: ["160", "149"],
     child: [
         // Header
-        ...preDefiendChildElement.header,
+        ...preDefinedChildElement.header,
         {
             type: "text",
             text: "muOS MAIN MENU",
@@ -120,7 +120,7 @@ export const volBrightBar: ScreenData = {
             }
         },
         // Footer
-        ...preDefiendChildElement.footer,
+        ...preDefinedChildElement.footer,
         {
             type: "text",
             text: `<i class=glyph>⇓</i>`,
