@@ -682,7 +682,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -951,7 +951,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "text",
 				text: `Confirm`,
 				row: 14.75,
-				col: 1,
+				col: 0.9,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
 				}
@@ -960,7 +960,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
 				row: 14.75,
-				col: 4,
+				col: 4.1,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -987,7 +987,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "text",
 				text: `Help`,
 				row: 14.75,
-				col: 8,
+				col: 7.9,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
 				}
@@ -1106,7 +1106,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				type: "text",
 				text: `Back`,
 				row: 14.75,
-				col: 1,
+				col: 0.9,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
 				}
