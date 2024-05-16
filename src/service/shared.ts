@@ -1,4 +1,4 @@
-export const VERSION: string = "1.06";
+export const VERSION: string = "1.07";
 
 export const isHexColor = (value: string): boolean => {
     // Check if the value starts with '#' and has either 3 or 6 characters

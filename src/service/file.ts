@@ -1,4 +1,4 @@
-import JSZip from "jszip";
+import JSZip, { file } from "jszip";
 import { type MUOSThemeChild, type MUOSThemeValues, selectedTheme, themeFunc, whitelistSchemeLabels } from "@/service/theme";
 import { TEXT_CREDIT, TEXT_SCHEME } from "@/service/text";
 import { assetFunc, assets, defaultFixedImageAssetInfo, } from "./assets";
@@ -74,7 +74,9 @@ export const selectedFolderEntity: Ref<FolderFileEntity | FolderFolderEntity | n
 type themeFolderFunctions = {
 	_folderCounter: 0, _fileCounter: 0,
     new:(entityType: FolderEntityType, options?: newEntityOptions) => FolderFileEntity | FolderFolderEntity,
+	_fixPath: (path: string) => string[],
 	addTo: (path: string, entity: FolderFileEntity | FolderFolderEntity) => boolean,
+	delete: (path: string, filename: string) => boolean,
 }
 export const themeFolderFunctions: themeFolderFunctions = {
 	_folderCounter: 0,
@@ -105,7 +107,7 @@ export const themeFolderFunctions: themeFolderFunctions = {
         }
         return tmpFolder
     },
-	addTo(path: string, entity: FolderFileEntity | FolderFolderEntity){
+	_fixPath(path: string){
 		/**
 		 * path parsing
 		 * ex) /image/wall/
@@ -114,13 +116,17 @@ export const themeFolderFunctions: themeFolderFunctions = {
 		let _path = path;
 		if(_path.at(0) === "/"){ _path = _path.slice(1,_path.length)}
 		if(_path.at(-1) === "/"){ _path = _path.slice(0,_path.length-1)}
+
+		return _path.split("/");
+	},
+	addTo(path: string, entity: FolderFileEntity | FolderFolderEntity){
 		// root
-		if(_path === ""){
+		if(path === ""){
 			folderStructure.value.push(entity)
 			return true;
 		}
-
-		const pathArr = _path.split("/");
+		
+		const pathArr = this._fixPath(path);
 		
 		const _internalLoop = (rootFolder: (FolderFileEntity | FolderFolderEntity)[], pArr: string[]) => {
 			const currentPath = pArr.shift();
@@ -130,6 +136,7 @@ export const themeFolderFunctions: themeFolderFunctions = {
 			}
 			// 1. Find the target child
 			const target = rootFolder.find(e => e.filename === currentPath && e.type === "folder") as undefined | FolderFolderEntity;
+			// Automatically creates new folder
 			if(!target){
 				const _tmp = themeFolderFunctions.new("folder", {filename: currentPath, locked: false}) as FolderFolderEntity;
 				rootFolder.push(_tmp);
@@ -142,6 +149,39 @@ export const themeFolderFunctions: themeFolderFunctions = {
 	
 		return true;
 	},
+	delete(path: string, filename: string){
+		const _searchAndDestroy = (rootFolder: (FolderFileEntity | FolderFolderEntity)[]) => {
+			for(let i = 0; i < rootFolder.length; i++){
+				if(rootFolder[i].filename === filename){
+					rootFolder.splice(i,1);
+					return;
+				}
+			}
+		}
+		// root
+		if(path === ""){
+			_searchAndDestroy(folderStructure.value);
+			return true;
+		}
+		
+		const pathArr = this._fixPath(path);
+		const _internalLoop = (rootFolder: (FolderFileEntity | FolderFolderEntity)[], pArr: string[]) => {
+			const currentPath = pArr.shift();
+			if(!currentPath){
+				// Root
+				_searchAndDestroy(rootFolder);
+				return;
+			}
+			// 1. Find the target child
+			const target = rootFolder.find(e => e.filename === currentPath && e.type === "folder") as undefined | FolderFolderEntity;
+			if(!target) return false;
+			return _internalLoop(target.children, pArr);
+		}
+	
+		_internalLoop(folderStructure.value, pathArr);
+
+		return true;
+	}
 }
 
 // Folder Structure initiation.
@@ -180,14 +220,20 @@ export const initFolderStructureLogic = () => {
 
 	// Subscribe functions
 	const newThemeChildSubscribeFunction = () => {
+		let previouslyStoreFilename: string = "";
 		return (v: MUOSThemeChild) => {
 			if(!v.folderPath || !v.value || !Is.array(v.value) || !(v.value[0] instanceof File)) {
 				console.log("delete")
+				console.log (v.folderPath)
+				console.log(previouslyStoreFilename);
+				if(v.folderPath)
+					themeFolderFunctions.delete(v.folderPath.join("/"), previouslyStoreFilename);
 				return;
 			}
 			const tmpFile = v.value[0] as File;
 			const fileFormat = tmpFile.name.split(".").pop();
 			const joinedPath = v.folderPath.join("/");
+			previouslyStoreFilename = `${v.property}.${fileFormat}`;
 			themeFolderFunctions.addTo(joinedPath, themeFolderFunctions.new("file", {filename: `${v.property}.${fileFormat}`, locked: true}));
 		}
 	}
