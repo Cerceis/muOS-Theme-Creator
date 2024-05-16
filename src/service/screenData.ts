@@ -1,5 +1,5 @@
 import { type ScreenData, type ScreenType } from "@/service/screen";
-import { preDefiendChildElement } from "@/service/screenData/preDefinedChildElements";
+import { preDefinedChildElement } from "@/service/screenData/preDefinedChildElements";
 // ScreenData imports
 import { boot } from "./screenData/boot";
 import { home } from "./screenData/home";
@@ -156,7 +156,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["152", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "ASSIGN - Name - Name",
@@ -224,11 +224,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -236,7 +236,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -245,7 +245,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.3,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -254,7 +254,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 5.3,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -263,7 +263,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 7.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -272,7 +272,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.25,
+				row: 14.75,
 				col: 8.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -286,7 +286,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["154", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "CONFIGURATION",
@@ -349,11 +349,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -361,7 +361,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -370,7 +370,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.3,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -379,7 +379,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 5.3,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -388,7 +388,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 7.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -397,7 +397,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.25,
+				row: 14.75,
 				col: 8.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -411,7 +411,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["155", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "SUPPORTERS",
@@ -469,11 +469,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -481,7 +481,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -490,7 +490,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -499,7 +499,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Quote`,
-				row: 14.25,
+				row: 14.75,
 				col: 4,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -513,7 +513,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["156", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "DEVICE TYPE",
@@ -573,11 +573,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇣</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["58"], fontAlpha: ["59"],
 				}
@@ -585,7 +585,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["60"], fontAlpha: ["61"],
@@ -594,7 +594,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.25,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -603,7 +603,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.25,
+				row: 14.75,
 				col: 5.25,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -617,7 +617,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["157", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "FAVOURITES",
@@ -678,7 +678,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
@@ -690,7 +690,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Open`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -699,7 +699,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 3.25,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -708,7 +708,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.25,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -717,7 +717,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇣</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 6.25,
 				style: {
 					font: ["58"], fontAlpha: ["59"],
@@ -726,7 +726,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Remove`,
-				row: 14.25,
+				row: 14.75,
 				col: 7.25,
 				style: {
 					font: ["60"], fontAlpha: ["61"],
@@ -735,7 +735,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 10.25,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -744,7 +744,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.25,
+				row: 14.75,
 				col: 11.25,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -758,7 +758,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["158", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "HISTORY",
@@ -819,11 +819,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -831,7 +831,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -840,7 +840,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇣</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 3.25,
 				style: {
 					font: ["58"], fontAlpha: ["59"],
@@ -849,7 +849,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Remove`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.25,
 				style: {
 					font: ["60"], fontAlpha: ["61"],
@@ -858,7 +858,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 7.5,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -867,7 +867,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.25,
+				row: 14.75,
 				col: 8.5,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -881,7 +881,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["159", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "INFORMATION",
@@ -938,11 +938,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -950,7 +950,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -959,7 +959,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 4,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -968,7 +968,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 5,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -977,7 +977,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 7,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -986,7 +986,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.25,
+				row: 14.75,
 				col: 8,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1000,7 +1000,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["161", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "WI-FI NETWORK",
@@ -1093,11 +1093,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -1105,7 +1105,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1114,7 +1114,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇣</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 3,
 				style: {
 					font: ["58"], fontAlpha: ["59"],
@@ -1123,7 +1123,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Scan`,
-				row: 14.25,
+				row: 14.75,
 				col: 4,
 				style: {
 					font: ["60"], fontAlpha: ["61"],
@@ -1132,7 +1132,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 6,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1141,7 +1141,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.25,
+				row: 14.75,
 				col: 7,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1155,7 +1155,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["162", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "EXPLORE",
@@ -1213,11 +1213,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -1225,7 +1225,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Open`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -1234,7 +1234,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 3.5,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -1243,7 +1243,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.5,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1252,7 +1252,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 6.5,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1261,7 +1261,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.25,
+				row: 14.75,
 				col: 7.5,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1275,7 +1275,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["163", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "SYSTEM REFRESH",
@@ -1338,11 +1338,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -1350,7 +1350,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1359,7 +1359,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇣</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 3,
 				style: {
 					font: ["58"], fontAlpha: ["59"],
@@ -1368,7 +1368,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.25,
+				row: 14.75,
 				col: 4,
 				style: {
 					font: ["60"], fontAlpha: ["61"],
@@ -1377,7 +1377,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 7.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1386,7 +1386,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.25,
+				row: 14.75,
 				col: 8.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1400,7 +1400,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["164", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "DATE AND TIME",
@@ -1486,11 +1486,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -1498,7 +1498,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Save`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1507,7 +1507,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 3.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1516,7 +1516,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1554,7 +1554,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["166", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "SYSTEM DETAILS",
@@ -1652,11 +1652,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -1664,7 +1664,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1673,7 +1673,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 3.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1682,7 +1682,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1697,7 +1697,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["167", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "INPUT TESTER",
@@ -1707,11 +1707,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `Press POWER to finish testing`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["31"], fontAlpha: ["82"],
 				}
@@ -1724,7 +1724,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["168", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "THEME PICKER",
@@ -1792,11 +1792,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -1804,7 +1804,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -1813,7 +1813,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.3,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -1822,7 +1822,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 5.3,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1831,7 +1831,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 7.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1840,7 +1840,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.25,
+				row: 14.75,
 				col: 8.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1854,7 +1854,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["169", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "TIMEZONE",
@@ -1922,11 +1922,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -1934,7 +1934,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1943,7 +1943,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1952,7 +1952,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.25,
+				row: 14.75,
 				col: 5.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1973,7 +1973,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["171", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "ADVANCED SETTINGS",
@@ -2058,11 +2058,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -2070,7 +2070,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Save`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -2079,7 +2079,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 3.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -2088,7 +2088,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -2102,7 +2102,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["172", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "GENERAL SETTINGS",
@@ -2189,11 +2189,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -2201,7 +2201,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Save`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -2210,7 +2210,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 3.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -2219,7 +2219,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -2233,7 +2233,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["173", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "GENERAL SETTINGS",
@@ -2316,11 +2316,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -2328,7 +2328,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Save`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -2337,7 +2337,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 3.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -2346,7 +2346,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -2361,7 +2361,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 		wallpaper: ["168", "149"],
 		child: [
 			// Header
-			...preDefiendChildElement.header,
+			...preDefinedChildElement.header,
 			{
 				type: "text",
 				text: "THEME PICKER",
@@ -2457,11 +2457,11 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				}
 			},
 			// Footer
-			...preDefiendChildElement.footer,
+			...preDefinedChildElement.footer,
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.25,
+				row: 14.75,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -2469,7 +2469,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.25,
+				row: 14.75,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -2478,7 +2478,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 4.3,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -2487,7 +2487,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.25,
+				row: 14.75,
 				col: 5.3,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -2496,7 +2496,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.25,
+				row: 14.75,
 				col: 7.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -2505,7 +2505,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.25,
+				row: 14.75,
 				col: 8.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],

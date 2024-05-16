@@ -1,4 +1,4 @@
-import { preDefiendChildElement } from "@/service/screenData/preDefinedChildElements";
+import { preDefinedChildElement } from "@/service/screenData/preDefinedChildElements";
 import { type ScreenData } from "@/service/screen";
 
 export const home: ScreenData = {
@@ -7,7 +7,7 @@ export const home: ScreenData = {
     wallpaper: ["160", "148.1"],
     child: [
         // Header
-        ...preDefiendChildElement.header,
+        ...preDefinedChildElement.header,
         {
             type: "text",
             text: "muOS MAIN MENU",
@@ -72,7 +72,7 @@ export const home: ScreenData = {
             }
         },
         // Footer
-        ...preDefiendChildElement.footer,
+        ...preDefinedChildElement.footer,
         {
             type: "text",
             text: `<i class=glyph>⇓</i>`,

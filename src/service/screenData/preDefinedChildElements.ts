@@ -8,11 +8,11 @@
  *       ...other sutff,
  *       child: [
  *          ... other child,
- *          ...preDefiendChildElement.header <- Use "Spread operator"
+ *          ...preDefinedChildElement.header <- Use "Spread operator"
  *       ]
  *     }
  */
-export const preDefiendChildElement = {
+export const preDefinedChildElement = {
 	header:[
 		// Need to investigate how we can use the FONT_HEADER items for offsets here.... - jupy <3
 		{
@@ -60,7 +60,7 @@ export const preDefiendChildElement = {
 	footer:[
 		{
 			type: "box",
-			row: 14,
+			row: 14.5,
 			expand: { x: true },
 			size: { h: 30 * 1.5 },
 			style: {

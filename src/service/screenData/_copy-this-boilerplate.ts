@@ -1,4 +1,4 @@
-import { preDefiendChildElement } from "@/service/screenData/preDefinedChildElements";
+import { preDefinedChildElement } from "@/service/screenData/preDefinedChildElements";
 import { type ScreenData } from "@/service/screen";
 
 export const CHANGETHISNAME: ScreenData = {
