@@ -71,7 +71,7 @@ export const themeFunc = {
                     {
                         id: "2",
                         label: "BACKGROUND", property: "BACKGROUND", value: "F8BBD0",
-                        des: "(HEX without #) Background colours baby! shows as right to left gradient if you use a wallpaper image",
+                        des: "(Hex without #) Background colours baby! Shows as right to left gradient if you use a wallpaper image",
                         preview: true,
                     },
                     {
@@ -89,82 +89,82 @@ export const themeFunc = {
                     {
                         id: "4.1",
                         label: "FONT_HEADER_PAD_TOP", property: "FONT_HEADER_PAD_TOP", value: "8",
-                        des: ""
+                        des: "Padding space for the top of your header text."
                     },
                     {
                         id: "4.2",
                         label: "FONT_HEADER_PAD_BOTTOM", property: "FONT_HEADER_PAD_BOTTOM", value: "0",
-                        des: ""
+                        des: "Padding space for the bottom of your header text."
                     },
                     {
                         id: "4.3",
                         label: "FONT_HEADER_ICON_PAD_TOP", property: "FONT_HEADER_ICON_PAD_TOP", value: "0",
-                        des: ""
+                        des: "Padding space for the top of icons located in the header."
                     },
                     {
                         id: "4.4",
                         label: "FONT_HEADER_ICON_PAD_BOTTOM", property: "FONT_HEADER_ICON_PAD_BOTTOM", value: "0",
-                        des: ""
+                        des: "Padding space for the bottom of icons located in the header."
                     },
                     {
                         id: "4.5",
                         label: "FONT_FOOTER_PAD_TOP", property: "FONT_FOOTER_PAD_TOP", value: "0",
-                        des: ""
+                        des: "Padding space for the top of your footer text."
                     },
                     {
                         id: "4.6",
                         label: "FONT_FOOTER_PAD_BOTTOM", property: "FONT_FOOTER_PAD_BOTTOM", value: "0",
-                        des: ""
+                        des: "Padding space for the bottom of your footer text."
                     },
                     {
                         id: "4.7",
                         label: "FONT_FOOTER_ICON_PAD_TOP", property: "FONT_FOOTER_ICON_PAD_TOP", value: "0",
-                        des: ""
+                        des: "Padding space for the top of icons located in the footer."
                     },
                     {
                         id: "4.8",
                         label: "FONT_FOOTER_ICON_PAD_BOTTOM", property: "FONT_FOOTER_ICON_PAD_BOTTOM", value: "0",
-                        des: ""
+                        des: "Padding space for the bottom of icons located in the footer."
                     },
                     {
                         id: "4.9",
                         label: "FONT_MESSAGE_PAD_TOP", property: "FONT_MESSAGE_PAD_TOP", value: "0",
-                        des: ""
+                        des: "Padding space for the top of your message text."
                     },
                     {
                         id: "4.10",
                         label: "FONT_MESSAGE_PAD_BOTTOM", property: "FONT_MESSAGE_PAD_BOTTOM", value: "0",
-                        des: ""
+                        des: "Padding space for the bottom of your message text."
                     },
                     {
                         id: "4.11",
                         label: "FONT_MESSAGE_ICON_PAD_TOP", property: "FONT_MESSAGE_ICON_PAD_TOP", value: "0",
-                        des: ""
+                        des: "Padding space for the top of icons located within messages."
                     },
                     {
                         id: "4.12",
                         label: "FONT_MESSAGE_ICON_PAD_BOTTOM", property: "FONT_MESSAGE_ICON_PAD_BOTTOM", value: "0",
-                        des: ""
+                        des: "Padding space for the bottom of icons located within messages."
                     },
                     {
                         id: "4.13",
                         label: "FONT_LIST_PAD_TOP", property: "FONT_LIST_PAD_TOP", value: "-3",
-                        des: ""
+                        des: "Padding space for the top of your list text."
                     },
                     {
                         id: "4.14",
                         label: "FONT_LIST_PAD_BOTTOM", property: "FONT_LIST_PAD_BOTTOM", value: "0",
-                        des: ""
+                        des: "Padding space for the bottom of your list text."
                     },
                     {
                         id: "4.15",
                         label: "FONT_LIST_ICON_PAD_TOP", property: "FONT_LIST_ICON_PAD_TOP", value: "5",
-                        des: ""
+                        des: "Padding space for the top of icons located within lists."
                     },
                     {
                         id: "4.16",
                         label: "FONT_LIST_ICON_PAD_BOTTOM", property: "FONT_LIST_ICON_PAD_BOTTOM", value: "0",
-                        des: ""
+                        des: "Padding space for the bottom of icons located within lists."
                     },
                 ]
             },
@@ -355,28 +355,28 @@ export const themeFunc = {
                         "label": "FOOTER_BACKGROUND",
                         "property": "FOOTER_BACKGROUND",
                         "value": "100808",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of the footer background."
                     },
                     {
                         id: "29.2",
                         "label": "FOOTER_BACKGROUND_ALPHA",
                         "property": "FOOTER_BACKGROUND_ALPHA",
                         "value": "185",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the footer background."
                     },
                     {
                         id: "31",
                         "label": "FOOTER_TEXT",
                         "property": "FOOTER_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of footer text."
                     },
                     {
                         id: "32",
                         "label": "FOOTER_TEXT_ALPHA",
                         "property": "FOOTER_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of footer text."
                     }
                 ]
             },
@@ -389,28 +389,28 @@ export const themeFunc = {
                         "label": "HEADER_BACKGROUND",
                         "property": "HEADER_BACKGROUND",
                         "value": "100808",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of the header background."
                     },
                     {
                         id: "33.2",
                         "label": "HEADER_BACKGROUND_ALPHA",
                         "property": "HEADER_BACKGROUND_ALPHA",
                         "value": "185",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the header background."
                     },
                     {
                         id: "35",
                         "label": "HEADER_TEXT",
                         "property": "HEADER_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of header text."
                     },
                     {
                         id: "36",
                         "label": "HEADER_TEXT_ALPHA",
                         "property": "HEADER_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of header text."
                     }
                 ]
             },
@@ -423,49 +423,49 @@ export const themeFunc = {
                         "label": "HELP_BACKGROUND",
                         "property": "HELP_BACKGROUND",
                         "value": "0D0803",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the background colour of the help-box popup."
                     },
                     {
                         id: "39",
                         "label": "HELP_BACKGROUND_ALPHA",
                         "property": "HELP_BACKGROUND_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the help-box popup."
                     },
                     {
                         id: "40",
                         "label": "HELP_BORDER",
                         "property": "HELP_BORDER",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of the border for the help-box popup."
                     },
                     {
                         id: "41",
                         "label": "HELP_BORDER_ALPHA",
                         "property": "HELP_BORDER_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the border for the help-box popup."
                     },
                     {
                         id: "42",
                         "label": "HELP_CONTENT",
                         "property": "HELP_CONTENT",
                         "value": "A5B2B5",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour for the content text of the help-box popup."
                     },
                     {
                         id: "43",
                         "label": "HELP_TITLE",
                         "property": "HELP_TITLE",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour for the title text of the help-box popup."
                     },
                     {
                         id: "44",
                         "label": "HELP_RADIUS",
                         "property": "HELP_RADIUS",
                         "value": "3",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Unit: pixels) Changes the corner-radius for the help-box popup background."
                     }
                 ]
             },
@@ -688,7 +688,7 @@ export const themeFunc = {
                         "label": "LIST_DEFAULT_BACKGROUND",
                         "property": "LIST_DEFAULT_BACKGROUND",
                         "value": "A5B2B5",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(Hex without #) Changes background colour for default-state list items.",
                         preview: true,
                     },
                     {
@@ -696,7 +696,7 @@ export const themeFunc = {
                         "label": "LIST_DEFAULT_BACKGROUND_ALPHA",
                         "property": "LIST_DEFAULT_BACKGROUND_ALPHA",
                         "value": "0",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(0 ~ 255) Changes transparency for the background of default-state list items.",
                         preview: true,
                     },
                     {
@@ -704,35 +704,35 @@ export const themeFunc = {
                         "label": "LIST_DEFAULT_GRADIENT_START",
                         "property": "LIST_DEFAULT_GRADIENT_START",
                         "value": "0",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Horizontal axis, 0px -> 640px) Sets/changes start location for colour gradient on default-state list items."
                     },
                     {
                         id: "78",
                         "label": "LIST_DEFAULT_GRADIENT_STOP",
                         "property": "LIST_DEFAULT_GRADIENT_STOP",
                         "value": "200",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Horizontal axis, 0px -> 640px) Sets/changes stop location for colour gradient on default-state list items."
                     },
                     {
                         id: "79",
                         "label": "LIST_DEFAULT_INDICATOR",
                         "property": "LIST_DEFAULT_INDICATOR",
                         "value": "A5B2B5",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of the indicator located on default-state list items."
                     },
                     {
                         id: "80",
                         "label": "LIST_DEFAULT_INDICATOR_ALPHA",
                         "property": "LIST_DEFAULT_INDICATOR_ALPHA",
                         "value": "0",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the indicator located on default-state list items."
                     },
                     {
                         id: "81",
                         "label": "LIST_DEFAULT_TEXT",
                         "property": "LIST_DEFAULT_TEXT",
                         "value": "A5B2B5",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(Hex without #) Changes colour of text within default-state list items.",
                         "preview": true,
                     },
                     {
@@ -740,7 +740,7 @@ export const themeFunc = {
                         "label": "LIST_DEFAULT_TEXT_ALPHA",
                         "property": "LIST_DEFAULT_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(0 ~ 255) Changes transparency of text withiun default-state list items.",
                         "preview": true,
                     },
                     {
@@ -748,21 +748,21 @@ export const themeFunc = {
                         "label": "LIST_DISABLED_TEXT",
                         "property": "LIST_DISABLED_TEXT",
                         "value": "808080",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes colour of text within disabled-state list items."
                     },
                     {
                         id: "84",
                         "label": "LIST_DISABLED_TEXT_ALPHA",
                         "property": "LIST_DISABLED_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes transparency of text within disabled-state list items."
                     },
                     {
                         id: "85",
                         "label": "LIST_FOCUS_BACKGROUND",
                         "property": "LIST_FOCUS_BACKGROUND",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(Hex without #) Changes background colour of focus-state list items.",
                         "preview": true,
                     },
                     {
@@ -770,7 +770,7 @@ export const themeFunc = {
                         "label": "LIST_FOCUS_BACKGROUND_ALPHA",
                         "property": "LIST_FOCUS_BACKGROUND_ALPHA",
                         "value": "25",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(0 ~ 255) Changes transparency of the background of focus-state list items.",
                         "preview": true,
                     },
                     {
@@ -778,21 +778,21 @@ export const themeFunc = {
                         "label": "LIST_FOCUS_GRADIENT_START",
                         "property": "LIST_FOCUS_GRADIENT_START",
                         "value": "0",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Horizontal axis, 0px -> 640px) Sets/changes gradient start location for focus-state list items."
                     },
                     {
                         id: "88",
                         "label": "LIST_FOCUS_GRADIENT_STOP",
                         "property": "LIST_FOCUS_GRADIENT_STOP",
                         "value": "200",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Horizontal axis, 0px -> 640px) Sets/changes gradient stop location for focus-state list items."
                     },
                     {
                         id: "89",
                         "label": "LIST_FOCUS_INDICATOR",
                         "property": "LIST_FOCUS_INDICATOR",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(Hex without #) Changes the colour of the indicator located on focus-state list items.",
                         "preview": true,
                     },
                     {
@@ -800,7 +800,7 @@ export const themeFunc = {
                         "label": "LIST_FOCUS_INDICATOR_ALPHA",
                         "property": "LIST_FOCUS_INDICATOR_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(0 ~ 255) Changes the transparency of the indicator located on focus-state list items.",
                         "preview": true,
                     },
                     {
@@ -808,7 +808,7 @@ export const themeFunc = {
                         "label": "LIST_FOCUS_TEXT",
                         "property": "LIST_FOCUS_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(Hex without #) Changes the colour of text located on focus-state list items.",
                         "preview": true,
                     },
                     {
@@ -816,7 +816,7 @@ export const themeFunc = {
                         "label": "LIST_FOCUS_TEXT_ALPHA",
                         "property": "LIST_FOCUS_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!",
+                        "des": "(0 ~ 255) Changes the transparency of text located on focus-state list items.",
                         "preview": true,
                     }
                 ]
@@ -879,21 +879,21 @@ export const themeFunc = {
                         "label": "CHARGER_BACKGROUND",
                         "property": "CHARGER_BACKGROUND",
                         "value": "100808",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Background color for text on charging screen."
                     },
                     {
                         id: "110",
                         "label": "CHARGER_BACKGROUND_ALPHA",
                         "property": "CHARGER_BACKGROUND_ALPHA",
                         "value": "175",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Background transparency for text on charging screen."
                     },
                     {
                         id: "111",
                         "label": "CHARGER_TEXT",
                         "property": "CHARGER_TEXT",
                         "value": "F7E318",
-                        "des": "(Hex) Color of the charging text",
+                        "des": "(Hex without #) Color of the charging text",
                         "preview": true
                     },
                     {
@@ -909,7 +909,7 @@ export const themeFunc = {
                         "label": "CHARGER_Y_POS",
                         "property": "CHARGER_Y_POS",
                         "value": "165",
-                        "des": "(0 ~ 480) The Y position of the charging text",
+                        "des": "(0px ~ 480px) Changes the y-position of the charging text",
                         "preview": true
                     }
                 ]
@@ -923,35 +923,35 @@ export const themeFunc = {
                         "label": "VERBOSE_BOOT_BACKGROUND",
                         "property": "VERBOSE_BOOT_BACKGROUND",
                         "value": "100808",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the background colour of the verbose-boot background."
                     },
                     {
                         id: "116",
                         "label": "VERBOSE_BOOT_BACKGROUND_ALPHA",
                         "property": "VERBOSE_BOOT_BACKGROUND_ALPHA",
                         "value": "175",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the verbose-boot background."
                     },
                     {
                         id: "117",
                         "label": "VERBOSE_BOOT_TEXT",
                         "property": "VERBOSE_BOOT_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex) Changes the colour of the text displayed during verbose-boot."
                     },
                     {
                         id: "118",
                         "label": "VERBOSE_BOOT_TEXT_ALPHA",
                         "property": "VERBOSE_BOOT_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the text during verbose-boot."
                     },
                     {
                         id: "119",
                         "label": "VERBOSE_BOOT_Y_POS",
                         "property": "VERBOSE_BOOT_Y_POS",
                         "value": "165",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0px ~ 480px) Changes the y-position of text displayed during verbose-boot."
                     }
                 ]
             },
@@ -964,126 +964,126 @@ export const themeFunc = {
                         "label": "OSK_BACKGROUND",
                         "property": "OSK_BACKGROUND",
                         "value": "100808",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the background colour of the on-screen keyboard."
                     },
                     {
                         id: "120.2",
                         "label": "OSK_BACKGROUND_ALPHA",
                         "property": "OSK_BACKGROUND_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the background of the on-screen keyboard."
                     },
                     {
                         id: "120.3",
                         "label": "OSK_BORDER",
                         "property": "OSK_BORDER",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of the border of the on-screen keyboard."
                     },
                     {
                         id: "120.4",
                         "label": "OSK_BORDER_ALPHA",
                         "property": "OSK_BORDER_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the border of the on-screen keyboard."
                     },
                     {
                         id: "120.5",
                         "label": "OSK_RADIUS",
                         "property": "OSK_RADIUS",
                         "value": "3",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Unit: pixels) Changes the corner radius of the background of the on-screen keyboard."
                     },
                     {
                         id: "120.6",
                         "label": "OSK_TEXT",
                         "property": "OSK_TEXT",
                         "value": "A5B2B5",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of the text of the on-screen keyboard."
                     },
                     {
                         id: "120.7",
                         "label": "OSK_TEXT_ALPHA",
                         "property": "OSK_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the text of the on-screen keyboard."
                     },
                     {
                         id: "120.8",
                         "label": "OSK_TEXT_FOCUS",
                         "property": "OSK_TEXT_FOCUS",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of text for the on-screen keyboard in focus-state."
                     },
                     {
                         id: "120.9",
                         "label": "OSK_TEXT_FOCUS_ALPHA",
                         "property": "OSK_TEXT_FOCUS_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of text for the on-screen keyboard in focus state."
                     },
                     {
                         id: "120.10",
                         "label": "OSK_ITEM_BACKGROUND",
                         "property": "OSK_ITEM_BACKGROUND",
                         "value": "100808",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the background colour of keys located on the on-screen keyboard."
                     },
                     {
                         id: "120.11",
                         "label": "OSK_ITEM_BACKGROUND_ALPHA",
                         "property": "OSK_ITEM_BACKGROUND_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the background of keys located on the on-screen keyboard."
                     },
                     {
                         id: "120.12",
                         "label": "OSK_ITEM_BACKGROUND_FOCUS",
                         "property": "OSK_ITEM_BACKGROUND_FOCUS",
                         "value": "100808",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of the background of focus-state keys on the on-screen keyboard."
                     },
                     {
                         id: "120.13",
                         "label": "OSK_ITEM_BACKGROUND_FOCUS_ALPHA",
                         "property": "OSK_ITEM_BACKGROUND_FOCUS_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the background of focus-state keys on the on-screen keyboard."
                     },
                     {
                         id: "120.14",
                         "label": "OSK_ITEM_BORDER",
                         "property": "OSK_ITEM_BORDER",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of the border for keys located on the on-screen keyboard."
                     },
                     {
                         id: "120.15",
                         "label": "OSK_ITEM_BORDER_ALPHA",
                         "property": "OSK_ITEM_BORDER_ALPHA",
                         "value": "175",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the border for keys located on the on-screen keyboard."
                     },
                     {
                         id: "120.16",
                         "label": "OSK_ITEM_BORDER_FOCUS",
                         "property": "OSK_ITEM_BORDER_FOCUS",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of the border for focus-state keys on the on-screen keyboard."
                     },
                     {
                         id: "120.17",
                         "label": "OSK_ITEM_BORDER_FOCUS_ALPHA",
                         "property": "OSK_ITEM_BORDER_FOCUS_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of the border for focus-state keys on the on-screen keyboard."
                     },
                     {
                         id: "120.18",
                         "label": "OSK_ITEM_RADIUS",
                         "property": "OSK_ITEM_RADIUS",
                         "value": "3",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Unit: pixels) Changes the corner radius for keys on the on-screen keyboard."
                     }
                 ]
             },
@@ -1096,49 +1096,49 @@ export const themeFunc = {
                         "label": "MSG_BACKGROUND",
                         "property": "MSG_BACKGROUND",
                         "value": "100808",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the background colour of notifications."
                     },
                     {
                         id: "139.2",
                         "label": "MSG_BACKGROUND_ALPHA",
                         "property": "MSG_BACKGROUND_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of notification backgrounds."
                     },
                     {
                         id: "139.3",
                         "label": "MSG_BORDER",
                         "property": "MSG_BORDER",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the border colour of notifications."
                     },
                     {
                         id: "139.4",
                         "label": "MSG_BORDER_ALPHA",
                         "property": "MSG_BORDER_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of notification borders."
                     },
                     {
                         id: "139.5",
                         "label": "MSG_RADIUS",
                         "property": "MSG_RADIUS",
                         "value": "3",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Unit: pixels) Determines the radius for the corners of the notification box."
                     },
                     {
                         id: "139.6",
                         "label": "MSG_TEXT",
                         "property": "MSG_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(Hex without #) Changes the colour of notification text."
                     },
                     {
                         id: "139.7",
                         "label": "MSG_TEXT_ALPHA",
                         "property": "MSG_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": "(0 ~ 255) Changes the transparency of notification text."
                     }
                 ]
             },
@@ -1149,7 +1149,7 @@ export const themeFunc = {
                 child: [
                     {   id: "140.1",
                         label: "BAR_BACKGROUND", property: "BAR_BACKGROUND", value: "100808",
-                        des: "(HEX without #) The background color of the bar",
+                        des: "(Hex without #) The background color of the bar",
                         preview: true,
                     },
                     {   id: "140.2",
@@ -1159,7 +1159,7 @@ export const themeFunc = {
                     },
                     {   id: "140.3",
                         label: "BAR_BORDER", property: "BAR_BORDER", value: "F7E318",
-                        des: "(HEX without #) The background color of the bar border",
+                        des: "(Hex without #) The background color of the bar border",
                         preview: true,
                     },
                     {   id: "140.4",
@@ -1174,7 +1174,7 @@ export const themeFunc = {
                     },
                     {   id: "140.6",
                         label: "BAR_PROGRESS_BACKGROUND", property: "BAR_PROGRESS_BACKGROUND", value: "7E730C",
-                        des: "(HEX without #) The color of the progress bar's background",
+                        des: "(Hex without #) The color of the progress bar's background",
                         preview: true,
                     },
                     {   id: "140.7",
@@ -1184,7 +1184,7 @@ export const themeFunc = {
                     },
                     {   id: "140.8",
                         label: "BAR_PROGRESS_ACTIVE_BACKGROUND", property: "BAR_PROGRESS_ACTIVE_BACKGROUND", value: "F7E318",
-                        des: "(HEX without #) The color of the progress bar",
+                        des: "(Hex without #) The color of the progress bar",
                         preview: true,
                     },
                     {   id: "140.9",
@@ -1194,12 +1194,12 @@ export const themeFunc = {
                     },
                     {   id: "140.10",
                         label: "BAR_PROGRESS_RADIUS", property: "BAR_PROGRESS_RADIUS", value: "3",
-                        des: "(INT >= 0) THe border radius of the progress bar in pixel",
+                        des: "(INT >= 0) The border radius of the progress bar in pixel",
                         preview: true,
                     },
                     {   id: "140.11",
                         label: "BAR_ICON", property: "BAR_ICON", value: "F7E318",
-                        des: "(HEX without #) The color of the bar icon",
+                        des: "(Hex without #) The color of the bar icon",
                         preview: true,
                     },
                     {   id: "140.12",
@@ -1255,7 +1255,7 @@ export const themeFunc = {
                 child: [
                     {   id: "143.0",
                         label: "ROLL_TEXT", property: "ROLL_TEXT", value: "7E730C",
-                        des: `(HEX without #)`
+                        des: `(Hex without #)`
                     },
 					{   id: "143.1",
                         label: "ROLL_TEXT_ALPHA", property: "ROLL_TEXT_ALPHA", value: "175",
@@ -1263,7 +1263,7 @@ export const themeFunc = {
                     },
 					{   id: "143.2",
                         label: "ROLL_BACKGROUND", property: "ROLL_BACKGROUND", value: "100808",
-                        des: `(HEX without #)`
+                        des: `(Hex without #)`
                     },
 					{   id: "143.3",
                         label: "ROLL_BACKGROUND_ALPHA", property: "ROLL_BACKGROUND_ALPHA", value: "0",
@@ -1275,7 +1275,7 @@ export const themeFunc = {
                     },
 					{   id: "143.5",
                         label: "ROLL_SELECT_TEXT", property: "ROLL_SELECT_TEXT", value: "F7E318",
-                        des: `(HEX without #)`
+                        des: `(Hex without #)`
                     },
 					{   id: "143.6",
                         label: "ROLL_SELECT_TEXT_ALPHA", property: "ROLL_SELECT_TEXT_ALPHA", value: "255",
@@ -1283,7 +1283,7 @@ export const themeFunc = {
                     },
 					{   id: "143.7",
                         label: "ROLL_SELECT_BACKGROUND", property: "ROLL_SELECT_BACKGROUND", value: "7E730C",
-                        des: `(HEX without #)`
+                        des: `(Hex without #)`
                     },
 					{   id: "143.8",
                         label: "ROLL_SELECT_BACKGROUND_ALPHA", property: "ROLL_SELECT_BACKGROUND_ALPHA", value: "175",
@@ -1295,7 +1295,7 @@ export const themeFunc = {
                     },
 					{   id: "143.10",
                         label: "ROLL_BORDER_COLOUR", property: "ROLL_BORDER_COLOUR", value: "F7E318",
-                        des: `(HEX without #)`
+                        des: `(Hex without #)`
                     },
 					{   id: "143.11",
 						label: "ROLL_BORDER_ALPHA", property: "ROLL_BORDER_ALPHA", value: "175",
