@@ -124,7 +124,7 @@ export const volBrightBar: ScreenData = {
         {
             type: "text",
             text: `<i class=glyph>⇓</i>`,
-            row: 14.25,
+            row: 14.75,
             style: {
                 font: ["46"], fontAlpha: ["47"],
             }
@@ -132,7 +132,7 @@ export const volBrightBar: ScreenData = {
         {
             type: "text",
             text: `Confirm`,
-            row: 14.25,
+            row: 14.75,
             col: 1,
             style: {
                 font: ["48"], fontAlpha: ["49"],
@@ -141,7 +141,7 @@ export const volBrightBar: ScreenData = {
         {
             type: "text",
             text: `<i class=glyph>⇥</i>`,
-            row: 14.25,
+            row: 14.75,
             col: 4.3,
             style: {
                 font: ["70"], fontAlpha: ["71"],
@@ -150,7 +150,7 @@ export const volBrightBar: ScreenData = {
         {
             type: "text",
             text: `Help`,
-            row: 14.25,
+            row: 14.75,
             col: 5.3,
             style: {
                 font: ["72"], fontAlpha: ["73"],

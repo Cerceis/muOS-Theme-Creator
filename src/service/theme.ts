@@ -485,196 +485,196 @@ export const themeFunc = {
                         "label": "NAV_A_GLYPH",
                         "property": "NAV_A_GLYPH",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of "A" button glyph.`
                     },
                     {
                         id: "47",
                         "label": "NAV_A_GLYPH_ALPHA",
                         "property": "NAV_A_GLYPH_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of "A" button glyph.`
                     },
                     {
                         id: "48",
                         "label": "NAV_A_TEXT",
                         "property": "NAV_A_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour for text associated with "A" button.`
                     },
                     {
                         id: "49",
                         "label": "NAV_A_TEXT_ALPHA",
                         "property": "NAV_A_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency for text associated with "A" button.`
                     },
                     {
                         id: "50",
                         "label": "NAV_B_GLYPH",
                         "property": "NAV_B_GLYPH",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of "B" button glyph.`
                     },
                     {
                         id: "51",
                         "label": "NAV_B_GLYPH_ALPHA",
                         "property": "NAV_B_GLYPH_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of "B" button glyph.`
                     },
                     {
                         id: "52",
                         "label": "NAV_B_TEXT",
                         "property": "NAV_B_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour for text associated with "B" button.`
                     },
                     {
                         id: "53",
                         "label": "NAV_B_TEXT_ALPHA",
                         "property": "NAV_B_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of text associated with "B" button.`
                     },
                     {
                         id: "54",
                         "label": "NAV_C_GLYPH",
                         "property": "NAV_C_GLYPH",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of "C" button glyph.`
                     },
                     {
                         id: "55",
                         "label": "NAV_C_GLYPH_ALPHA",
                         "property": "NAV_C_GLYPH_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of "C" button glyph.`
                     },
                     {
                         id: "56",
                         "label": "NAV_C_TEXT",
                         "property": "NAV_C_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of text associated with "C" button.`
                     },
                     {
                         id: "57",
                         "label": "NAV_C_TEXT_ALPHA",
                         "property": "NAV_C_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of text associated with "C" button.`
                     },
                     {
                         id: "58",
                         "label": "NAV_X_GLYPH",
                         "property": "NAV_X_GLYPH",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of "X" button glyph.`
                     },
                     {
                         id: "59",
                         "label": "NAV_X_GLYPH_ALPHA",
                         "property": "NAV_X_GLYPH_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of "X" button glyph.`
                     },
                     {
                         id: "60",
                         "label": "NAV_X_TEXT",
                         "property": "NAV_X_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of text associated with "X" button.`
                     },
                     {
                         id: "61",
                         "label": "NAV_X_TEXT_ALPHA",
                         "property": "NAV_X_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of text associated with "X" button.`
                     },
                     {
                         id: "62",
                         "label": "NAV_Y_GLYPH",
                         "property": "NAV_Y_GLYPH",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of "Y" button glyph.`
                     },
                     {
                         id: "63",
                         "label": "NAV_Y_GLYPH_ALPHA",
                         "property": "NAV_Y_GLYPH_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of "Y" button glyph.`
                     },
                     {
                         id: "64",
                         "label": "NAV_Y_TEXT",
                         "property": "NAV_Y_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of text associated with "Y" button.`
                     },
                     {
                         id: "65",
                         "label": "NAV_Y_TEXT_ALPHA",
                         "property": "NAV_Y_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of text associated with "Y" button.`
                     },
                     {
                         id: "66",
                         "label": "NAV_Z_GLYPH",
                         "property": "NAV_Z_GLYPH",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of "Z" button glyph.`
                     },
                     {
                         id: "67",
                         "label": "NAV_Z_GLYPH_ALPHA",
                         "property": "NAV_Z_GLYPH_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of "Z" button glyph.`
                     },
                     {
                         id: "68",
                         "label": "NAV_Z_TEXT",
                         "property": "NAV_Z_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of text associated with "Z" button.`
                     },
                     {
                         id: "69",
                         "label": "NAV_Z_TEXT_ALPHA",
                         "property": "NAV_Z_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of text associated with "Z" button.`
                     },
                     {
                         id: "70",
                         "label": "NAV_MENU_GLYPH",
                         "property": "NAV_MENU_GLYPH",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of "Menu" button glyph.`
                     },
                     {
                         id: "71",
                         "label": "NAV_MENU_GLYPH_ALPHA",
                         "property": "NAV_MENU_GLYPH_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of "Menu" button glyph.`
                     },
                     {
                         id: "72",
                         "label": "NAV_MENU_TEXT",
                         "property": "NAV_MENU_TEXT",
                         "value": "F7E318",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(Hex without #) Changes colour of text associated with "Menu" button.`
                     },
                     {
                         id: "73",
                         "label": "NAV_MENU_TEXT_ALPHA",
                         "property": "NAV_MENU_TEXT_ALPHA",
                         "value": "255",
-                        "des": "No description available yet. Check back soon!"
+                        "des": `(0 ~ 255) Changes transparency of text associated with "Menu" button.`
                     }
                 ]
             },
