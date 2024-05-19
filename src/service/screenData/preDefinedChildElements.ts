@@ -17,9 +17,9 @@ export const preDefinedChildElement = {
 		// Need to investigate how we can use the FONT_HEADER items for offsets here.... - jupy <3
 		{
 			type: "box",
-			row: -0.34,
+			row: 0,
 			expand: { x: true },
-			size: { h: 30 * 1.34 },
+			size: { h: 30 * 1.2 },
 			style: {
 				background: ["33.1"], backgroundAlpha: ["33.2"],
 			}
@@ -27,9 +27,11 @@ export const preDefinedChildElement = {
 		{
 			type: "text",
 			text: `17:45`,
+			row: 0,
 			col: 0,
 			style: {
 				font: ["27"], fontAlpha: ["28"],
+				padTop: ["4.1"],
 			}
 		},
 		{
@@ -38,6 +40,7 @@ export const preDefinedChildElement = {
 			col: 18,
 			style: {
 				font: ["22"], fontAlpha: ["24"],
+				padTop: ["4.3"],
 			}
 		},
 		{
@@ -46,6 +49,7 @@ export const preDefinedChildElement = {
 			col: 18.75,
 			style: {
 				font: ["17"], fontAlpha: ["19"],
+				padTop: ["4.3"],
 			}
 		},
 		{
@@ -54,15 +58,16 @@ export const preDefinedChildElement = {
 			col: 20,
 			style: {
 				font: ["10"], fontAlpha: ["13"],
+				padTop: ["4.3"],
 			}
 		},
 	],
 	footer:[
 		{
 			type: "box",
-			row: 14.5,
+			row: 14.8,
 			expand: { x: true },
-			size: { h: 30 * 1.5 },
+			size: { h: 30 * 1.2 },
 			style: {
 				background: ["29.1"], backgroundAlpha: ["29.2"],
 			}

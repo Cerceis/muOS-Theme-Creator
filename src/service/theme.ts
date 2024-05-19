@@ -98,7 +98,7 @@ export const themeFunc = {
                     },
                     {
                         id: "4.3",
-                        label: "FONT_HEADER_ICON_PAD_TOP", property: "FONT_HEADER_ICON_PAD_TOP", value: "0",
+                        label: "FONT_HEADER_ICON_PAD_TOP", property: "FONT_HEADER_ICON_PAD_TOP", value: "8",
                         des: "Padding space for the top of icons located in the header."
                     },
                     {

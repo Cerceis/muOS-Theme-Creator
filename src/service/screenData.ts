@@ -89,7 +89,7 @@ export type ScreenContent = {
             *    Background
             * ╚══════════.✵.═╝
          */
-        // backgroud color
+        // background color
         background?: string[],
         // background alpha
         backgroundAlpha?: string[],
@@ -162,13 +162,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "ASSIGN - Name - Name",
 				col: 6,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -178,7 +179,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-server"></i> Core name <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -186,7 +187,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -209,14 +210,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-server"></i> Core name <br>
 					<i class="fa-solid fa-server"></i> Core name <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 12 },
 				style: {
@@ -228,7 +229,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -236,7 +237,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -245,7 +246,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.3,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -254,7 +255,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 5.3,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -263,7 +264,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 7.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -272,7 +273,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.75,
+				row: 14.95,
 				col: 8.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -292,13 +293,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "CONFIGURATION",
 				col: 6.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -308,7 +310,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `General Settings <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -316,7 +318,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -334,14 +336,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					Device Type <br>
 					System Refresh <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 7 },
 				style: {
@@ -353,7 +355,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -361,7 +363,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -370,7 +372,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.3,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -379,7 +381,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 5.3,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -388,7 +390,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 7.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -397,7 +399,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.75,
+				row: 14.95,
 				col: 8.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -417,13 +419,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "SUPPORTERS",
 				col: 7.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -433,7 +436,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-chess-knight"></i> garlicOS <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -441,7 +444,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -454,14 +457,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-chess-knight"></i> minUI <br>
 					<i class="fa-solid fa-chess-knight"></i> Anbernic <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 3 },
 				style: {
@@ -473,7 +476,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -481,7 +484,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -490,7 +493,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -499,7 +502,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Quote`,
-				row: 14.75,
+				row: 14.95,
 				col: 4,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -519,13 +522,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "DEVICE TYPE",
 				col: 7.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -535,7 +539,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-gamepad"></i> RG35XX - H <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -543,7 +547,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -558,14 +562,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				<i class="fa-solid fa-gamepad"></i> RG35XX - 2024 <br>
 				<i class="fa-solid fa-gamepad"></i> RG35XX - FLIP <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 4 },
 				style: {
@@ -577,7 +581,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇣</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["58"], fontAlpha: ["59"],
 				}
@@ -585,7 +589,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["60"], fontAlpha: ["61"],
@@ -594,7 +598,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.25,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -603,7 +607,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.75,
+				row: 14.95,
 				col: 5.25,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -623,13 +627,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "FAVOURITES",
 				col: 7.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -639,7 +644,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-file"></i> Content Name <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -647,7 +652,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -663,14 +668,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-file"></i> Content Name <br>
 					<i class="fa-solid fa-file"></i> Content Name <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 6 },
 				style: {
@@ -682,7 +687,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -690,7 +695,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Open`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -699,7 +704,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 3.25,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -708,7 +713,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.25,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -717,7 +722,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇣</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 6.25,
 				style: {
 					font: ["58"], fontAlpha: ["59"],
@@ -726,7 +731,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Remove`,
-				row: 14.75,
+				row: 14.95,
 				col: 7.25,
 				style: {
 					font: ["60"], fontAlpha: ["61"],
@@ -735,7 +740,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 10.25,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -744,7 +749,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.75,
+				row: 14.95,
 				col: 11.25,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -764,13 +769,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "HISTORY",
 				col: 8.25,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -780,7 +786,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-file"></i> Content Name <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -788,7 +794,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -804,14 +810,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-file"></i> Content Name <br>
 					<i class="fa-solid fa-file"></i> Content Name <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 6 },
 				style: {
@@ -823,7 +829,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -831,7 +837,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -840,7 +846,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇣</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 3.25,
 				style: {
 					font: ["58"], fontAlpha: ["59"],
@@ -849,7 +855,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Remove`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.25,
 				style: {
 					font: ["60"], fontAlpha: ["61"],
@@ -858,7 +864,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 7.5,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -867,7 +873,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.75,
+				row: 14.95,
 				col: 8.5,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -887,13 +893,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "INFORMATION",
 				col: 7.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -903,7 +910,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-gamepad"></i> Input Tester <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -911,7 +918,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -923,14 +930,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-laptop-medical"></i> System Details <br>
 					<i class="fa-solid fa-users"></i> Supporters <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 2 },
 				style: {
@@ -942,7 +949,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -950,7 +957,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.75,
+				row: 14.95,
 				col: 0.9,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -959,7 +966,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.1,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -968,7 +975,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 5,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -977,7 +984,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 7,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -986,7 +993,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.75,
+				row: 14.95,
 				col: 7.9,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1006,13 +1013,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "WI-FI NETWORK",
 				col: 7,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop:["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -1022,7 +1030,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-check-square"></i> Enabled <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -1030,7 +1038,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `True`,
-				row: 1,
+				row: 1.2,
 				col: 19,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
@@ -1039,7 +1047,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -1060,7 +1068,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-house-signal"></i> Connect <br>
 				`,
 				
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
@@ -1077,7 +1085,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					1.1.1.1 <br>
 					Connected - 192.168.X.X <br>
 				`,
-				row: 2,
+				row: 2.2,
 				col: 11.5,
 				style: {
 					font: ["81"], fontAlpha: ["82"], textAlign: ["right"],
@@ -1085,7 +1093,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 9 },
 				style: {
@@ -1097,7 +1105,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -1105,7 +1113,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 0.9,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1114,7 +1122,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇣</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 3,
 				style: {
 					font: ["58"], fontAlpha: ["59"],
@@ -1123,7 +1131,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Scan`,
-				row: 14.75,
+				row: 14.95,
 				col: 4,
 				style: {
 					font: ["60"], fontAlpha: ["61"],
@@ -1132,7 +1140,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 6,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1141,7 +1149,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.75,
+				row: 14.95,
 				col: 7,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1161,13 +1169,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "EXPLORE",
 				col: 8.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -1177,7 +1186,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-folder"></i> SD1 (mmc) <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -1185,7 +1194,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -1198,14 +1207,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-folder"></i> SD2 (sdcard) <br>
 					<i class="fa-solid fa-folder"></i> USB1 (USB) <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 2 },
 				style: {
@@ -1217,7 +1226,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -1225,7 +1234,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Open`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -1234,7 +1243,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 3.5,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -1243,7 +1252,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.5,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1252,7 +1261,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 6.5,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1261,7 +1270,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.75,
+				row: 14.95,
 				col: 7.5,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1281,13 +1290,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "SYSTEM REFRESH",
 				col: 6.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -1297,7 +1307,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-spray-can"></i> Clear Favourite Items <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -1305,7 +1315,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -1323,14 +1333,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				<i class="fa-solid fa-right-from-bracket"></i> Restore Network Configuration <br>
 				<i class="fa-solid fa-right-from-bracket"></i> Restore PortMaster <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 7 },
 				style: {
@@ -1342,7 +1352,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -1350,7 +1360,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1359,7 +1369,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇣</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 3,
 				style: {
 					font: ["58"], fontAlpha: ["59"],
@@ -1368,7 +1378,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.75,
+				row: 14.95,
 				col: 4,
 				style: {
 					font: ["60"], fontAlpha: ["61"],
@@ -1377,7 +1387,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 7.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1386,7 +1396,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.75,
+				row: 14.95,
 				col: 8.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1406,13 +1416,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "DATE AND TIME",
 				col: 7,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -1422,7 +1433,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-calendar"></i> Year <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -1430,7 +1441,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `2024`,
-				row: 1,
+				row: 1.2,
 				col: 18.75,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
@@ -1439,7 +1450,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -1456,7 +1467,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-clock"></i> Time Notation <br>
 					<i class="fa-solid fa-map-marked-alt"></i> Set Timezone <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
@@ -1470,7 +1481,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					15 <br>
 					24 Hour <br>
 				`,
-				row: 2,
+				row: 2.2,
 				col: 17.5,
 				style: {
 					font: ["81"], fontAlpha: ["82"], textAlign: ["right"],
@@ -1478,7 +1489,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 6 },
 				style: {
@@ -1490,7 +1501,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -1498,7 +1509,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Save`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1507,7 +1518,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 3.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1516,7 +1527,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1560,13 +1571,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "SYSTEM DETAILS",
 				col: 6.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -1576,7 +1588,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-server"></i> muOS Version <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -1584,7 +1596,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `2404 PLUSH v11`,
-				row: 1,
+				row: 1.2,
 				col: 14.4,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
@@ -1593,7 +1605,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -1616,7 +1628,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-battery-three-quarters"></i> Battery Voltage <br>
 				`,
 				
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
@@ -1636,7 +1648,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					69% (Offset: 0) <br>
 					3.80v <br>
 				`,
-				row: 2,
+				row: 2.2,
 				col: 12.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"], textAlign: ["right"],
@@ -1644,7 +1656,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 11 },
 				style: {
@@ -1656,7 +1668,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -1664,7 +1676,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1673,7 +1685,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 3.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1682,7 +1694,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1703,7 +1715,8 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "INPUT TESTER",
 				col: 7.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Footer
@@ -1711,7 +1724,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Press POWER to finish testing`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["31"], fontAlpha: ["82"],
 				}
@@ -1730,13 +1743,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "THEME PICKER",
 				col: 6.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -1746,7 +1760,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-palette"></i> Your brand new theme name! <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -1754,7 +1768,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -1777,14 +1791,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-palette"></i> Theme name <br>
 					<i class="fa-solid fa-palette"></i> Theme name <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 12 },
 				style: {
@@ -1796,7 +1810,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -1804,7 +1818,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -1813,7 +1827,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.3,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -1822,7 +1836,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 5.3,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1831,7 +1845,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 7.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1840,7 +1854,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.75,
+				row: 14.95,
 				col: 8.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1860,13 +1874,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "TIMEZONE",
 				col: 8,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -1876,7 +1891,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-globe"></i> Africa/Abidjan <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -1884,7 +1899,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -1907,14 +1922,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-globe"></i> Africa/Brazzaville <br>
 					<i class="fa-solid fa-globe"></i> Africa/Bujumbura <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 12 },
 				style: {
@@ -1926,7 +1941,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -1934,7 +1949,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -1943,7 +1958,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -1952,7 +1967,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.75,
+				row: 14.95,
 				col: 5.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -1979,13 +1994,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "ADVANCED SETTINGS",
 				col: 6.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -1995,7 +2011,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-gamepad"></i> Gamepad Wait <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -2003,7 +2019,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Disabled`,
-				row: 1,
+				row: 1.2,
 				col: 17.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
@@ -2012,7 +2028,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -2028,7 +2044,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-volume-down"></i> Low Volume Boost <br>
 					<i class="fa-solid fa-battery-three-quarters"></i> Battery Offset <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
@@ -2042,7 +2058,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					Enabled <br>
 					0 <br>
 				`,
-				row: 2,
+				row: 2.2,
 				col: 13.7,
 				style: {
 					font: ["81"], fontAlpha: ["82"], textAlign: ["right"],
@@ -2050,7 +2066,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 5 },
 				style: {
@@ -2062,7 +2078,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -2070,7 +2086,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Save`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -2079,7 +2095,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 3.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -2088,7 +2104,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -2108,13 +2124,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "GENERAL SETTINGS",
 				col: 6.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -2124,7 +2141,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-sharp fa-solid fa-circle-play"></i> Launcher Sound <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -2132,7 +2149,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Disabled`,
-				row: 1,
+				row: 1.2,
 				col: 17.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
@@ -2141,7 +2158,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -2159,7 +2176,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-rectangle-xmark"></i> Interface Options <br>
 					<i class="fa-solid fa-gears"></i> Advanced <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
@@ -2173,7 +2190,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					30 Percent <br>
 					Disabled <br>
 				`,
-				row: 2,
+				row: 2.2,
 				col: 15,
 				style: {
 					font: ["81"], fontAlpha: ["82"], textAlign: ["right"],
@@ -2181,7 +2198,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 7 },
 				style: {
@@ -2193,7 +2210,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -2201,7 +2218,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Save`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -2210,7 +2227,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 3.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -2219,7 +2236,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -2239,13 +2256,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "GENERAL SETTINGS",
 				col: 6.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -2255,7 +2273,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-terminal"></i> Secure Shell <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -2263,7 +2281,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Disabled`,
-				row: 1,
+				row: 1.2,
 				col: 17.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"], textAlign: ["right"]
@@ -2272,7 +2290,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -2287,7 +2305,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-rotate"></i> Syncthing <br>
 					<i class="fa-solid fa-clock"></i> Network Time Sync <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
@@ -2300,7 +2318,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					Disabled <br>
 					Enabled <br>
 				`,
-				row: 2,
+				row: 2.2,
 				col: 17.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"], textAlign: ["right"],
@@ -2308,7 +2326,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 4 },
 				style: {
@@ -2320,7 +2338,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
 				}
@@ -2328,7 +2346,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Save`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -2337,7 +2355,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 3.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -2346,7 +2364,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Help`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
@@ -2367,13 +2385,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 				text: "THEME PICKER",
 				col: 6.5,
 				style: {
-					font: ["35"], fontAlpha: ["36"]
+					font: ["35"], fontAlpha: ["36"],
+					padTop: ["4.1"],
 				}
 			},
 			// Highlight
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				expand: { x: true },
 				style: {
 					background: ["85"], backgroundAlpha: ["86"],
@@ -2383,7 +2402,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class="fa-solid fa-palette"></i> Your brand new theme name! <br>`,
-				row: 1,
+				row: 1.2,
 				style: {
 					font: ["91"], fontAlpha: ["92"],
 				}
@@ -2391,7 +2410,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			// Indicator
 			{
 				type: "box",
-				row: 1,
+				row: 1.2,
 				size: { w: 5 },
 				style: {
 					background: ["89"], backgroundAlpha: ["90"],
@@ -2414,14 +2433,14 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 					<i class="fa-solid fa-palette"></i> Theme name <br>
 					<i class="fa-solid fa-palette"></i> Theme name <br>
 				`,
-				row: 2,
+				row: 2.2,
 				style: {
 					font: ["81"], fontAlpha: ["82"],
 				}
 			},
 			{
 				type: "box",
-				row: 2,
+				row: 2.2,
 				expand: { x: true },
 				size: { h: 30 * 12 },
 				style: {
@@ -2461,7 +2480,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇓</i>`,
-				row: 14.75,
+				row: 14.95,
 				style: {
 					font: ["46"], fontAlpha: ["47"],
 				}
@@ -2469,7 +2488,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Confirm`,
-				row: 14.75,
+				row: 14.95,
 				col: 1,
 				style: {
 					font: ["48"], fontAlpha: ["49"],
@@ -2478,7 +2497,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇒</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 4.3,
 				style: {
 					font: ["50"], fontAlpha: ["51"],
@@ -2487,7 +2506,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Back`,
-				row: 14.75,
+				row: 14.95,
 				col: 5.3,
 				style: {
 					font: ["52"], fontAlpha: ["53"],
@@ -2496,7 +2515,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `<i class=glyph>⇥</i>`,
-				row: 14.75,
+				row: 14.95,
 				col: 7.3,
 				style: {
 					font: ["70"], fontAlpha: ["71"],
@@ -2505,7 +2524,7 @@ export const screenData: {[key in ScreenType]: ScreenData} = {
 			{
 				type: "text",
 				text: `Info`,
-				row: 14.75,
+				row: 14.95,
 				col: 8.3,
 				style: {
 					font: ["72"], fontAlpha: ["73"],
