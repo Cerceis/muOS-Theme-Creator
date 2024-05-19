@@ -13,7 +13,8 @@ export const volBrightBar: ScreenData = {
             text: "muOS MAIN MENU",
             col: 6.5,
             style: {
-                font: ["35"], fontAlpha: ["36"]
+                font: ["35"], fontAlpha: ["36"],
+                padTop: ["4.1"]
             }
         },
         // Volume/Brightness box - these have to stay in this order or Bad Things Will Happen.
@@ -69,7 +70,7 @@ export const volBrightBar: ScreenData = {
         // Highlight
         {
             type: "box",
-            row: 1,
+            row: 1.2,
             expand: { x: true },
             style: {
                 background: ["85"], backgroundAlpha: ["86"],
@@ -79,7 +80,7 @@ export const volBrightBar: ScreenData = {
         {
             type: "text",
             text: `<i class="fa-solid fa-chess-rook"></i> Explore Content <br>`,
-            row: 1,
+            row: 1.2,
             style: {
                 font: ["91"], fontAlpha: ["92"],
             }
@@ -87,7 +88,7 @@ export const volBrightBar: ScreenData = {
         // Indicator
         {
             type: "box",
-            row: 1,
+            row: 1.2,
             size: { w: 5 },
             style: {
                 background: ["89"], backgroundAlpha: ["90"],
@@ -105,14 +106,14 @@ export const volBrightBar: ScreenData = {
                 <i class="fa-solid fa-arrows-rotate"></i> Reboot <br>
                 <i class="fa-solid fa-power-off"></i> Shutdown <br>
             `,
-            row: 2,
+            row: 2.2,
             style: {
                 font: ["81"], fontAlpha: ["82"],
             }
         },
         {
             type: "box",
-            row: 2,
+            row: 2.2,
             expand: { x: true },
             size: { h: 30 * 8 },
             style: {
@@ -124,7 +125,7 @@ export const volBrightBar: ScreenData = {
         {
             type: "text",
             text: `<i class=glyph>⇓</i>`,
-            row: 14.75,
+            row: 14.95,
             style: {
                 font: ["46"], fontAlpha: ["47"],
             }
@@ -132,7 +133,7 @@ export const volBrightBar: ScreenData = {
         {
             type: "text",
             text: `Confirm`,
-            row: 14.75,
+            row: 14.95,
             col: 1,
             style: {
                 font: ["48"], fontAlpha: ["49"],
@@ -141,7 +142,7 @@ export const volBrightBar: ScreenData = {
         {
             type: "text",
             text: `<i class=glyph>⇥</i>`,
-            row: 14.75,
+            row: 14.95,
             col: 4.3,
             style: {
                 font: ["70"], fontAlpha: ["71"],
@@ -150,7 +151,7 @@ export const volBrightBar: ScreenData = {
         {
             type: "text",
             text: `Help`,
-            row: 14.75,
+            row: 14.95,
             col: 5.3,
             style: {
                 font: ["72"], fontAlpha: ["73"],
