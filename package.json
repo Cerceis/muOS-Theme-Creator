@@ -25,8 +25,8 @@
         "webfontloader": "^1.0.0"
     },
     "devDependencies": {
-        "@tsconfig/node18": "^18.2.2",
-        "@types/node": "^18.19.3",
+        "@tsconfig/node18": "^22.0.0",
+        "@types/node": "^22.0.0",
         "@types/webfontloader": "^1.0.0",
         "@vitejs/plugin-vue": "^4.5.2",
         "@vue/tsconfig": "^0.5.0",
